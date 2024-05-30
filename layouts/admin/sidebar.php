@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
         <img src="dist/img/LogoPolinema.png" alt="logo Polinema" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Admin Survey</span>
+        <span class="brand-text font-weight-light"><b>Admin Survey</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -13,7 +13,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"><?php echo isset($_SESSION['nama']) ? $_SESSION['nama'] : 'Guest';?></a>
+                <a href="#" class="d-block"><b><?php echo isset($_SESSION['nama']) ? $_SESSION['nama'] : 'Guest';?></b></a>
             </div>
         </div>
         

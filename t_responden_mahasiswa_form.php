@@ -1,3 +1,6 @@
+<?php
+  $menu = 'biodata';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,36 +56,58 @@
             </div>
             <div class="card-body">
               <form action="t_responden_mahasiswa_action.php?act=simpan" method="post" id="form-tambah">
-                <div class="form-group">
-                  <label for="responden_tanggal">Tanggal</label>
-                  <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_tanggal">Tanggal</label>
+                      <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_nim">NIM</label>
+                      <input required type="text" name="responden_nim" id="responden_nim" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_nama">Nama</label>
+                      <input required type="text" name="responden_nama" id="responden_nama" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_prodi">Prodi</label>
+                      <input required type="text" name="responden_prodi" id="responden_prodi" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_email">Email</label>
+                      <input required type="email" name="responden_email" id="responden_email" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_hp">No HP</label>
+                      <input required type="text" name="responden_hp" id="responden_hp" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="tahun_masuk">Tahun Masuk</label>
+                      <input required type="number" name="tahun_masuk" id="tahun_masuk" class="form-control">
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="responden_nim">NIM</label>
-                  <input required type="text" name="responden_nim" id="responden_nim" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="responden_nama">Nama</label>
-                  <input required type="text" name="responden_nama" id="responden_nama" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="responden_prodi">Prodi</label>
-                  <input required type="text" name="responden_prodi" id="responden_prodi" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="responden_email">Email</label>
-                  <input required type="email" name="responden_email" id="responden_email" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="responden_hp">No HP</label>
-                  <input required type="text" name="responden_hp" id="responden_hp" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="tahun_masuk">Tahun Masuk</label>
-                  <input required type="number" name="tahun_masuk" id="tahun_masuk" class="form-control">
-                </div>
-                <div class="form-group">
-                  <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
+                  <button type="submit" name="simpan" class="btn btn-primary">Berikutnya</button>
                   <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
                 </div>
               </form>

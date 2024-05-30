@@ -1,3 +1,6 @@
+<?php
+  $menu = 'biodata';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +39,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">biodata Dosen</li>
+                <li class="breadcrumb-item active">Biodata Dosen</li>
               </ol>
             </div>
           </div>
@@ -53,24 +56,36 @@
             </div>
             <div class="card-body">
               <form action="t_responden_dosen_action.php?act=simpan" method="post" id="form-tambah">
-                <div class="form-group">
-                  <label for="responden_tanggal">Tanggal</label>
-                  <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_tanggal">Tanggal</label>
+                      <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_nip">NIP</label>
+                      <input required type="text" name="responden_nip" id="responden_nip" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_nama">Nama</label>
+                      <input required type="text" name="responden_nama" id="responden_nama" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="responden_unit">Unit</label>
+                      <input required type="text" name="responden_unit" id="responden_unit" class="form-control">
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="responden_nip">NIP</label>
-                  <input required type="text" name="responden_nip" id="responden_nip" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="responden_nama">Nama</label>
-                  <input required type="text" name="responden_nama" id="responden_nama" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label for="responden_unit">Unit</label>
-                  <input required type="text" name="responden_unit" id="responden_unit" class="form-control">
-                </div>
-                <div class="form-group">
-                  <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Simpan</button>
+                  <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Berikutnya</button>
                   <a href="t_responden_dosen_form.php" class="btn btn-warning">Kembali</a>
                 </div>
               </form>

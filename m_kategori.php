@@ -79,7 +79,6 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>kategori Id</th>
                 <th>Kategori Nama</th>
                 <th>Aksi</th>
               </tr>
@@ -93,7 +92,6 @@
                 while($row = $list->fetch_assoc()){
                   echo '<tr>
                       <td>'.$i.'</td>
-                      <td>'.$row['kategori_id'].'</td>
                       <td>'.$row['kategori_nama'].'</td>
                       <td>
                         <a title="Edit Data" href="m_kategori_form.php?act=edit&id='.$row['kategori_id'].'" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>

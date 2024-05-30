@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
         <img src="dist/img/LogoPolinema.png" alt="logo Polinema" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Admin Survey</span>
+        <span class="brand-text font-weight-light"><b>Survey Kepuasan</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -30,9 +30,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link <?php echo ($menu == 'soal_survey') ? 'active' : '' ?>">
+                    <a href="#" class="nav-link <?php echo ($menu == 'survey') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>Soal Survey</p>
+                        <p>Survey</p>
                     </a>
                 </li>
             </ul>
