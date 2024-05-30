@@ -42,10 +42,10 @@ class Survey{
 
     public function updateData($id, $data){
         // query untuk update data
-        $query = $this->db->prepare("update {$this->table} set survey_jenis = ?, survey_kode = ?, survey_nama = ?, survey_deskripsi = ?, survey_tanggal = ? where soal_id = ?");
+        $query = $this->db->prepare("update {$this->table} set survey_jenis = ?, survey_kode = ?, survey_nama = ?, survey_deskripsi = ?, survey_tanggal = ? where survey_id = ?");
 
         // binding parameter ke query
-        $query->bind_param('sssss', $data['survey_jenis'], $data['survey_kode'], $data['survey_nama'], $data['survey_deskripsi'], $data['survey_tanggal']);
+        $query->bind_param('sssssi', $data['survey_jenis'], $data['survey_kode'], $data['survey_nama'], $data['survey_deskripsi'], $data['survey_tanggal'], $id);
 
         // eksekusi query
         $query->execute();
@@ -53,7 +53,7 @@ class Survey{
 
     public function deleteData($id){
         // query untuk delete data
-        $query = $this->db->prepare("delete from {$this->table} where soal_id = ?");
+        $query = $this->db->prepare("delete from {$this->table} where survey_id = ?");
 
         // binding parameter ke query
         $query->bind_param('i', $id);

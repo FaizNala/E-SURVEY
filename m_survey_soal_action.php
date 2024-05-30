@@ -6,6 +6,8 @@ include_once('model/m_survey_soal_model.php');
  if($act == 'simpan'){
     echo '<pre>';
     $data = [
+        'survey_id' => $_POST['survey_id'], 
+        'kategori_id' => $_POST['kategori_id'], 
         'no_urut' => $_POST['no_urut'],
         'soal_jenis' => $_POST['soal_jenis'],
         'soal_nama' => $_POST['soal_nama']
@@ -21,6 +23,8 @@ include_once('model/m_survey_soal_model.php');
     $id = $_GET['id'];
 
     $data = [
+      'survey_id' => $_POST['survey_id'], 
+      'kategori_id' => $_POST['kategori_id'], 
       'no_urut' => $_POST['no_urut'],
       'soal_jenis' => $_POST['soal_jenis'],
       'soal_nama' => $_POST['soal_nama']

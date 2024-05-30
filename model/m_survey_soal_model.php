@@ -11,10 +11,10 @@ class SurveySoal{
 
     public function insertData($data){
         // prepare statement untuk query insert
-        $query = $this->db->prepare("insert into {$this->table} (no_urut, soal_jenis, soal_nama) values(?,?,?)");
+        $query = $this->db->prepare("insert into {$this->table} (survey_id, kategori_id, no_urut, soal_jenis, soal_nama) values(?,?,?,?,?)");
 
         // binding parameter ke query, "s" berarti string, "ss" berarti dua string
-        $query->bind_param('iss', $data['no_urut'], $data['soal_jenis'], $data['soal_nama']);
+        $query->bind_param('iiiss', $data['survey_id'], $data['kategori_id'],$data['no_urut'], $data['soal_jenis'], $data['soal_nama']);
         
         // eksekusi query untuk menyimpan ke database
         $query->execute();
@@ -42,10 +42,10 @@ class SurveySoal{
 
     public function updateData($id, $data){
         // query untuk update data
-        $query = $this->db->prepare("update {$this->table} set no_urut = ?, soal_jenis = ?, soal_nama = ? where soal_id = ?");
+        $query = $this->db->prepare("update {$this->table} set survey_id = ?, kategori_id = ?, no_urut = ?, soal_jenis = ?, soal_nama = ? where soal_id = ?");
 
         // binding parameter ke query
-        $query->bind_param('iss', $data['nama_soal'], $data['soal_jenis'], $data['soal_nama']);
+        $query->bind_param('iiissi', $data['survey_id'], $data['kategori_id'],$data['no_urut'], $data['soal_jenis'], $data['soal_nama'], $id);
 
         // eksekusi query
         $query->execute();

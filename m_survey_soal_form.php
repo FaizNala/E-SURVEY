@@ -69,15 +69,41 @@ include_once("model/m_survey_soal_model.php")
             <div class="card-body">
               <form action="m_survey_soal_action.php?act=simpan" method="post" id="form-tambah">
                 <div class="form-group">
+                  <label for="survey_id">Jenis Survey</label>
                   <select name="survey_id" id="survey_id" class="form-control">
-                    <option value="" disabled selected>Pilih Jenis Survey</option>
-                    <option value=""></option>
+                    <option value="" disabled selected>Pilih jenis survey</option>
+                    <?php
+                      include "model/koneksi.php";
+                      $query = "SELECT  * FROM m_survey";
+                      $stmt = $db->prepare($query);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();  
+                      $stmt->close();
+                      while ($row) {
+                        echo "<option value='". $row['survey_id']. "'>". $row['survey_nama']. "</option>";
+                        $row = $result->fetch_assoc();
+                      }
+                    ?>
                   </select>
                 </div>
                 <div class="form-group">
+                  <label for="kategori_id">Kategori</label>
                   <select name="kategori_id" id="kategori_id" class="form-control">
-                    <option value="" disabled selected>Pilih Kategori</option>
-                    <option value=""></option>
+                    <option value="" disabled selected>Pilih kategori</option>
+                    <?php
+                      include "model/koneksi.php";
+                      $query = "SELECT  * FROM m_kategori";
+                      $stmt = $db->prepare($query);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();  
+                      $stmt->close();
+                      while ($row) {
+                        echo "<option value='". $row['kategori_id']. "'>". $row['kategori_nama']. "</option>";
+                        $row = $result->fetch_assoc();
+                      }
+                    ?>
                   </select>
                 </div>
                 <div class="form-group">
@@ -87,6 +113,7 @@ include_once("model/m_survey_soal_model.php")
                 <div class="form-group">
                   <label for="soal_jenis">Jenis Soal</label>
                   <select required name="soal_jenis" id="soal_jenis" class="form-control">
+                    <option value="" disabled selected>Pilih jenis soal</option>
                     <option value="rating">Rating</option>
                     <option value="esai">Esai</option>
                   </select>
@@ -122,7 +149,45 @@ include_once("model/m_survey_soal_model.php")
               ?>
 
               <form action="m_survey_soal_action.php?act=edit&id=<?php echo $id ?>" method="post" id="form-tambah">
+              <div class="form-group">
+                  <label for="survey_id">Jenis Survey</label>
+                  <select name="survey_id" id="survey_id" class="form-control">
+                    <option value="" disabled selected>Pilih jenis survey</option>
+                    <?php
+                      include "model/koneksi.php";
+                      $query = "SELECT  * FROM m_survey";
+                      $stmt = $db->prepare($query);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();  
+                      $stmt->close();
+                      while ($row) {
+                        echo "<option value='". $row['survey_id']. "'" . ($row['survey_id'] == $data['survey_id'] ? " selected" : "") . ">". $row['survey_nama']. "</option>";
+                        $row = $result->fetch_assoc();
+                      }
+                    ?>
+                  </select>
+                </div>
                 <div class="form-group">
+                  <label for="kategori_id">Kategori</label>
+                  <select name="kategori_id" id="kategori_id" class="form-control">
+                    <option value="" disabled selected>Pilih kategori</option>
+                    <?php
+                      include "model/koneksi.php";
+                      $query = "SELECT  * FROM m_kategori";
+                      $stmt = $db->prepare($query);
+                      $stmt->execute();
+                      $result = $stmt->get_result();
+                      $row = $result->fetch_assoc();  
+                      $stmt->close();
+                      while ($row) {
+                        echo "<option value='". $row['kategori_id']. "'" . ($row['kategori_id'] == $data['kategori_id'] ? " selected" : "") . ">". $row['kategori_nama']. "</option>";
+                        $row = $result->fetch_assoc();
+                      }
+                    ?>
+                  </select>
+                </div>  
+              <div class="form-group">
                   <label for="no_urut">No Urut</label>
                   <input type="text" name="no_urut" id="no_urut" class="form-control" value="<?php echo $data['no_urut'] ?>">
                 </div>
