@@ -25,7 +25,8 @@ if (session_status() === PHP_SESSION_NONE)
 <div class="login-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h1"><b>Admin</b>LTE</a>
+      <a href="#" class="h2"><b>Survey</b></a><br>
+      <a href="#" class="h3">Kepuasan Pelanggan</a>
     </div>
     <div class="card-body">
       <p align="center"><img src="dist/img/LogoPolinema.png" alt="LogoPolinema" width="180"></p>
@@ -45,6 +46,14 @@ if (session_status() === PHP_SESSION_NONE)
             <option value="alumni">Alumni</option>
             <option value="industri">Industri</option>
           </select>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+        <input type="text" name="nama" class="form-control" placeholder="nama"  value="<?php if (isset($_COOKIE["nama"])) { echo $_COOKIE['nama']; }?>" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>

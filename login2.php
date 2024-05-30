@@ -23,11 +23,11 @@
 <div class="login-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h1"><b>Admin</b>LTE</a>
+      <a href="#" class="h1"><b>Admin</b>Survey</a>
     </div>
     <div class="card-body" >
-      <p class="login-box-msg">Sign in to start your session</p>
       <p align="center"><img src="dist/img/LogoPolinema.png" alt="LogoPolinema" width="180"></p>
+      <p class="login-box-msg">Sign in to start your session</p>
 
       <!-- Error Message Container -->
       <?php
