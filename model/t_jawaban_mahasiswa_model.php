@@ -1,54 +1,59 @@
-<?php 
-class t_jawaban_mahasiswa{
+<?php
+class t_jawaban_mahasiswa {
     public $db;
     protected $table = 't_jawaban_mahasiswa';
 
-    public function __construct(){
+    public function __construct($db) {
         include_once('model/koneksi.php');
         $this->db = $db;
         $this->db->set_charset('utf8');
     }
+    public function insertData($data) {
+        // Prepare statement for insert query
+        $query = $this->db->prepare("INSERT INTO {$this->table} (soal_id, jawaban) VALUES (?, ?)");
 
-    public function insertData($data){
-        // prepare statement untuk query insert
-        $query = $this->db->prepare("insert into {$this->table} (responden_mahasiswa_id,soal_id,jawaban) values(?,?,?)");
+        // Loop through the data to insert multiple rows
+        foreach ($data as $soal_id => $jawaban) {
+            // Bind parameters to the query, "si" means string and integer
+            $query->bind_param('is', $soal_id, $jawaban);
+            // Execute query to save to the database
+            $query->execute();
+        }
+    }
+    
 
-        // binding parameter ke query, "s" berarti string, "ss" berarti dua string
-        $query->bind_param('iis', $data['responden_mahasiswa_id'], $data['soal_id'], $data['jawaban']);
-        
-        // eksekusi query untuk menyimpan ke database
-        $query->execute();
-        return $query->insert_id;
+    public function getData() {
+        // Query to fetch data from the table
+        return $this->db->query("SELECT * FROM {$this->table}");
     }
 
-    public function getData(){
-        // query untuk mengambil data dari tabel m_user
-        return $this->db->query("select * from {$this->table} ");
-    }
-
-    public function getDataById($id){
-
-        // query untuk mengambil data berdasarkan id
-        $query = $this->db->prepare("select * from {$this->table} where jawaban_mahasiswa_id = ?");
-        
-        // binding parameter ke query "i" berarti integer. Biar tidak kena SQL Injection
+    public function getDataById($id) {
+        // Query to fetch data based on ID
+        $query = $this->db->prepare("SELECT * FROM {$this->table} WHERE jawaban_mahasiswa_id = ?");
+        // Bind parameter to the query, "i" means integer
         $query->bind_param('i', $id);
-
-        // eksekusi query
+        // Execute query
         $query->execute();
-
-        // ambil hasil query
+        // Fetch result
         return $query->get_result();
     }
 
-    public function deleteData($id){
-        // query untuk delete data
-        $query = $this->db->prepare("delete from {$this->table} where jawaban_mahasiswa_id = ?");
+    public function updateData($id, $data) {
+        // Query to update data
+        $query = $this->db->prepare("UPDATE {$this->table} SET jawaban = ? WHERE jawaban_mahasiswa_id = ?");
+        // Bind parameters to the query
+        $query->bind_param('si', $data['jawaban'], $id);
+        // Execute query
+        $query->execute();
+    }
 
-        // binding parameter ke query
+    public function deleteData($id) {
+        // Query to delete data
+        $query = $this->db->prepare("DELETE FROM {$this->table} WHERE jawaban_mahasiswa_id = ?");
+        // Bind parameter to the query
         $query->bind_param('i', $id);
-
-        // eksekusi query
+        // Execute query
         $query->execute();
     }
 }
+?>
