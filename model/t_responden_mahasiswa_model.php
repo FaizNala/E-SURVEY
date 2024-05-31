@@ -63,10 +63,22 @@ class t_responden_mahasiswa{
     }
 
     public function getRespondenId() {
-        session_start();
-        $nama = $_SESSION['nama'];
-        $query = $this->db->prepare("select responden_mahasiswa_id from {$this->table} where responden_nama =?");
-        $query->bind_param('s', $nama);
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        $query = $this->db->prepare("SELECT responden_mahasiswa_id FROM {$this->table} WHERE responden_nama = ?");
+    
+        $query->bind_param('s', $_SESSION['nama']);
+        
         $query->execute();
+        
+        $result = $query->get_result();
+        if ($row = $result->fetch_assoc()) {
+            return $row['responden_mahasiswa_id'];
+        } else {
+            return null;
+        }
+        $query->close();
     }
+    
 }
