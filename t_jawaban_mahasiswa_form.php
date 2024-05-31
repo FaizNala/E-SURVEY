@@ -67,6 +67,7 @@ $menu = 'survey';
               $result = $stmt->get_result();
 
               while ($row = $result->fetch_assoc()) {
+                $soal_id = $row['soal_id'];
                 echo '<div class="form-group">';
                 echo '<label>' . $row['soal_nama'] . '</label><br>';
                 echo '<div>';
@@ -92,7 +93,7 @@ $menu = 'survey';
               ?>
               <div class="form-group">
                 <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
-                <a href="t_responden_mahasiswa_form.php" class="btn btn-warning">Kembali</a>
+                <a href="t_responden_mahasiswa_action.php" class="btn btn-warning">Kembali</a>
               </div>
             </form>
           </div>

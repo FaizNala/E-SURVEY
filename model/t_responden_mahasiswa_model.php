@@ -61,4 +61,12 @@ class t_responden_mahasiswa{
         // eksekusi query
         $query->execute();
     }
+
+    public function getRespondenId() {
+        session_start();
+        $nama = $_SESSION['nama'];
+        $query = $this->db->prepare("select responden_mahasiswa_id from {$this->table} where responden_nama =?");
+        $query->bind_param('s', $nama);
+        $query->execute();
+    }
 }

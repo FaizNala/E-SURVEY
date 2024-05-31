@@ -4,11 +4,12 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = $_POST['user'];
-
+        $nama = $_POST['nama'];
         // Contoh sederhana validasi login
         if ($user == 'mahasiswa') {
             // Simpan data user ke dalam session
             $_SESSION['user'] = $user;
+            $_SESSION['nama'] = $nama;
             header("Location: t_responden_mahasiswa_form.php");
             exit();
         } else if ($user == 'dosen') {

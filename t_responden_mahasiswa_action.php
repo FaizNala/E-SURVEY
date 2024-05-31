@@ -1,6 +1,5 @@
 <?php 
 include_once('model/t_responden_mahasiswa_model.php');
- 
  $act = $_GET['act'];
 
  if($act == 'simpan'){
@@ -18,7 +17,7 @@ include_once('model/t_responden_mahasiswa_model.php');
     $insert = new t_responden_mahasiswa();
     $insert->insertData($data);
 
-    header('location: t_responden_mahasiswa.php');
+    header('location: t_jawaban_mahasiswa_form.php');
  }
 
  if($act == 'hapus'){

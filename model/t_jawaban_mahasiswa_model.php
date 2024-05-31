@@ -1,5 +1,5 @@
 <?php 
-class m_user{
+class t_jawaban_mahasiswa{
     public $db;
     protected $table = 't_jawaban_mahasiswa';
 
@@ -11,13 +11,14 @@ class m_user{
 
     public function insertData($data){
         // prepare statement untuk query insert
-        $query = $this->db->prepare("insert into {$this->table} (username, nama, password) values(?,?,?)");
+        $query = $this->db->prepare("insert into {$this->table} (responden_mahasiswa_id,soal_id,jawaban) values(?,?,?)");
 
         // binding parameter ke query, "s" berarti string, "ss" berarti dua string
-        $query->bind_param('sss', $data['username'], $data['nama'], password_hash($data['password'], PASSWORD_BCRYPT));
+        $query->bind_param('iis', $data['responden_mahasiswa_id'], $data['soal_id'], $data['jawaban']);
         
         // eksekusi query untuk menyimpan ke database
         $query->execute();
+        return $query->insert_id;
     }
 
     public function getData(){
@@ -28,7 +29,7 @@ class m_user{
     public function getDataById($id){
 
         // query untuk mengambil data berdasarkan id
-        $query = $this->db->prepare("select * from {$this->table} where user_id = ?");
+        $query = $this->db->prepare("select * from {$this->table} where jawaban_mahasiswa_id = ?");
         
         // binding parameter ke query "i" berarti integer. Biar tidak kena SQL Injection
         $query->bind_param('i', $id);
@@ -40,20 +41,9 @@ class m_user{
         return $query->get_result();
     }
 
-    public function updateData($id, $data){
-        // query untuk update data
-        $query = $this->db->prepare("update {$this->table} set username = ?, nama = ?, password = ? where user_id = ?");
-
-        // binding parameter ke query
-        $query->bind_param('sssi', $data['username'], $data['nama'], password_hash($data['password'], PASSWORD_BCRYPT), $id);
-
-        // eksekusi query
-        $query->execute();
-    }
-
     public function deleteData($id){
         // query untuk delete data
-        $query = $this->db->prepare("delete from {$this->table} where user_id = ?");
+        $query = $this->db->prepare("delete from {$this->table} where jawaban_mahasiswa_id = ?");
 
         // binding parameter ke query
         $query->bind_param('i', $id);

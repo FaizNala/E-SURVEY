@@ -1,21 +1,3 @@
-<?php
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
- echo "test";
+<?php 
+ echo $soal_id
 ?>
