@@ -1,5 +1,5 @@
-<?php 
-  $menu = 'survey'; 
+<?php
+$menu = 'survey';
 ?>
 
 <!DOCTYPE html>
@@ -59,25 +59,37 @@
           </div>
           <div class="card-body">
             <form action="t_jawaban_mahasiswa_action.php?act=simpan" method="post" id="form-tambah">
-              <div class="form-group">
-                <label for="jawaban">Kepuasan Anda:</label><br>
-                <div>
-                  <input type="radio" id="tidak_puas" name="jawaban" value="1" required>
-                  <label for="tidak_puas">1 (Tidak Puas)</label>
-                </div>
-                <div>
-                  <input type="radio" id="kurang_puas" name="jawaban" value="2" required>
-                  <label for="kurang_puas">2 (Kurang Puas)</label>
-                </div>
-                <div>
-                  <input type="radio" id="puas" name="jawaban" value="3" required>
-                  <label for="puas">3 (Puas)</label>
-                </div>
-                <div>
-                  <input type="radio" id="sangat_puas" name="jawaban" value="4" required>
-                  <label for="sangat_puas">4 (Sangat Puas)</label>
-                </div>
-              </div>
+              <?php
+              include_once('model/koneksi.php');
+              $query = "SELECT * FROM m_survey_soal";
+              $stmt = $db->prepare($query);
+              $stmt->execute();
+              $result = $stmt->get_result();
+
+              while ($row = $result->fetch_assoc()) {
+                echo '<div class="form-group">';
+                echo '<label>' . $row['soal_nama'] . '</label><br>';
+                echo '<div>';
+                echo '<input type="radio" id="tidak_puas" name="jawaban" value="Tidak Puas" required>';
+                echo '<label for="tidak_puas">(Tidak Puas)</label>';
+                echo '</div>';
+                echo '<div>';
+                echo '<input type="radio" id="kurang_puas" name="jawaban" value="Kurang Puas" required>';
+                echo '<label for="kurang_puas">(Kurang Puas)</label>';
+                echo '</div>';
+                echo '<div>';
+                echo '<input type="radio" id="puas" name="jawaban" value="Puas" required>';
+                echo '<label for="puas">(Puas)</label>';
+                echo '</div>';
+                echo '<div>';
+                echo '<input type="radio" id="sangat_puas" name="jawaban" value="Sangat Puas" required>';
+                echo '<label for="sangat_puas">(Sangat Puas)</label>';
+                echo '</div>';
+                echo '</div>';
+              }
+
+              $stmt->close();
+              ?>
               <div class="form-group">
                 <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                 <a href="t_responden_mahasiswa_form.php" class="btn btn-warning">Kembali</a>
@@ -112,4 +124,5 @@
   <script src="plugins/jquery-validation/additional-methods.min.js"></script>
   <script src="plugins/jquery-validation/localization/messages_id.min.js"></script>
 </body>
+
 </html>
