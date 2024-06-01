@@ -1,3 +1,6 @@
+<?php
+  $menu = 'biodata';
+?>
 <!DOCTYPE html>
 <html lang="en">
 

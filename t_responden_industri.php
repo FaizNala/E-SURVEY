@@ -1,4 +1,6 @@
 <?php
+  if (session_status() === PHP_SESSION_NONE) 
+  session_start();
   $menu = 'industri';
 
   include_once('model/t_responden_industri_model.php');
@@ -88,7 +90,8 @@
               </thead>
               <tbody>
               <?php 
-                $industri = new t_responden_industri();
+                include_once('model/koneksi.php');
+                $industri = new t_responden_industri($db);
                 $list = $industri->getData();
 
                 $i = 1;

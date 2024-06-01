@@ -1,6 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) 
-session_start();
+  session_start();
 $menu = 'bank_soal';
 include_once("model/m_survey_soal_model.php")
 ?>
@@ -12,7 +12,7 @@ include_once("model/m_survey_soal_model.php")
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bank Soal</title>
+  <title>Survey Soal</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

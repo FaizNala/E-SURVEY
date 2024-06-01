@@ -1,4 +1,6 @@
 <?php
+  if (session_status() === PHP_SESSION_NONE) 
+  session_start();
   $menu = 'dosen';
 
   include_once('model/t_responden_dosen_model.php');
@@ -85,7 +87,8 @@
               </thead>
               <tbody>
               <?php 
-                $dosen = new t_responden_dosen();
+                include_once('model/koneksi.php');
+                $dosen = new t_responden_dosen($db);
                 $list = $dosen->getData();
 
                 $i = 1;

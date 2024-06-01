@@ -3,8 +3,7 @@ class t_responden_industri{
     public $db;
     protected $table = 't_responden_industri';
 
-    public function __construct(){
-        include_once('model/koneksi.php');
+    public function __construct($db){
         $this->db = $db;
         $this->db->set_charset('utf8');
     }
@@ -60,5 +59,19 @@ class t_responden_industri{
 
         // eksekusi query
         $query->execute();
+    }
+    public function getRespondenId() {
+        $query = $this->db->prepare("SELECT responden_industri_id FROM {$this->table} WHERE responden_nama = ?");
+    
+        $query->bind_param('s', $_SESSION['nama']);
+        
+        $query->execute();
+        
+        $result = $query->get_result();
+        if ($row = $result->fetch_assoc()) {
+            return $row['responden_industri_id'];
+        } else {
+            return null;
+        }
     }
 }

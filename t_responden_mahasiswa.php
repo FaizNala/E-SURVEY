@@ -1,4 +1,6 @@
 <?php
+  if (session_status() === PHP_SESSION_NONE) 
+  session_start();
   $menu = 'mahasiswa';
 
   include_once('model/t_responden_mahasiswa_model.php');

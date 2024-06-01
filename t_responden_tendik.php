@@ -1,4 +1,6 @@
 <?php
+  if (session_status() === PHP_SESSION_NONE) 
+  session_start();
   $menu = 'tendik';
 
   include_once('model/t_responden_tendik_model.php');
@@ -85,7 +87,8 @@
               </thead>
               <tbody>
               <?php 
-                $tendik = new t_responden_tendik();
+                include_once('model/koneksi.php');
+                $tendik = new t_responden_tendik($db);
                 $list = $tendik->getData();
 
                 $i = 1;

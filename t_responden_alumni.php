@@ -1,4 +1,6 @@
 <?php
+  if (session_status() === PHP_SESSION_NONE) 
+  session_start();
   $menu = 'alumni';
 
   include_once('model/t_responden_alumni_model.php');
@@ -88,7 +90,8 @@
               </thead>
               <tbody>
               <?php 
-                $alumni = new t_responden_alumni();
+                include_once('model/koneksi.php');
+                $alumni = new t_responden_alumni($db);
                 $list = $alumni->getData();
 
                 $i = 1;

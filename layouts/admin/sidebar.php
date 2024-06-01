@@ -89,19 +89,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="t_respon_orangtua.php" class="nav-link <?php echo ($menu == 'ortu') ? 'active' : '' ?>">
+                            <a href="t_responden_ortu.php" class="nav-link <?php echo ($menu == 'ortu') ? 'active' : '' ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Orang Tua</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="t_respon_alumni.php" class="nav-link <?php echo ($menu == 'alumni') ? 'active' : '' ?>">
+                            <a href="t_responden_alumni.php" class="nav-link <?php echo ($menu == 'alumni') ? 'active' : '' ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Alumni</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="t_respon_industri.php" class="nav-link <?php echo ($menu == 'industri') ? 'active' : '' ?>">
+                            <a href="t_responden_industri.php" class="nav-link <?php echo ($menu == 'industri') ? 'active' : '' ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Industri</p>
                             </a>

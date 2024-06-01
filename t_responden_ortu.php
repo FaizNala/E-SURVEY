@@ -1,4 +1,6 @@
 <?php
+  if (session_status() === PHP_SESSION_NONE) 
+  session_start();
   $menu = 'ortu';
 
   include_once('model/t_responden_ortu_model.php');
@@ -91,7 +93,8 @@
               </thead>
               <tbody>
               <?php 
-                $ortu = new t_responden_ortu();
+                include_once('model/koneksi.php');
+                $ortu = new t_responden_ortu($db);
                 $list = $ortu->getData();
 
                 $i = 1;

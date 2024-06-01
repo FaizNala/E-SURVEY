@@ -3,8 +3,7 @@ class t_responden_alumni{
     public $db;
     protected $table = 't_responden_alumni';
 
-    public function __construct(){
-        include_once('model/koneksi.php');
+    public function __construct($db){
         $this->db = $db;
         $this->db->set_charset('utf8');
     }
@@ -60,5 +59,19 @@ class t_responden_alumni{
 
         // eksekusi query
         $query->execute();
+    }
+    public function getRespondenId() {
+        $query = $this->db->prepare("SELECT responden_alumni_id FROM {$this->table} WHERE responden_nama = ?");
+    
+        $query->bind_param('s', $_SESSION['nama']);
+        
+        $query->execute();
+        
+        $result = $query->get_result();
+        if ($row = $result->fetch_assoc()) {
+            return $row['responden_alumni_id'];
+        } else {
+            return null;
+        }
     }
 }
