@@ -65,31 +65,34 @@ $menu = 'survey';
                             $stmt->execute();
                             $result = $stmt->get_result();
 
-                            $soal_id;
-                            while ($row = $result->fetch_assoc()) {
-                                $soal_id = $row['soal_id'];
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $soal_id = $row['soal_id'];
                             ?>
-                                <div class="form-group">
-                                <label><?php echo $row['soal_nama']?></label><br>
-                                <div>
-                                <input type="radio" id="tidak_puas" name="jawaban" value="Tidak Puas" required>
-                                <label for="tidak_puas">Tidak Puas</label>
-                                </div>
-                                <div>
-                                <input type="radio" id="kurang_puas" name="jawaban" value="Kurang Puas" required>
-                                <label for="kurang_puas">Kurang Puas</label>
-                                </div>
-                                <div>
-                                <input type="radio" id="puas" name="jawaban" value="Puas" required>
-                                <label for="puas">Puas</label>
-                                </div>
-                                <div>
-                                <input type="radio" id="sangat_puas" name="jawaban" value="Sangat Puas" required>
-                                <label for="sangat_puas">Sangat Puas</label>
-                                </div>
-                                </div>
-                            <?php } 
-
+                                    <div class="form-group">
+                                        <label><?php echo $row['soal_nama']?></label><br>
+                                        <div>
+                                            <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Tidak Puas" required>
+                                            <label for="tidak_puas_<?php echo $soal_id; ?>">Tidak Puas</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Kurang Puas" required>
+                                            <label for="kurang_puas_<?php echo $soal_id; ?>">Kurang Puas</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Puas" required>
+                                            <label for="puas_<?php echo $soal_id; ?>">Puas</label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Puas" required>
+                                            <label for="sangat_puas_<?php echo $soal_id; ?>">Sangat Puas</label>
+                                        </div>
+                                    </div>
+                            <?php
+                                }
+                            } else {
+                                echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
+                            }
                             $stmt->close();
                             ?>
                             <div class="form-group">

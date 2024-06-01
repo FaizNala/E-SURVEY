@@ -13,9 +13,10 @@ class t_jawaban_mahasiswa {
         $query = $this->db->prepare("INSERT INTO {$this->table} (responden_mahasiswa_id, soal_id, jawaban) VALUES (?, ?, ?)");
 
         // binding parameter ke query, "iis" berarti integer, integer, string
-            $query->bind_param('iis', $data['responden_mahasiswa_id'],$data['soal_id'], $data['jawaban']);
-            // eksekusi query untuk menyimpan ke database
-            $query->execute();
+        $query->bind_param('iis', $data['responden_mahasiswa_id'], $data['soal_id'], $data['jawaban']);
+
+        // eksekusi query untuk menyimpan ke database
+        $query->execute();
 
         // Tutup statement setelah selesai
         $query->close();

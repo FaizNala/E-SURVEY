@@ -74,7 +74,6 @@ class t_responden_mahasiswa{
         } else {
             return null;
         }
-        $query->close();
     }
     
 }
