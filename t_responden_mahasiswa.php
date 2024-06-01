@@ -88,7 +88,8 @@
               </thead>
               <tbody>
               <?php 
-                $mahasiswa = new t_responden_mahasiswa();
+                include_once('model/koneksi.php');
+                $mahasiswa = new t_responden_mahasiswa($db);
                 $list = $mahasiswa->getData();
 
                 $i = 1;

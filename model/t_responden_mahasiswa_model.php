@@ -3,8 +3,7 @@ class t_responden_mahasiswa{
     public $db;
     protected $table = 't_responden_mahasiswa';
 
-    public function __construct(){
-        include_once('model/koneksi.php');
+    public function __construct($db){
         $this->db = $db;
         $this->db->set_charset('utf8');
     }
@@ -63,9 +62,6 @@ class t_responden_mahasiswa{
     }
 
     public function getRespondenId() {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
         $query = $this->db->prepare("SELECT responden_mahasiswa_id FROM {$this->table} WHERE responden_nama = ?");
     
         $query->bind_param('s', $_SESSION['nama']);

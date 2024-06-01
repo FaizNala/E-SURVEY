@@ -65,28 +65,30 @@ $menu = 'survey';
                             $stmt->execute();
                             $result = $stmt->get_result();
 
+                            $soal_id;
                             while ($row = $result->fetch_assoc()) {
                                 $soal_id = $row['soal_id'];
-                                echo '<div class="form-group">';
-                                echo '<label>' . $row['soal_nama'] . '</label><br>';
-                                echo '<div>';
-                                echo '<input type="radio" id="tidak_puas_' . $soal_id . '" name="jawaban[' . $soal_id . ']" value="Tidak Puas" required>';
-                                echo '<label for="tidak_puas_' . $soal_id . '">1 (Tidak Puas)</label>';
-                                echo '</div>';
-                                echo '<div>';
-                                echo '<input type="radio" id="kurang_puas_' . $soal_id . '" name="jawaban[' . $soal_id . ']" value="Kurang Puas" required>';
-                                echo '<label for="kurang_puas_' . $soal_id . '">2 (Kurang Puas)</label>';
-                                echo '</div>';
-                                echo '<div>';
-                                echo '<input type="radio" id="puas_' . $soal_id . '" name="jawaban[' . $soal_id . ']" value="Puas" required>';
-                                echo '<label for="puas_' . $soal_id . '">3 (Puas)</label>';
-                                echo '</div>';
-                                echo '<div>';
-                                echo '<input type="radio" id="sangat_puas_' . $soal_id . '" name="jawaban[' . $soal_id . ']" value="Sangat Puas" required>';
-                                echo '<label for="sangat_puas_' . $soal_id . '">4 (Sangat Puas)</label>';
-                                echo '</div>';
-                                echo '</div>';
-                            }
+                            ?>
+                                <div class="form-group">
+                                <label><?php echo $row['soal_nama']?></label><br>
+                                <div>
+                                <input type="radio" id="tidak_puas" name="jawaban" value="Tidak Puas" required>
+                                <label for="tidak_puas">Tidak Puas</label>
+                                </div>
+                                <div>
+                                <input type="radio" id="kurang_puas" name="jawaban" value="Kurang Puas" required>
+                                <label for="kurang_puas">Kurang Puas</label>
+                                </div>
+                                <div>
+                                <input type="radio" id="puas" name="jawaban" value="Puas" required>
+                                <label for="puas">Puas</label>
+                                </div>
+                                <div>
+                                <input type="radio" id="sangat_puas" name="jawaban" value="Sangat Puas" required>
+                                <label for="sangat_puas">Sangat Puas</label>
+                                </div>
+                                </div>
+                            <?php } 
 
                             $stmt->close();
                             ?>
