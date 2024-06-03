@@ -3,11 +3,12 @@ if (session_status() === PHP_SESSION_NONE)
 session_start();
 
 include_once('model/m_survey_model.php');
+include_once('model/koneksi.php');
  
 $act = isset($_GET['act']) ? $_GET['act'] : '';
 
 if ($act == 'simpan') {
-    echo '<pre>';
+    echo '<pre>'; 
     $data = [
         'user_id' => $_SESSION['user_id'],
         'survey_jenis' => $_POST['survey_jenis'],
@@ -17,7 +18,7 @@ if ($act == 'simpan') {
         'survey_tanggal' => $_POST['survey_tanggal']
     ];
 
-    $insert = new Survey();
+    $insert = new Survey($db);
     $insert->insertData($data);
 
     header('location: m_survey.php?status=sukses&message=Data berhasil disimpan');
@@ -34,7 +35,7 @@ if ($act == 'edit') {
         'survey_tanggal' => $_POST['survey_tanggal']
     ];
 
-    $update = new Survey();
+    $update = new Survey($db);
     $update->updateData($id, $data);
 
     header('location: m_survey.php?status=sukses&message=Data berhasil diubah');
@@ -43,7 +44,7 @@ if ($act == 'edit') {
 if ($act == 'hapus') {
     $id = $_GET['id'];
 
-    $hapus = new Survey();
+    $hapus = new Survey($db);
     $hapus->deleteData($id);
 
     header('location: m_survey.php?status=sukses&message=Data berhasil dihapus');
