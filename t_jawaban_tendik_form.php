@@ -65,6 +65,7 @@ include_once('model/m_survey_soal_model.php')
                             $result = $survey->getQuestionTypeRating();
 
                             if ($result->num_rows > 0) {
+                                $display = '';
                                 while ($row = $result->fetch_assoc()) {
                                     $soal_id = $row['soal_id'];
                             ?>
@@ -90,13 +91,14 @@ include_once('model/m_survey_soal_model.php')
                             <?php
                                 }
                             } else {
+                                $display = 'none';
                                 echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                             }
                             $result->close();
                             ?>
                             <div class="form-group">
-                                <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
-                                <a href="t_responden_tendik_action.php" class="btn btn-warning">Kembali</a>
+                                <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy" style="display:<?php echo $display;?>">Simpan</button>
+                                <a href="t_responden_mahasiswa_action.php" class="btn btn-warning">Kembali</a>
                             </div>
                         </form>
                     </div>
