@@ -2,6 +2,7 @@
   if (session_status() === PHP_SESSION_NONE) 
     session_start();
   include_once('model/m_survey_model.php');
+  include_once('model/koneksi.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +109,7 @@
               <?php
               $id = $_GET['id'];
 
-              $survey = new Survey();
+              $survey = new Survey($db);
               $data = $survey->getDataById($id);
 
               $data = $data->fetch_assoc();

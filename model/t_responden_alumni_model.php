@@ -74,4 +74,15 @@ class t_responden_alumni{
             return null;
         }
     }
+
+    public function getRespondenTotal() {
+        $query = $this->db->prepare("SELECT COUNT(responden_alumni_id) AS total FROM {$this->table}");
+        $query->execute();
+        $result = $query->get_result();
+        if ($row = $result->fetch_assoc()) {
+            return $row['total'];
+        } else {
+            return null;
+        }
+    }
 }

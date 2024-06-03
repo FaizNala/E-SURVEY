@@ -1,5 +1,6 @@
 <?php
 $menu = 'survey';
+include_once('model/m_survey_soal_model.php')
 ?>
 
 <!DOCTYPE html>
@@ -60,10 +61,8 @@ $menu = 'survey';
                         <form action="t_jawaban_industri_action.php?act=simpan" method="post" id="form-tambah">
                             <?php
                             include_once('model/koneksi.php');
-                            $query = "SELECT * FROM m_survey_soal";
-                            $stmt = $db->prepare($query);
-                            $stmt->execute();
-                            $result = $stmt->get_result();
+                            $survey = new SurveySoal($db);
+                            $result = $survey->getQuestionTypeRating();
 
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
@@ -93,7 +92,7 @@ $menu = 'survey';
                             } else {
                                 echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                             }
-                            $stmt->close();
+                            $result->close();
                             ?>
                             <div class="form-group">
                                 <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>

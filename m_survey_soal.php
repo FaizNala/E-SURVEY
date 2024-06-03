@@ -86,7 +86,8 @@ session_start();
             </thead>
             <tbody>
               <?php 
-                $survey = new SurveySoal();
+                include_once('model/koneksi.php');
+                $survey = new SurveySoal($db);
                 $list = $survey->getData();
 
                 $i = 1;

@@ -3,8 +3,7 @@ class SurveySoal{
     public $db;
     protected $table = 'm_survey_soal';
 
-    public function __construct(){
-        include_once('model/koneksi.php');
+    public function __construct($db){
         $this->db = $db;
         $this->db->set_charset('utf8');
     }
@@ -60,5 +59,11 @@ class SurveySoal{
 
         // eksekusi query
         $query->execute();
+    }
+
+    public function getQuestionTypeRating() {
+        $query = $this->db->prepare("select * from {$this->table} where soal_jenis = 'rating'");
+        $query->execute();
+        return $query->get_result();
     }
 }

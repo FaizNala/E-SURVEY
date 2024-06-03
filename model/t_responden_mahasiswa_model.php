@@ -75,5 +75,15 @@ class t_responden_mahasiswa{
             return null;
         }
     }
-    
+
+    public function getRespondenTotal() {
+        $query = $this->db->prepare("SELECT COUNT(responden_mahasiswa_id) AS total FROM {$this->table}");
+        $query->execute();
+        $result = $query->get_result();
+        if ($row = $result->fetch_assoc()) {
+            return $row['total'];
+        } else {
+            return null;
+        }
+    }
 }

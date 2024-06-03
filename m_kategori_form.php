@@ -69,14 +69,7 @@
             <form action="m_kategori_action.php?act=simpan" method="post" id="form-tambah">
             <div class="form-group">
               <label for="kategori_nama">Kategori Nama</label>
-              <select required name="kategori_nama" id="kategori_nama" class="form-control">
-                <option value="mahasiswa">Mahasiswa</option>
-                <option value="dosen">Dosen</option>
-                <option value="tendik">Tendik</option>
-                <option value="ortu">Orang Tua</option>
-                <option value="industri">Industri</option>
-                <option value="alumni">Alumni</option>
-              </select>
+              <input type="text" required name="kategori_nama" id="kategori_nama" class="form-control">
             </div>
             <div class="form-group">
               <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>

@@ -4,6 +4,7 @@ session_start();
   $menu = 'm_survey'; 
 
   include_once('model/m_survey_model.php');
+  include_once('model/koneksi.php');
 
   $status = isset($_GET['status'])? strtolower($_GET['status']) : null;
   $message= isset($_GET['message'])? strtolower($_GET['message']) : null;
@@ -88,7 +89,7 @@ session_start();
             </thead>
             <tbody>
               <?php 
-                $survey = new Survey();
+                $survey = new Survey($db);
                 $list = $survey->getData();
 
                 $i = 1;

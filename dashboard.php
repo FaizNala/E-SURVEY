@@ -1,6 +1,13 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) 
     session_start();
+    include_once('model/koneksi.php');
+    include_once('model/t_responden_mahasiswa_model.php');
+    include_once('model/t_responden_dosen_model.php');
+    include_once('model/t_responden_tendik_model.php');
+    include_once('model/t_responden_ortu_model.php');
+    include_once('model/t_responden_alumni_model.php');
+    include_once('model/t_responden_industri_model.php');
 ?>
 
 <!DOCTYPE html>
@@ -62,37 +69,29 @@ if (session_status() === PHP_SESSION_NONE)
         <!-- Small boxes (Stat box) -->
         <div class="row">
         <?php
-            $koneksi = mysqli_connect("localhost", "root", "", "db_survey_polinema");
+            $mahasiswa = new t_responden_mahasiswa($db);
+            $row_mahasiswa = $mahasiswa->getRespondenTotal();
             
-            $query_mahasiswa = "SELECT count(responden_mahasiswa_id) as jml FROM t_responden_mahasiswa";
-            $result_mahasiswa = mysqli_query($koneksi, $query_mahasiswa);
-            $row_mahasiswa = mysqli_fetch_assoc($result_mahasiswa);
-            
-            $query_dosen = "SELECT count(responden_dosen_id) as jml FROM t_responden_dosen";
-            $result_dosen = mysqli_query($koneksi, $query_dosen);
-            $row_dosen = mysqli_fetch_assoc($result_dosen);
+            $dosen = new t_responden_dosen($db);
+            $row_dosen = $dosen->getRespondenTotal();
 
-            $query_tendik = "SELECT count(responden_tendik_id) as jml FROM t_responden_tendik";
-            $result_tendik = mysqli_query($koneksi, $query_tendik);
-            $row_tendik = mysqli_fetch_assoc($result_tendik);
+            $tendik = new t_responden_tendik($db);
+            $row_tendik = $tendik->getRespondenTotal();
 
-            $query_ortu = "SELECT count(responden_ortu_id) as jml FROM t_responden_ortu";
-            $result_ortu = mysqli_query($koneksi, $query_ortu);
-            $row_ortu = mysqli_fetch_assoc($result_ortu);
+            $ortu = new t_responden_ortu($db);
+            $row_ortu = $ortu->getRespondenTotal();
 
-            $query_alumni = "SELECT count(responden_alumni_id) as jml FROM t_responden_alumni";
-            $result_alumni = mysqli_query($koneksi, $query_alumni);
-            $row_alumni = mysqli_fetch_assoc($result_alumni);
+            $alumni = new t_responden_alumni($db);
+            $row_alumni = $alumni->getRespondenTotal();
 
-            $query_industri = "SELECT count(responden_industri_id) as jml FROM t_responden_industri";
-            $result_industri = mysqli_query($koneksi, $query_industri);
-            $row_industri = mysqli_fetch_assoc($result_industri);
+            $industri = new t_responden_industri($db);
+            $row_industri = $industri->getRespondenTotal();
         ?>
         <div class="col-lg-2 col-4">
             <!-- small box -->
             <div class="small-box bg-danger">
             <div class="inner">
-                <h3><?= $row_mahasiswa['jml'] ?></h3>
+                <h3><?= $row_mahasiswa?></h3>
                 <p>Data Mahasiswa</p>
             </div>
             <div class="icon">
@@ -106,7 +105,7 @@ if (session_status() === PHP_SESSION_NONE)
             <!-- small box -->
             <div class="small-box bg-warning">
             <div class="inner">
-                <h3><?= $row_dosen['jml'] ?></h3>
+                <h3><?= $row_dosen ?></h3>
                 <p>Data Dosen</p>
             </div>
             <div class="icon">
@@ -120,7 +119,7 @@ if (session_status() === PHP_SESSION_NONE)
             <!-- small box -->
             <div class="small-box bg-success">
             <div class="inner">
-                <h3><?= $row_tendik['jml'] ?></h3>
+                <h3><?= $row_tendik ?></h3>
                 <p>Data Tendik</p>
             </div>
             <div class="icon">
@@ -134,7 +133,7 @@ if (session_status() === PHP_SESSION_NONE)
             <!-- small box -->
             <div class="small-box bg-primary">
             <div class="inner">
-                <h3><?= $row_ortu['jml'] ?></h3>
+                <h3><?= $row_ortu ?></h3>
                 <p>Data Orang Tua</p>
             </div>
             <div class="icon">
@@ -148,7 +147,7 @@ if (session_status() === PHP_SESSION_NONE)
             <!-- small box -->
             <div class="small-box bg-info">
             <div class="inner">
-                <h3><?= $row_alumni['jml'] ?></h3>
+                <h3><?= $row_alumni ?></h3>
                 <p>Data Alumni</p>
             </div>
             <div class="icon">
@@ -162,7 +161,7 @@ if (session_status() === PHP_SESSION_NONE)
             <!-- small box -->
             <div class="small-box bg-indigo">
             <div class="inner">
-                <h3><?= $row_industri['jml'] ?></h3>
+                <h3><?= $row_industri ?></h3>
                 <p>Data Industri</p>
             </div>
             <div class="icon">

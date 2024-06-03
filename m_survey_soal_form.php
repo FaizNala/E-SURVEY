@@ -2,7 +2,10 @@
 if (session_status() === PHP_SESSION_NONE) 
   session_start();
 $menu = 'bank_soal';
-include_once("model/m_survey_soal_model.php")
+include_once("model/m_survey_soal_model.php");
+include_once("model/m_survey_model.php");
+include_once("model/m_kategori_model.php");
+include_once('model/koneksi.php');
 ?>
 
 
@@ -73,16 +76,10 @@ include_once("model/m_survey_soal_model.php")
                   <select name="survey_id" id="survey_id" class="form-control">
                     <option value="" disabled selected>Pilih jenis survey</option>
                     <?php
-                      include "model/koneksi.php";
-                      $query = "SELECT  * FROM m_survey";
-                      $stmt = $db->prepare($query);
-                      $stmt->execute();
-                      $result = $stmt->get_result();
-                      $row = $result->fetch_assoc();  
-                      $stmt->close();
-                      while ($row) {
+                      $survey = new Survey($db);
+                      $result = $survey->getData();
+                      while ($row = $result->fetch_assoc()) {
                         echo "<option value='". $row['survey_id']. "'>". $row['survey_nama']. "</option>";
-                        $row = $result->fetch_assoc();
                       }
                     ?>
                   </select>
@@ -142,7 +139,7 @@ include_once("model/m_survey_soal_model.php")
               <?php
               $id = $_GET['id'];
 
-              $survey_soal = new SurveySoal();
+              $survey_soal = new SurveySoal($db);
               $data = $survey_soal->getDataById($id);
 
               $data = $data->fetch_assoc();
