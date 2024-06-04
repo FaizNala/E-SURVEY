@@ -1,7 +1,7 @@
 <?php 
 include_once('model/t_responden_dosen_model.php');
 include_once('model/koneksi.php');
- 
+
 $act = $_GET['act'];
 
 if($act == 'simpan'){
@@ -15,7 +15,7 @@ if($act == 'simpan'){
     $insert = new t_responden_dosen($db);
     $insert->insertData($data);
 
-    header('location: t_responden_dosen_form.php');
+    header('Location: form_soal.php?pages=dosen');
 }
 
 if($act == 'hapus'){

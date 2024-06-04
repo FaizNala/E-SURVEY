@@ -84,6 +84,7 @@ include_once('model/koneksi.php')
                                 $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
+                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
                                 ?>
@@ -121,12 +122,13 @@ include_once('model/koneksi.php')
                                 <?php
                                     }
                                 } else {
+                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
                                 $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -145,9 +147,10 @@ include_once('model/koneksi.php')
                             <form action="t_jawaban_dosen_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
                                 $survey = new SurveySoal($db);
-                                $result = $survey->getQuestionTypeRatingToDosen();
+                                $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
+                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
                                 ?>
@@ -185,12 +188,13 @@ include_once('model/koneksi.php')
                                 <?php
                                     }
                                 } else {
+                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
                                 $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -209,9 +213,10 @@ include_once('model/koneksi.php')
                             <form action="t_jawaban_tendik_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
                                 $survey = new SurveySoal($db);
-                                $result = $survey->getQuestionTypeRatingToTendik();
+                                $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
+                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
                                 ?>
@@ -249,12 +254,13 @@ include_once('model/koneksi.php')
                                 <?php
                                     }
                                 } else {
+                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
                                 $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -273,9 +279,10 @@ include_once('model/koneksi.php')
                             <form action="t_jawaban_ortu_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
                                 $survey = new SurveySoal($db);
-                                $result = $survey->getQuestionTypeRatingToOrtu();
+                                $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
+                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
                                 ?>
@@ -313,12 +320,13 @@ include_once('model/koneksi.php')
                                 <?php
                                     }
                                 } else {
+                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
                                 $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -337,9 +345,10 @@ include_once('model/koneksi.php')
                             <form action="t_jawaban_alumni_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
                                 $survey = new SurveySoal($db);
-                                $result = $survey->getQuestionTypeRatingToAlumni();
+                                $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
+                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
                                 ?>
@@ -377,12 +386,13 @@ include_once('model/koneksi.php')
                                 <?php
                                     }
                                 } else {
+                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
                                 $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -401,9 +411,10 @@ include_once('model/koneksi.php')
                             <form action="t_jawaban_industri_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
                                 $survey = new SurveySoal($db);
-                                $result = $survey->getQuestionTypeRatingToIndustri();
+                                $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
+                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
                                 ?>
@@ -441,12 +452,13 @@ include_once('model/koneksi.php')
                                 <?php
                                     }
                                 } else {
+                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
                                 $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
