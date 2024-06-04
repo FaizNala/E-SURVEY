@@ -1,6 +1,7 @@
 <?php 
-include_once('model/t_responden_tendik_model.php');
- 
+include_once('model/t_responden_ortu_model.php');
+include_once('model/koneksi.php');
+
 $act = $_GET['act'];
 
 if($act == 'simpan'){
@@ -18,16 +19,16 @@ if($act == 'simpan'){
         'mahasiswa_prodi' => $_POST['mahasiswa_prodi']
     ];
 
-    $insert = new t_responden_ortu();
+    $insert = new t_responden_ortu($db);
     $insert->insertData($data);
 
-    header('location: t_responden_ortu_form.php');
+    header('Location: form_soal.php?pages=ortu');
 }
 
 if($act == 'hapus'){
     $id = $_GET['id'];
 
-    $hapus = new t_responden_ortu();
+    $hapus = new t_responden_ortu($db);
     $hapus->deleteData($id);
 
     header('location: t_responden_ortu_form.php?');

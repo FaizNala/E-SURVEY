@@ -1,6 +1,7 @@
-<?php 
+<?php
 include_once('model/t_responden_tendik_model.php');
- 
+include_once('model/koneksi.php');
+
 $act = $_GET['act'];
 
 if($act == 'simpan'){
@@ -11,16 +12,16 @@ if($act == 'simpan'){
         'responden_unit' => $_POST['responden_unit']
     ];
 
-    $insert = new t_responden_tendik();
+    $insert = new t_responden_tendik($db);
     $insert->insertData($data);
 
-    header('location: t_responden_tendik_form.php');
+    header('Location: form_soal.php?pages=tendik');
 }
 
 if($act == 'hapus'){
     $id = $_GET['id'];
 
-    $hapus = new t_responden_tendik();
+    $hapus = new t_responden_tendik($db);
     $hapus->deleteData($id);
 
     header('location: t_responden_tendik_form.php?');

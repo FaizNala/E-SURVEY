@@ -232,7 +232,7 @@ include_once('model/koneksi.php')
                             <form action="t_responden_alumni_action.php?act=simpan" method="post" id="form-tambah">
                                 <div class="form-group">
                                     <label for="responden_tanggal">Tanggal</label>
-                                    <input type="text" name="responden_tanggal" id="responden_tanggal" class="form-control">
+                                    <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="responden_nim">NIM</label>
@@ -302,7 +302,7 @@ include_once('model/koneksi.php')
                                 </div>
                                 <div class="form-group">
                                     <label for="responden_kota">Kota</label>
-                                    <input required type="number" name="responden_kota" id="responden_kota" class="form-control">
+                                    <input required type="text" name="responden_kota" id="responden_kota" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>

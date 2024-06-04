@@ -10,10 +10,10 @@ class t_responden_ortu{
 
     public function insertData($data){
         // prepare statement untuk query insert
-        $query = $this->db->prepare("INSERT INTO {$this->table} (responden_tanggal, responden_nama, responden_jk, responden_umur, responden_hp, responden_pendidikan, responden_pekerjaan, responden_penghasilan, ortu_nim, ortu_nama, ortu_prodi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $query = $this->db->prepare("INSERT INTO {$this->table} (responden_tanggal, responden_nama, responden_jk, responden_umur, responden_hp, responden_pendidikan, responden_pekerjaan, responden_penghasilan, mahasiswa_nim, mahasiswa_nama, mahasiswa_prodi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
         // binding parameter ke query, "s" berarti string, "ssss" berarti empat string
-        $query->bind_param('sssisssssss', $data['responden_tanggal'], $data['responden_nama'], $data['responden_jk'], $data['responden_umur'], $data['responden_hp'], $data['responden_pendidikan'], $data['responden_pekerjaan'], $data['ortu_nim'], $data['ortu_nama'], $data['ortu_prodi']);
+        $query->bind_param('sssisssssss', $data['responden_tanggal'], $data['responden_nama'], $data['responden_jk'], $data['responden_umur'], $data['responden_hp'], $data['responden_pendidikan'], $data['responden_pekerjaan'], $data['responden_penghasilan'], $data['mahasiswa_nim'], $data['mahasiswa_nama'], $data['mahasiswa_prodi']);
         
         // eksekusi query untuk menyimpan ke database
         $query->execute();
@@ -41,10 +41,10 @@ class t_responden_ortu{
 
     public function updateData($id, $data){
         // query untuk update data
-        $query = $this->db->prepare("update {$this->table} set responden_tanggal = ?, respondem_nama = ?,  responden_jk = ?, responden_umur = ?, responden_hp = ?, responden_pendidikan = ?, responden_pekerjaan = ?, responden_penghasilan = ?, ortu_nim = ?, ortu_nama = ?, ortu_prodi = ? where responden_ortu_id = ?");
+        $query = $this->db->prepare("update {$this->table} set responden_tanggal = ?, respondem_nama = ?,  responden_jk = ?, responden_umur = ?, responden_hp = ?, responden_pendidikan = ?, responden_pekerjaan = ?, responden_penghasilan = ?, mahasiswa_nim = ?, mahasiswa_nama = ?, mahasiswa_prodi = ? where responden_ortu_id = ?");
 
         // binding parameter ke query
-        $query->bind_param('sssisssssssi', $data['responden_tanggal'], $data['responden_nama'], $data['responden_jk'], $data['responden_umur'], $data['responden_hp'], $data['responden_pendidikan'], $data['responden_pekerjaan'], $data['ortu_nim'], $data['ortu_nama'], $data['ortu_prodi'], $id);
+        $query->bind_param('sssisssssssi', $data['responden_tanggal'], $data['responden_nama'], $data['responden_jk'], $data['responden_umur'], $data['responden_hp'], $data['responden_pendidikan'], $data['responden_pekerjaan'], $data['mahasiswa_nim'], $data['mahasiswa_nama'], $data['mahasiswa_prodi'], $id);
 
         // eksekusi query
         $query->execute();
