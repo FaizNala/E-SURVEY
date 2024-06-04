@@ -17,15 +17,12 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition layout-top-nav">
   <!-- Site wrapper -->
   <div class="wrapper">
     <!-- Navbar -->
     <?php include_once('layouts/responden/header.php'); ?>
     <!-- /.navbar -->
-
-    <!-- Main Sidebar Container -->
-    <?php include_once('layouts/responden/sidebar.php'); ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -34,13 +31,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Survey Soal</h1>
-            </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Data Mahasiswa</li>
-              </ol>
+              <h1>Survey</h1>
             </div>
           </div>
         </div><!-- /.container-fluid -->
@@ -50,64 +41,42 @@
       <section class="content">
           <!-- Default box -->
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Tambah Data Mahasiswa</h3>
+            <div class="card-header bg-blue">
+              <h3 class="card-title">Data Mahasiswa</h3>
               <div class="card-tools"></div>
             </div>
             <div class="card-body">
               <form action="t_responden_mahasiswa_action.php?act=simpan" method="post" id="form-tambah">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="responden_tanggal">Tanggal</label>
-                      <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="responden_nim">NIM</label>
-                      <input required type="text" name="responden_nim" id="responden_nim" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="responden_nama">Nama</label>
-                      <input required type="text" name="responden_nama" id="responden_nama" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="responden_prodi">Prodi</label>
-                      <input required type="text" name="responden_prodi" id="responden_prodi" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="responden_email">Email</label>
-                      <input required type="email" name="responden_email" id="responden_email" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="responden_hp">No HP</label>
-                      <input required type="text" name="responden_hp" id="responden_hp" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="tahun_masuk">Tahun Masuk</label>
-                      <input required type="number" name="tahun_masuk" id="tahun_masuk" class="form-control">
-                    </div>
-                  </div>
+                <div class="form-group">
+                  <label for="responden_tanggal">Tanggal</label>
+                  <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
                 </div>
                 <div class="form-group">
-                  <button type="submit" name="simpan" class="btn btn-primary">Berikutnya</button>
+                  <label for="responden_nim">NIM</label>
+                  <input required type="text" name="responden_nim" id="responden_nim" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="responden_nama">Nama</label>
+                  <input required type="text" name="responden_nama" id="responden_nama" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="responden_prodi">Prodi</label>
+                  <input required type="text" name="responden_prodi" id="responden_prodi" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="responden_email">Email</label>
+                  <input required type="email" name="responden_email" id="responden_email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="responden_hp">No HP</label>
+                  <input required type="text" name="responden_hp" id="responden_hp" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="tahun_masuk">Tahun Masuk</label>
+                  <input required type="number" name="tahun_masuk" id="tahun_masuk" class="form-control">
+                </div>
+                <div class="form-group">
+                  <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                   <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
                 </div>
               </form>
@@ -118,12 +87,6 @@
     </div>
     <!-- /.content-wrapper -->
     <?php include_once('layouts/responden/footer.php'); ?>
-
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
 

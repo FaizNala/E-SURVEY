@@ -69,8 +69,13 @@
                 <div class="form-group">
                   <label for="survey_jenis">Jenis Survey</label>
                   <select required name="survey_jenis" id="survey_jenis" class="form-control">
-                    <option value="fasilitas">Fasilitas</option>
-                    <option value="pendidikan">Pendidikan</option>
+                    <option value="" disabled selected>Pilih Jenis Survey</option>
+                    <option value="mahasiswa">Mahasiswa</option>
+                    <option value="dosen">Dosen</option>
+                    <option value="tendik">Tendik</option>
+                    <option value="ortu">Orang Tua</option>
+                    <option value="alumni">Alumni</option>
+                    <option value="industri">Industri</option>
                   </select>
                 </div>
                 <div class="form-group">

@@ -66,4 +66,76 @@ class SurveySoal{
         $query->execute();
         return $query->get_result();
     }
+
+    public function getQuestionTypeRatingToMahasiswa() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'rating' and survey.survey_jenis = 'mahasiswa'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeEssayToMahasiswa() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'Esai' and survey.survey_jenis = 'mahasiswa'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeRatingToDosen() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'rating' and survey.survey_jenis = 'dosen'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeEssayToDosen() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'Esai' and survey.survey_jenis = 'dosen'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeRatingToTendik() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'rating' and survey.survey_jenis = 'tendik'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeEssayToTendik() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'Esai' and survey.survey_jenis = 'tendik'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeRatingToOrtu() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'rating' and survey.survey_jenis = 'ortu'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeEssayToOrtu() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'Esai' and survey.survey_jenis = 'ortu'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeRatingToAlumni() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'rating' and survey.survey_jenis = 'alumni'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeEssayToAlumni() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'Esai' and survey.survey_jenis = 'alumni'");
+        $query->execute();
+        return $query->get_result();
+    }
+
+    public function getQuestionTypeRatingToIndustri() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'rating' and survey.survey_jenis = 'industri'");
+        $query->execute();
+        return $query->get_result();
+    }
+    public function getQuestionTypeEssayToIndustri() {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where soal.soal_jenis = 'Esai' and survey.survey_jenis = 'industri'");
+        $query->execute();
+        return $query->get_result();
+    }
+
 }

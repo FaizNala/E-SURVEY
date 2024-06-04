@@ -1,11 +1,16 @@
 <?php 
+session_start();
 include_once('model/t_responden_mahasiswa_model.php');
+include_once('model/m_survey_model.php');
 include_once('model/koneksi.php');
- $act = $_GET['act'];
 
- if($act == 'simpan'){
-    echo '<pre>';
+$survey = new Survey($db);
+$idSur = $survey->getSurveyId();
+
+$act = isset($_GET['act']) ? $_GET['act'] : '';
+if ($act == 'simpan') {
     $data = [
+        'survey_id' => $idSur,
         'responden_tanggal' => $_POST['responden_tanggal'],
         'responden_nim' => $_POST['responden_nim'],
         'responden_nama' => $_POST['responden_nama'],
@@ -18,15 +23,17 @@ include_once('model/koneksi.php');
     $insert = new t_responden_mahasiswa($db);
     $insert->insertData($data);
 
-    header('location: t_jawaban_mahasiswa_form.php');
- }
+    header('Location: form_soal.php?pages=mahasiswa');
+    exit;
+}
 
- if($act == 'hapus'){
-    $id = $_GET['id'];
+if ($act == 'hapus') {
+    $id = isset($_GET['id']) ? $_GET['id'] : '';
 
     $hapus = new t_responden_mahasiswa($db);
     $hapus->deleteData($id);
 
-    header('location: t_responden_mahasiswa.php');
- }
+    header('Location: t_responden_mahasiswa.php');
+    exit;
+}
 ?>

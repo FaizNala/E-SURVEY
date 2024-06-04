@@ -10,33 +10,33 @@
             // Simpan data user ke dalam session
             $_SESSION['user'] = $user;
             $_SESSION['nama'] = $nama;
-            header("Location: t_responden_mahasiswa_form.php");
+            header("Location: form_biodata.php?bio=mahasiswa");
             exit();
         } else if ($user == 'dosen') {
             // Simpan data user ke dalam session
             $_SESSION['user'] = $user;
             $_SESSION['nama'] = $nama;
-            header("Location: t_responden_dosen_form.php");
+            header("Location: form_biodata.php?bio=dosen");
         } else if ($user == 'tendik') {
             // Simpan data user ke dalam session
             $_SESSION['user'] = $user;
             $_SESSION['nama'] = $nama;
-            header("Location: t_responden_tendik_form.php");
+            header("Location: form_biodata.php?bio=tendik");
         } else if ($user == 'ortu') {
             // Simpan data user ke dalam session
             $_SESSION['user'] = $user;
             $_SESSION['nama'] = $nama;
-            header("Location: t_responden_ortu_form.php");
+            header("Location: form_biodata.php?bio=ortu");
         } else if ($user == 'alumni') {
             // Simpan data user ke dalam session
             $_SESSION['user'] = $user;
             $_SESSION['nama'] = $nama;
-            header("Location: t_responden_alumni_form.php");
+            header("Location: form_biodata.php?bio=alumni");
         }else if ($user == 'industri') {
             // Simpan data user ke dalam session
             $_SESSION['user'] = $user;
             $_SESSION['nama'] = $nama;
-            header("Location: t_responden_industri_form.php");
+            header("Location: form_biodata.php?bio=industri");
         }else {
             $error_message = "Jenis pengguna tidak valid.";
         }

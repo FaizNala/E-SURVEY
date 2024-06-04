@@ -98,17 +98,10 @@
               ?>
 
             <form action="m_kategori_action.php?act=edit&id=<?php echo $id?>" method="post" id="form-tambah">
-              <div class="form-group">
-                <label for="kategori_nama">Kategori Nama</label>
-                <select required name="kategori_nama" id="kategori_nama" class="form-control">
-                  <option value="mahasiswa" <?php if ($data['kategori_nama'] == 'mahasiswa') {echo "selected";} ?>>Mahasiswa</option>
-                  <option value="dosen" <?php if ($data['kategori_nama'] == 'dosen') {echo "selected";} ?>>Dosen</option>
-                  <option value="tendik" <?php if ($data['kategori_nama'] == 'tendik') {echo "selected";} ?>>Tendik</option>
-                  <option value="ortu" <?php if ($data['kategori_nama'] == 'orangtua') {echo "selected";} ?>>Orang Tua</option>
-                  <option value="alumni" <?php if ($data['kategori_nama'] == 'alumni') {echo "selected";} ?>>Alumni</option>
-                  <option value="industri" <?php if ($data['kategori_nama'] == 'industri') {echo "selected";} ?>>Industri</option>
-                </select>
-              </div>
+            <div class="form-group">
+              <label for="kategori_nama">Kategori Nama</label>
+              <input type="text" required name="kategori_nama" id="kategori_nama" class="form-control" value="<?php echo $data['kategori_nama'] ?>">
+            </div>
               <div class="form-group">
                 <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                 <a href="m_kategori.php" class="btn btn-warning">Kembali</a>

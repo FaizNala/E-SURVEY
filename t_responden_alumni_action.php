@@ -1,5 +1,6 @@
 <?php 
 include_once('model/t_responden_alumni_model.php');
+include_once('model/koneksi.php');
  
 $act = $_GET['act'];
 
@@ -14,7 +15,7 @@ if($act == 'simpan'){
         'tahun_lulus' => $_POST['tahun_lulus']
     ];
 
-    $insert = new t_responden_alumni();
+    $insert = new t_responden_alumni($db);
     $insert->insertData($data);
 
     header('location: t_responden_tendik_form.php');
@@ -23,7 +24,7 @@ if($act == 'simpan'){
 if($act == 'hapus'){
     $id = $_GET['id'];
 
-    $hapus = new t_responden_alumni();
+    $hapus = new t_responden_alumni($db);
     $hapus->deleteData($id);
 
     header('location: t_responden_alumni_form.php?');
