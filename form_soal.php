@@ -72,7 +72,7 @@ include_once('model/koneksi.php')
             ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -138,7 +138,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'dosen') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -204,7 +204,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'tendik') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -270,7 +270,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'ortu') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -336,7 +336,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'alumni') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -402,7 +402,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'industri') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>

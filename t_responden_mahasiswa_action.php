@@ -6,8 +6,10 @@ include_once('model/koneksi.php');
 
 $survey = new Survey($db);
 $idSur = $survey->getSurveyId();
+$nama;
 
-$act = isset($_GET['act']) ? $_GET['act'] : '';
+$act = $_GET['act'];
+
 if ($act == 'simpan') {
     $data = [
         'survey_id' => $idSur,
@@ -20,6 +22,8 @@ if ($act == 'simpan') {
         'tahun_masuk' => $_POST['tahun_masuk']
     ];
 
+    $nama = $_POST['responden_nama'];
+    $_SESSION['nama'] = $nama;
     $insert = new t_responden_mahasiswa($db);
     $insert->insertData($data);
 
@@ -28,7 +32,7 @@ if ($act == 'simpan') {
 }
 
 if ($act == 'hapus') {
-    $id = isset($_GET['id']) ? $_GET['id'] : '';
+    $id = $_GET['id'];
 
     $hapus = new t_responden_mahasiswa($db);
     $hapus->deleteData($id);

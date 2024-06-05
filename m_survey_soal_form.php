@@ -90,13 +90,9 @@ include_once('model/koneksi.php');
                     <option value="" disabled selected>Pilih kategori</option>
                     <?php
                       include "model/koneksi.php";
-                      $query = "SELECT  * FROM m_kategori";
-                      $stmt = $db->prepare($query);
-                      $stmt->execute();
-                      $result = $stmt->get_result();
-                      $row = $result->fetch_assoc();  
-                      $stmt->close();
-                      while ($row) {
+                      $survey = new m_kategori();
+                      $result = $survey->getData();
+                      while ($row = $result->fetch_assoc()) {
                         echo "<option value='". $row['kategori_id']. "'>". $row['kategori_nama']. "</option>";
                         $row = $result->fetch_assoc();
                       }
@@ -139,7 +135,7 @@ include_once('model/koneksi.php');
               <?php
               $id = $_GET['id'];
 
-              $survey_soal = new SurveySoal($db);
+              $survey_soal = new SurveySoal();
               $data = $survey_soal->getDataById($id);
 
               $data = $data->fetch_assoc();
@@ -152,15 +148,10 @@ include_once('model/koneksi.php');
                     <option value="" disabled selected>Pilih jenis survey</option>
                     <?php
                       include "model/koneksi.php";
-                      $query = "SELECT  * FROM m_survey";
-                      $stmt = $db->prepare($query);
-                      $stmt->execute();
-                      $result = $stmt->get_result();
-                      $row = $result->fetch_assoc();  
-                      $stmt->close();
-                      while ($row) {
+                      $survey = new Survey($db);
+                      $result = $survey->getData();
+                      while ($row = $result->fetch_assoc()) {
                         echo "<option value='". $row['survey_id']. "'" . ($row['survey_id'] == $data['survey_id'] ? " selected" : "") . ">". $row['survey_nama']. "</option>";
-                        $row = $result->fetch_assoc();
                       }
                     ?>
                   </select>
@@ -171,13 +162,10 @@ include_once('model/koneksi.php');
                     <option value="" disabled selected>Pilih kategori</option>
                     <?php
                       include "model/koneksi.php";
-                      $query = "SELECT  * FROM m_kategori";
-                      $stmt = $db->prepare($query);
-                      $stmt->execute();
-                      $result = $stmt->get_result();
-                      $row = $result->fetch_assoc();  
-                      $stmt->close();
-                      while ($row) {
+                      include "model/koneksi.php";
+                      $survey = new m_kategori();
+                      $result = $survey->getData();
+                      while ($row = $result->fetch_assoc()) {
                         echo "<option value='". $row['kategori_id']. "'" . ($row['kategori_id'] == $data['kategori_id'] ? " selected" : "") . ">". $row['kategori_nama']. "</option>";
                         $row = $result->fetch_assoc();
                       }

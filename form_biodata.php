@@ -1,8 +1,13 @@
 <?php
+session_start();
 $menu = 'biodata';
 include_once('model/m_survey_soal_model.php');
-include_once('model/koneksi.php')
+include_once('model/koneksi.php');
+
+$user = $_GET['bio'];
+$_SESSION['user'] = $user;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +52,7 @@ include_once('model/koneksi.php')
             ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Data Mahasiswa</h3>
                             <div class="card-tools"></div>
@@ -93,7 +98,7 @@ include_once('model/koneksi.php')
             <?php } else if ($bio == 'dosen') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Data Dosen</h3>
                             <div class="card-tools"></div>
@@ -127,7 +132,7 @@ include_once('model/koneksi.php')
             <?php } else if ($bio == 'tendik') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Data Tendik</h3>
                             <div class="card-tools"></div>
@@ -161,7 +166,7 @@ include_once('model/koneksi.php')
             <?php } else if ($bio == 'ortu') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header">
                             <h3 class="card-title">Data Orang Tua</h3>
                             <div class="card-tools"></div>
@@ -223,7 +228,7 @@ include_once('model/koneksi.php')
             <?php } else if ($bio == 'alumni') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header">
                             <h3 class="card-title">Data Alumni</h3>
                             <div class="card-tools"></div>
@@ -269,7 +274,7 @@ include_once('model/koneksi.php')
             <?php } else if ($bio == 'industri') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1300px; margin: 0 auto">
                         <div class="card-header">
                             <h3 class="card-title">Tambah Data Industri</h3>
                             <div class="card-tools"></div>
@@ -316,6 +321,7 @@ include_once('model/koneksi.php')
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
+        <br><br>
         <?php include_once('layouts/responden/footer.php'); ?>
     </div>
     <!-- ./wrapper -->

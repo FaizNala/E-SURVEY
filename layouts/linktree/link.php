@@ -60,7 +60,7 @@
             width: 90%;
             max-width: 350px;
             padding: 20px 15px;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.5);
             /* Menggunakan warna latar belakang transparan */
             border-radius: 20px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
@@ -174,12 +174,12 @@
             <p>Silakan pilih kategori yang sesuai</p>
         </div>
         <div class="links">
-            <a href="form_biodata.php?bio=mahasiswa" class="link">Mahasiswa</a>
-            <a href="form_biodata.php?bio=dosen" class="link">Dosen</a>
-            <a href="form_biodata.php?bio=tendik" class="link">Tendik</a>
-            <a href="form_biodata.php?bio=ortu" class="link">Orang Tua</a>
-            <a href="form_biodata.php?bio=alumni" class="link">Alumni</a>
-            <a href="form_biodata.php?bio=industri" class="link">Industri</a>
+            <a href="../../form_biodata.php?bio=mahasiswa" class="link">Mahasiswa</a>
+            <a href="../../form_biodata.php?bio=dosen" class="link">Dosen</a>
+            <a href="../../form_biodata.php?bio=tendik" class="link">Tendik</a>
+            <a href="../../form_biodata.php?bio=ortu" class="link">Orang Tua</a>
+            <a href="../../form_biodata.php?bio=alumni" class="link">Alumni</a>
+            <a href="../../form_biodata.php?bio=industri" class="link">Industri</a>
         </div>
     </div>
 </body>

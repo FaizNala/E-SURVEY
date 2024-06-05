@@ -10,10 +10,10 @@ class t_responden_alumni{
 
     public function insertData($data){
         // prepare statement untuk query insert
-        $query = $this->db->prepare("insert into {$this->table} (responden_tanggal, responden_nim, responden_nama, responden_prodi, responden_email, responden_hp, tahun_lulus) values(?,?,?,?,?,?,?)");
+        $query = $this->db->prepare("insert into {$this->table} (survey_id, responden_tanggal, responden_nim, responden_nama, responden_prodi, responden_email, responden_hp, tahun_lulus) values(?,?,?,?,?,?,?)");
 
         // binding parameter ke query, "s" berarti string, "ss" berarti dua string
-        $query->bind_param('sssssss', $data['responden_tanggal'], $data['responden_nim'], $data['responden_nama'], $data['responden_prodi'], $data['responden_email'], $data['responden_hp'], $data['tahun_lulus']);
+        $query->bind_param('isssssss', $data['survey_id'], $data['responden_tanggal'], $data['responden_nim'], $data['responden_nama'], $data['responden_prodi'], $data['responden_email'], $data['responden_hp'], $data['tahun_lulus']);
         
         // eksekusi query untuk menyimpan ke database
         $query->execute();

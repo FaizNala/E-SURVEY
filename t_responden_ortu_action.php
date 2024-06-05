@@ -1,11 +1,17 @@
 <?php 
+session_start();
 include_once('model/t_responden_ortu_model.php');
+include_once('model/m_survey_model.php');
 include_once('model/koneksi.php');
 
+$survey = new Survey($db);
+$idSur = $survey->getSurveyId();
+$nama;
 $act = $_GET['act'];
 
 if($act == 'simpan'){
     $data = [
+        'survey_id' => $idSur,
         'responden_tanggal' => $_POST['responden_tanggal'],
         'responden_nama' => $_POST['responden_nama'],
         'responden_jk' => $_POST['responden_jk'],
@@ -18,7 +24,9 @@ if($act == 'simpan'){
         'mahasiswa_nama' => $_POST['mahasiswa_nama'],
         'mahasiswa_prodi' => $_POST['mahasiswa_prodi']
     ];
-
+    
+    $nama = $_POST['responden_nama'];
+    $_SESSION['nama'] = $nama;
     $insert = new t_responden_ortu($db);
     $insert->insertData($data);
 
