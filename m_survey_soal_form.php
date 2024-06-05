@@ -72,9 +72,9 @@ include_once('model/koneksi.php');
             <div class="card-body">
               <form action="m_survey_soal_action.php?act=simpan" method="post" id="form-tambah">
                 <div class="form-group">
-                  <label for="survey_id">Jenis Survey</label>
+                  <label for="survey_id">Survey</label>
                   <select name="survey_id" id="survey_id" class="form-control">
-                    <option value="" disabled selected>Pilih jenis survey</option>
+                    <option value="" disabled selected>Pilih survey</option>
                     <?php
                       $survey = new Survey($db);
                       $result = $survey->getData();

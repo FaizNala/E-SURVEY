@@ -80,7 +80,7 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_mahasiswa_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
-                                $survey = new SurveySoal($db);
+                                $survey = new SurveySoal();
                                 $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
@@ -146,7 +146,7 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_dosen_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
-                                $survey = new SurveySoal($db);
+                                $survey = new SurveySoal();
                                 $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
@@ -212,7 +212,7 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_tendik_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
-                                $survey = new SurveySoal($db);
+                                $survey = new SurveySoal();
                                 $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
@@ -278,7 +278,7 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_ortu_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
-                                $survey = new SurveySoal($db);
+                                $survey = new SurveySoal();
                                 $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
@@ -344,7 +344,7 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_alumni_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
-                                $survey = new SurveySoal($db);
+                                $survey = new SurveySoal();
                                 $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {
@@ -410,7 +410,7 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_industri_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
-                                $survey = new SurveySoal($db);
+                                $survey = new SurveySoal();
                                 $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                                 if ($result->num_rows > 0) {

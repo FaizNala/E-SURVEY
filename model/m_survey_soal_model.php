@@ -3,7 +3,8 @@ class SurveySoal{
     public $db;
     protected $table = 'm_survey_soal';
 
-    public function __construct($db){
+    public function __construct(){
+        include('koneksi.php');
         $this->db = $db;
         $this->db->set_charset('utf8');
     }

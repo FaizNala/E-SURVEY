@@ -83,7 +83,7 @@ include_once('model/koneksi.php')
                                     <input required type="number" name="tahun_masuk" id="tahun_masuk" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
                                     <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -117,7 +117,7 @@ include_once('model/koneksi.php')
                                     <input required type="text" name="responden_unit" id="responden_unit" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
                                     <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -151,7 +151,7 @@ include_once('model/koneksi.php')
                                     <input required type="text" name="responden_unit" id="responden_unit" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
                                     <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -213,7 +213,7 @@ include_once('model/koneksi.php')
                                     <input required type="text" name="mahasiswa_prodi" id="mahasiswa_prodi" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
                                     <a href="t_responden_tendik.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -259,7 +259,7 @@ include_once('model/koneksi.php')
                                     <input required type="number" name="tahun_lulus" id="tahun_lulus" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
                                     <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -305,7 +305,7 @@ include_once('model/koneksi.php')
                                     <input required type="text" name="responden_kota" id="responden_kota" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
                                     <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>

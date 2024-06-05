@@ -40,12 +40,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="m_survey_soal.php" class="nav-link <?php echo ($menu == 'm_survey_soal') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>Soal Survey</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="m_user.php" class="nav-link <?php echo ($menu == 'm_user') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Pengguna</p>
@@ -63,7 +57,12 @@
                         <p>Survey</p>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="m_survey_soal.php" class="nav-link <?php echo ($menu == 'm_survey_soal') ? 'active' : '' ?>">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Soal Survey</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link <?php echo ($menu == 'mahasiswa' || $menu == 'dosen' || $menu == 'tendik' || $menu == 'ortu' || $menu == 'alumni'|| $menu == 'industri') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-copy"></i>
