@@ -37,7 +37,7 @@ if ($act == 'hapus') {
     $hapus = new t_responden_mahasiswa($db);
     $hapus->deleteData($id);
 
-    header('Location: t_responden_mahasiswa.php');
+    header('Location: t_responden_mahasiswa.php?status=sukses&message=Data berhasil dihapus');
     exit;
 }
 ?>

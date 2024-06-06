@@ -24,7 +24,7 @@ if($act == 'simpan'){
         'mahasiswa_nama' => $_POST['mahasiswa_nama'],
         'mahasiswa_prodi' => $_POST['mahasiswa_prodi']
     ];
-    
+
     $nama = $_POST['responden_nama'];
     $_SESSION['nama'] = $nama;
     $insert = new t_responden_ortu($db);
@@ -39,6 +39,6 @@ if($act == 'hapus'){
     $hapus = new t_responden_ortu($db);
     $hapus->deleteData($id);
 
-    header('location: t_responden_ortu_form.php?');
+    header('location: t_responden_ortu_form.php?status=sukses&message=Data berhasil dihapus');
 }
 ?>

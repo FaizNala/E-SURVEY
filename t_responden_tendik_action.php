@@ -33,6 +33,6 @@ if($act == 'hapus'){
     $hapus = new t_responden_tendik($db);
     $hapus->deleteData($id);
 
-    header('location: t_responden_tendik_form.php?');
+    header('location: t_responden_tendik_form.php?status=sukses&message=Data berhasil dihapus');
 }
 ?>

@@ -37,5 +37,5 @@ if ($act == 'hapus') {
    $hapus = new t_responden_industri($db);
    $hapus->deleteData($id);
 
-   header('location: t_responden_industri.php');
+   header('location: t_responden_industri.php?status=sukses&message=Data berhasil dihapus');
 }

@@ -22,7 +22,7 @@ if ($act == 'simpan') {
     }
     echo 'berhasil';
     // Redirect setelah sukses menyimpan data
-    header('Location: t_responden_ortu_form.php');
+    header('Location: layouts/terima_kasih.php');
     exit();
 }
 
@@ -32,7 +32,7 @@ if ($act == 'hapus') {
     $hapus = new t_jawaban_ortu($db);
     $hapus->deleteData($id);
 
-    header('Location: t_responden_alumni_form.php');
+    header('Location: t_responden_ortu.php');
     exit();
 }
 ?>

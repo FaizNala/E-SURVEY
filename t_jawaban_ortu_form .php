@@ -61,7 +61,7 @@ include_once('model/m_survey_soal_model.php')
                         <form action="t_jawaban_ortu_action.php?act=simpan" method="post" id="form-tambah">
                             <?php
                             include_once('model/koneksi.php');
-                            $survey = new SurveySoal($db);
+                            $survey = new SurveySoal();
                             $result = $survey->getQuestionTypeRating();
 
                             if ($result->num_rows > 0) {

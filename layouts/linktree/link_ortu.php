@@ -20,14 +20,15 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #ffcc00, #ff66cc);
-            /* Menggunakan kombinasi warna yang lebih terang */
+            background: linear-gradient(135deg, #4e73df, #bdc3c7);
+            /* Menggunakan kombinasi warna biru dan abu-abu */
             overflow: hidden;
             position: relative;
             background-size: 200% 200%;
             animation: gradient 15s ease infinite;
             transition: background-position 2s;
         }
+
 
         @keyframes gradient {
             0% {
@@ -60,8 +61,8 @@
             width: 90%;
             max-width: 350px;
             padding: 20px 15px;
-            background: rgba(255, 255, 255, 0.5);
-            /* Menggunakan warna latar belakang transparan */
+            background: rgba(255, 255, 255, 0.7);
+            /* Warna putih dengan kecerahan 70% */
             border-radius: 20px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
@@ -70,6 +71,11 @@
             overflow: hidden;
             position: relative;
             z-index: 2;
+        }
+
+        .container:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            /* Warna putih dengan kecerahan 80% saat dihover */
         }
 
         .container::before {
@@ -169,17 +175,11 @@
 <body>
     <div class="container">
         <div class="profile">
-            <img src="dist/img/LogoPolinema.png" alt="Profile Picture" class="profile-img">
-            <h1>Survey Kepuasan Pelanggan</h1>
-            <p>Silakan pilih kategori yang sesuai</p>
+            <img src="../../dist/img/LogoPolinema.png" alt="Profile Picture" class="profile-img">
+            <h1>Survey Kepuasan Orang Tua</h1>
         </div>
         <div class="links">
-            <a href="../../form_biodata.php?bio=mahasiswa" class="link">Mahasiswa</a>
-            <a href="../../form_biodata.php?bio=dosen" class="link">Dosen</a>
-            <a href="../../form_biodata.php?bio=tendik" class="link">Tendik</a>
-            <a href="../../form_biodata.php?bio=ortu" class="link">Orang Tua</a>
-            <a href="../../form_biodata.php?bio=alumni" class="link">Alumni</a>
-            <a href="../../form_biodata.php?bio=industri" class="link">Industri</a>
+            <a href="../../form_biodata.php?bio=ortu" class="link">Kerjakan</a>
         </div>
     </div>
 </body>

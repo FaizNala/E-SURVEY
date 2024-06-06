@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #7F00FF, #E100FF, #FFD700, #FF8C00, #FF4500);
+            background: linear-gradient(135deg, #0c2461, #3498db, #bdc3c7);
             background-size: 500% 500%;
             animation: gradientBG 15s ease infinite;
             color: #fff;
@@ -21,9 +22,11 @@
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
@@ -79,9 +82,12 @@
         }
 
         @keyframes bounce {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-20px);
             }
@@ -91,22 +97,27 @@
             .content {
                 padding: 30px;
             }
+
             h1 {
                 font-size: 36px;
             }
+
             p {
                 font-size: 20px;
             }
+
             .btn {
                 padding: 10px 20px;
                 font-size: 16px;
             }
+
             .icon {
                 font-size: 60px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="content">
@@ -119,4 +130,5 @@
         </div>
     </div>
 </body>
+
 </html>
