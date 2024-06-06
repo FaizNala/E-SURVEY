@@ -1,6 +1,6 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) 
+        session_start();
 ?>
 
 <!DOCTYPE html>
@@ -18,34 +18,38 @@ if (session_status() === PHP_SESSION_NONE)
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
-  <!-- messages_id -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h2"><b>Survey</b></a><br>
-      <a href="#" class="h3">Kepuasan Pelanggan</a>
+      <a href="#" class="h1"><b>Admin</b>Survey</a>
     </div>
-    <div class="card-body">
+    <div class="card-body" >
       <p align="center"><img src="dist/img/LogoPolinema.png" alt="LogoPolinema" width="180"></p>
       <p class="login-box-msg">Sign in to start your session</p>
 
       <!-- Error Message Container -->
-      <div id="error-message"></div>
-
+      <?php
+        if (isset($_GET['error'])) {
+          $error = $_GET['error'];
+          if ($error === 'invalidPass') {
+            echo '<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    Invalid password!
+                  </div>';
+          } else if ($error === 'invalidUser') {
+            echo '<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    Username not found!
+                  </div>';
+          } 
+        }
+      ?>
+      
       <form action="cek_login.php" method="post">
         <div class="input-group mb-3">
-          <select name="user" class="form-control" required>
-            <option value="" disabled selected>Pilih Jenis Pengguna</option>
-            <option value="mahasiswa">Mahasiswa</option>
-            <option value="dosen">Dosen</option>
-            <option value="tendik">Tendik</option>
-            <option value="ortu">Orang Tua</option>
-            <option value="alumni">Alumni</option>
-            <option value="industri">Industri</option>
-          </select>
+        <input type="text" name="username" class="form-control" placeholder="Username"  value="<?php if (isset($_COOKIE["username"])) { echo $_COOKIE['username']; }?>" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -53,18 +57,17 @@ if (session_status() === PHP_SESSION_NONE)
           </div>
         </div>
         <div class="input-group mb-3">
-        <input type="text" name="nama" class="form-control" placeholder="nama"  value="<?php if (isset($_COOKIE["nama"])) { echo $_COOKIE['nama']; }?>" required>
+        <input type="password" name="password" class="form-control" placeholder="Password" <?php if (isset($_COOKIE["password"])) {?> value="<?php echo $_COOKIE['password']; }?>" required>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-lock"></span>
             </div>
           </div>
         </div>
-        <p align="center"><a href="login2.php">Login Sebagai Admin</a></p>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember">
+              <input type="checkbox" id="remember" name="remember">
               <label for="remember">
                 Remember Me
               </label>
@@ -75,6 +78,7 @@ if (session_status() === PHP_SESSION_NONE)
           </div>
         </div>
       </form>
+    
     </div>
   </div>
 </div>

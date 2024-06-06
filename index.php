@@ -1,13 +1,12 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE) 
-        session_start();
+session_start();
 
-    if (empty($_SESSION['username'])) {
-        header("Location: login.php");
-        exit;
-    }
+if (empty($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
 
-    $menu = 'index';
+$menu = 'index';
 ?>
 
 <!DOCTYPE html>
