@@ -114,7 +114,7 @@
               <?php
               $id = $_GET['id'];
 
-              $survey = new Survey($db);
+              $survey = new Survey();
               $data = $survey->getDataById($id);
 
               $data = $data->fetch_assoc();

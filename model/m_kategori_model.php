@@ -61,4 +61,5 @@ class m_kategori{
         // eksekusi query
         $query->execute();
     }
+
 }
