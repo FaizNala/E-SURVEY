@@ -4,7 +4,7 @@ include_once('model/t_responden_alumni_model.php');
 include_once('model/m_survey_model.php');
 include_once('model/koneksi.php');
 
-$survey = new Survey($db);
+$survey = new Survey();
 $idSur = $survey->getSurveyId();
 $nama;
 

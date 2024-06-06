@@ -4,7 +4,7 @@ include_once('model/t_responden_mahasiswa_model.php');
 include_once('model/m_survey_model.php');
 include_once('model/koneksi.php');
 
-$survey = new Survey($db);
+$survey = new Survey();
 $idSur = $survey->getSurveyId();
 $nama;
 
@@ -27,7 +27,7 @@ if ($act == 'simpan') {
     $insert = new t_responden_mahasiswa($db);
     $insert->insertData($data);
 
-    header('Location: form_soal.php?pages=mahasiswa');
+    header('Location: kategori_survey_form.php?pages=mahasiswa');
     exit;
 }
 

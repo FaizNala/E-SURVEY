@@ -89,7 +89,7 @@ session_start();
             </thead>
             <tbody>
               <?php 
-                $survey = new Survey($db);
+                $survey = new Survey();
                 $list = $survey->getData();
 
                 $i = 1;

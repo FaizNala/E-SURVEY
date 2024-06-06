@@ -4,7 +4,7 @@ include_once('model/t_responden_dosen_model.php');
 include_once('model/m_survey_model.php');
 include_once('model/koneksi.php');
 
-$survey = new Survey($db);
+$survey = new Survey();
 $idSur = $survey->getSurveyId();
 $nama;
 $act = $_GET['act'];
@@ -22,7 +22,7 @@ if($act == 'simpan'){
     $insert = new t_responden_dosen($db);
     $insert->insertData($data);
 
-    header('Location: form_soal.php?pages=dosen');
+    header('Location: kategori_survey_form.php?pages=dosen');
 }
 
 if($act == 'hapus'){

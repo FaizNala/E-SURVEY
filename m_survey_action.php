@@ -18,7 +18,7 @@ if ($act == 'simpan') {
         'survey_tanggal' => $_POST['survey_tanggal']
     ];
 
-    $insert = new Survey($db);
+    $insert = new Survey();
     $insert->insertData($data);
 
     header('location: m_survey.php?status=sukses&message=Data berhasil disimpan');
@@ -35,7 +35,7 @@ if ($act == 'edit') {
         'survey_tanggal' => $_POST['survey_tanggal']
     ];
 
-    $update = new Survey($db);
+    $update = new Survey();
     $update->updateData($id, $data);
 
     header('location: m_survey.php?status=sukses&message=Data berhasil diubah');
@@ -44,7 +44,7 @@ if ($act == 'edit') {
 if ($act == 'hapus') {
     $id = $_GET['id'];
 
-    $hapus = new Survey($db);
+    $hapus = new Survey();
     $hapus->deleteData($id);
 
     header('location: m_survey.php?status=sukses&message=Data berhasil dihapus');

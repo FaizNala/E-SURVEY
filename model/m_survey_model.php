@@ -3,8 +3,8 @@ class Survey{
     public $db;
     protected $table = 'm_survey';
 
-    public function __construct($db){
-        include_once('model/koneksi.php');
+    public function __construct(){
+        include('model/koneksi.php');
         $this->db = $db;
         $this->db->set_charset('utf8');
     }
