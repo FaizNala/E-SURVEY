@@ -17,7 +17,7 @@ if ($act == 'simpan') {
             'soal_id' => $soal_id,
             'jawaban' => $jawaban,
         ];
-        $insert = new t_jawaban_alumni($db);
+        $insert = new t_jawaban_alumni();
         $insert->insertData($data);
     }
     echo 'berhasil';
@@ -29,7 +29,7 @@ if ($act == 'simpan') {
 if ($act == 'hapus') {
     $id = $_GET['id'];
 
-    $hapus = new t_jawaban_alumni($db);
+    $hapus = new t_jawaban_alumni();
     $hapus->deleteData($id);
 
     header('Location: t_responden_alumni.php');

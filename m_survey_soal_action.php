@@ -14,7 +14,7 @@ include_once('model/koneksi.php');
         'soal_nama' => $_POST['soal_nama']
     ];
 
-    $insert = new SurveySoal($db);
+    $insert = new SurveySoal();
     $insert->insertData($data);
 
     header('location: m_survey_soal.php?status=sukses&message=Data berhasil disimpan');
@@ -31,7 +31,7 @@ include_once('model/koneksi.php');
       'soal_nama' => $_POST['soal_nama']
     ];
 
-    $update = new SurveySoal($db);
+    $update = new SurveySoal();
     $update->updateData($id, $data);
 
     header('location: m_survey_soal.php?status=sukses&message=Data berhasil diubah');
@@ -40,7 +40,7 @@ include_once('model/koneksi.php');
  if($act == 'hapus'){
     $id = $_GET['id'];
 
-    $hapus = new SurveySoal($db);
+    $hapus = new SurveySoal();
     $hapus->deleteData($id);
 
     header('location: m_survey_soal.php?status=sukses&message=Data berhasil dihapus');

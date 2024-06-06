@@ -77,7 +77,7 @@ include_once('./cek_login.php');
                         <form action="t_jawaban_mahasiswa_action.php?act=simpan" method="post" id="form-tambah">
                             <?php
                             include_once('model/koneksi.php');
-                            $survey = new SurveySoal($db);
+                            $survey = new SurveySoal();
                             $result = $survey->getQuestionTypeRatingToMahasiswa();
 
                             if ($result->num_rows > 0) {

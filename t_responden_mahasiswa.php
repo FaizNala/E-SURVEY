@@ -49,12 +49,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Respon Mahasiswa</h1>
+              <h1>Responden Mahasiswa</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Respon Mahasiswa</li>
+                <li class="breadcrumb-item active">Responden Mahasiswa</li>
               </ol>
             </div>
           </div>
@@ -106,7 +106,7 @@
                       <td>'.$row['responden_hp'].'</td>
                       <td>'.$row['tahun_masuk'].'</td>
                       <td>
-                        <a title="Jawaban" href="t_jawaban_mahasiswa?act=show&id='.$row['responden_mahasiswa_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
+                        <a title="Jawaban" href="t_jawaban_mahasiswa.php?show=mahasiswa&id='.$row['responden_mahasiswa_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
                         <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_mahasiswa_action.php?act=hapus&id='.$row['responden_mahasiswa_id'].'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                       </td>
       

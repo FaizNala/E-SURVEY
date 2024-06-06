@@ -3,7 +3,8 @@ class t_jawaban_industri {
     public $db;
     protected $table = 't_jawaban_industri';
 
-    public function __construct($db) {
+    public function __construct() {
+        include('model/koneksi.php');
         $this->db = $db;
         $this->db->set_charset('utf8');
     }

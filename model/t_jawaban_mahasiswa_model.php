@@ -3,7 +3,8 @@ class t_jawaban_mahasiswa {
     public $db;
     protected $table = 't_jawaban_mahasiswa';
 
-    public function __construct($db) {
+    public function __construct() {
+        include('model/koneksi.php');
         $this->db = $db;
         $this->db->set_charset('utf8');
     }
@@ -29,7 +30,7 @@ class t_jawaban_mahasiswa {
 
     public function getDataById($id) {
         // query untuk mengambil data berdasarkan id
-        $query = $this->db->prepare("SELECT * FROM {$this->table} WHERE t_jawaban_mahasiswa_id = ?");
+        $query = $this->db->prepare("SELECT * FROM {$this->table} WHERE responden_mahasiswa_id = ?");
         
         // binding parameter ke query "i" berarti integer. Biar tidak kena SQL Injection
         $query->bind_param('i', $id);
@@ -73,5 +74,19 @@ class t_jawaban_mahasiswa {
         // Tutup statement setelah selesai
         $query->close();
     }
+
+    public function getNamebyId($id) {
+        // query untuk mengambil data berdasarkan id
+        $query = $this->db->prepare("SELECT r.responden_nama FROM {$this->table} t JOIN t_responden_mahasiswa r ON t.responden_mahasiswa_id = r.responden_mahasiswa_id WHERE t.responden_mahasiswa_id = ?");
+        
+        // binding parameter ke query "i" berarti integer. Biar tidak kena SQL Injection
+        $query->bind_param('i', $id);
+        $query->execute();
+        
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        
+        return $row['responden_nama'];
+    }    
 }
 ?>

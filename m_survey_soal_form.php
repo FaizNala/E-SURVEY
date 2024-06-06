@@ -76,7 +76,7 @@ include_once('model/koneksi.php');
                   <select name="survey_id" id="survey_id" class="form-control">
                     <option value="" disabled selected>Pilih survey</option>
                     <?php
-                      $survey = new Survey($db);
+                      $survey = new Survey();
                       $result = $survey->getData();
                       while ($row = $result->fetch_assoc()) {
                         echo "<option value='". $row['survey_id']. "'>". $row['survey_nama']. "</option>";
@@ -148,7 +148,7 @@ include_once('model/koneksi.php');
                     <option value="" disabled selected>Pilih jenis survey</option>
                     <?php
                       include "model/koneksi.php";
-                      $survey = new Survey($db);
+                      $survey = new Survey();
                       $result = $survey->getData();
                       while ($row = $result->fetch_assoc()) {
                         echo "<option value='". $row['survey_id']. "'" . ($row['survey_id'] == $data['survey_id'] ? " selected" : "") . ">". $row['survey_nama']. "</option>";
