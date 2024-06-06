@@ -6,7 +6,27 @@
             include_once('kategori_survey_form.php');
             include('model/m_survey_model.php');
             $survey = new Survey();
-            $result = $survey->getData();
+
+            if ($pages == 'mahasiswa') {
+                $result = $survey->getDataMahasiswa();
+            
+            } else if ($pages == 'dosen') { 
+                $result = $survey->getDataDosen();
+            
+            } else if ($pages == 'tendik') { 
+                $result = $survey->getDataTendik();
+                
+            } else if ($pages == 'ortu') { 
+                $result = $survey->getDataOrtu();
+                
+            } else if ($pages == 'alumni') { 
+                $result = $survey->getDataAlumni();
+                
+            } else if ($pages == 'industri') { 
+                $result = $survey->getDataIndustri();
+            } else {
+                $result = NULL;
+            }
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
