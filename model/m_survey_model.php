@@ -76,4 +76,29 @@ class Survey{
             return null;
         }
     }
+
+    public function getDataMahasiswa(){
+        // query untuk mengambil data dari tabel survey_soal
+        return $this->db->query("select * from {$this->table} WHERE survey_jenis = 'mahasiswa'");
+    }
+    public function getDataDosen(){
+        // query untuk mengambil data dari tabel survey_soal
+        return $this->db->query("select * from {$this->table} WHERE survey_jenis = 'dosen'");
+    }
+    public function getDataTendik(){
+        // query untuk mengambil data dari tabel survey_soal
+        return $this->db->query("select * from {$this->table} WHERE survey_jenis = 'tendik'");
+    }
+    public function getDataOrtu(){
+        // query untuk mengambil data dari tabel survey_soal
+        return $this->db->query("select * from {$this->table} WHERE survey_jenis = 'ortu'");
+    }
+    public function getDataAlumni(){
+        // query untuk mengambil data dari tabel survey_soal
+        return $this->db->query("select * from {$this->table} WHERE survey_jenis = 'alumni'");
+    }
+    public function getDataIndustri(){
+        // query untuk mengambil data dari tabel survey_soal
+        return $this->db->query("select * from {$this->table} WHERE survey_jenis = 'industri'");
+    }
 }
