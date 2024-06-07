@@ -46,15 +46,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="m_kategori.php" class="nav-link <?php echo ($menu == 'm_kategori') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>Kategori</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a href="m_survey.php" class="nav-link <?php echo ($menu == 'm_survey') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Survey</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="m_kategori.php" class="nav-link <?php echo ($menu == 'm_kategori') ? 'active' : '' ?>">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>Kategori</p>
                     </a>
                 </li>
                 <li class="nav-item">

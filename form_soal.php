@@ -10,7 +10,7 @@ include_once('model/koneksi.php')
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Survey Mahasiswa</title>
+    <title>Survey</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -72,7 +72,7 @@ include_once('model/koneksi.php')
             ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
+                    <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -80,55 +80,65 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_mahasiswa_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
+                                include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionTypeRatingToMahasiswa();
+                                $result = $survey->getQuestionToMahasiswa();
 
                                 if ($result->num_rows > 0) {
-                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
+                                        if ($row['soal_jenis'] == 'rating') {
                                 ?>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <h4><?php echo htmlspecialchars($row['soal_nama']); ?></h4>
-                                                    </label><br><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Tidak Puas" required class="form-check-input">
-                                                        <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Kurang Puas" required class="form-check-input">
-                                                        <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Puas" required class="form-check-input">
-                                                        <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
+                                                            <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="2" required class="form-check-input">
+                                                            <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="3" required class="form-check-input">
+                                                            <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
+                                                            <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="question-divider"></div>
+                                            <div class="question-divider"></div>
+                                        <?php
+                                        } else if ($row['soal_jenis'] == 'esai') {
+                                        ?>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <textarea class="form-control" name="jawaban[<?php echo $soal_id; ?>]" rows="3" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="question-divider"></div>
                                 <?php
+                                        }
                                     }
+                                    $result->close();
                                 } else {
-                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
-                                $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -138,7 +148,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'dosen') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
+                    <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -146,55 +156,65 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_dosen_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
+                                include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionTypeRatingToMahasiswa();
+                                $result = $survey->getQuestionToDosen();
 
                                 if ($result->num_rows > 0) {
-                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
+                                        if ($row['soal_jenis'] == 'rating') {
                                 ?>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <h4><?php echo htmlspecialchars($row['soal_nama']); ?></h4>
-                                                    </label><br><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Tidak Puas" required class="form-check-input">
-                                                        <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Kurang Puas" required class="form-check-input">
-                                                        <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Puas" required class="form-check-input">
-                                                        <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
+                                                            <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="2" required class="form-check-input">
+                                                            <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="3" required class="form-check-input">
+                                                            <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
+                                                            <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="question-divider"></div>
+                                            <div class="question-divider"></div>
+                                        <?php
+                                        } else if ($row['soal_jenis'] == 'esai') {
+                                        ?>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <textarea class="form-control" name="jawaban[<?php echo $soal_id; ?>]" rows="3" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="question-divider"></div>
                                 <?php
+                                        }
                                     }
+                                    $result->close();
                                 } else {
-                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
-                                $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -204,7 +224,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'tendik') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
+                    <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -212,55 +232,65 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_tendik_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
+                                include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionTypeRatingToMahasiswa();
+                                $result = $survey->getQuestionToTendik();
 
                                 if ($result->num_rows > 0) {
-                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
+                                        if ($row['soal_jenis'] == 'rating') {
                                 ?>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <h4><?php echo htmlspecialchars($row['soal_nama']); ?></h4>
-                                                    </label><br><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Tidak Puas" required class="form-check-input">
-                                                        <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Kurang Puas" required class="form-check-input">
-                                                        <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Puas" required class="form-check-input">
-                                                        <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
+                                                            <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="2" required class="form-check-input">
+                                                            <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="3" required class="form-check-input">
+                                                            <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
+                                                            <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="question-divider"></div>
+                                            <div class="question-divider"></div>
+                                        <?php
+                                        } else if ($row['soal_jenis'] == 'esai') {
+                                        ?>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <textarea class="form-control" name="jawaban[<?php echo $soal_id; ?>]" rows="3" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="question-divider"></div>
                                 <?php
+                                        }
                                     }
+                                    $result->close();
                                 } else {
-                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
-                                $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -270,7 +300,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'ortu') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
+                    <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -278,55 +308,65 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_ortu_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
+                                include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionTypeRatingToMahasiswa();
+                                $result = $survey->getQuestionToOrtu();
 
                                 if ($result->num_rows > 0) {
-                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
+                                        if ($row['soal_jenis'] == 'rating') {
                                 ?>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <h4><?php echo htmlspecialchars($row['soal_nama']); ?></h4>
-                                                    </label><br><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Tidak Puas" required class="form-check-input">
-                                                        <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Kurang Puas" required class="form-check-input">
-                                                        <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Puas" required class="form-check-input">
-                                                        <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
+                                                            <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="2" required class="form-check-input">
+                                                            <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="3" required class="form-check-input">
+                                                            <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
+                                                            <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="question-divider"></div>
+                                            <div class="question-divider"></div>
+                                        <?php
+                                        } else if ($row['soal_jenis'] == 'esai') {
+                                        ?>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <textarea class="form-control" name="jawaban[<?php echo $soal_id; ?>]" rows="3" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="question-divider"></div>
                                 <?php
+                                        }
                                     }
+                                    $result->close();
                                 } else {
-                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
-                                $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -336,7 +376,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'alumni') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
+                    <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -344,55 +384,65 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_alumni_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
+                                include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionTypeRatingToMahasiswa();
+                                $result = $survey->getQuestionToAlumni();
 
                                 if ($result->num_rows > 0) {
-                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
+                                        if ($row['soal_jenis'] == 'rating') {
                                 ?>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <h4><?php echo htmlspecialchars($row['soal_nama']); ?></h4>
-                                                    </label><br><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Tidak Puas" required class="form-check-input">
-                                                        <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Kurang Puas" required class="form-check-input">
-                                                        <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Puas" required class="form-check-input">
-                                                        <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
+                                                            <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="2" required class="form-check-input">
+                                                            <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="3" required class="form-check-input">
+                                                            <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
+                                                            <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="question-divider"></div>
+                                            <div class="question-divider"></div>
+                                        <?php
+                                        } else if ($row['soal_jenis'] == 'esai') {
+                                        ?>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <textarea class="form-control" name="jawaban[<?php echo $soal_id; ?>]" rows="3" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="question-divider"></div>
                                 <?php
+                                        }
                                     }
+                                    $result->close();
                                 } else {
-                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
-                                $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
@@ -402,7 +452,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'industri') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
+                    <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools"></div>
@@ -410,55 +460,65 @@ include_once('model/koneksi.php')
                         <div class="card-body" align="center">
                             <form action="t_jawaban_industri_action.php?act=simpan" method="post" id="form-tambah">
                                 <?php
+                                include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionTypeRatingToMahasiswa();
+                                $result = $survey->getQuestionToIndusti();
 
                                 if ($result->num_rows > 0) {
-                                    $display = '';
                                     while ($row = $result->fetch_assoc()) {
                                         $soal_id = $row['soal_id'];
+                                        if ($row['soal_jenis'] == 'rating') {
                                 ?>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="form-group">
-                                                    <label>
-                                                        <h4><?php echo htmlspecialchars($row['soal_nama']); ?></h4>
-                                                    </label><br><br>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Tidak Puas" required class="form-check-input">
-                                                        <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Kurang Puas" required class="form-check-input">
-                                                        <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Puas" required class="form-check-input">
-                                                        <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                        <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="Sangat Sangat Puas" required class="form-check-input">
-                                                        <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
+                                                            <label for="tidak_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-frown fa-3x"></i><br>1</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="kurang_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="2" required class="form-check-input">
+                                                            <label for="kurang_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-meh fa-3x"></i><br>2</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="3" required class="form-check-input">
+                                                            <label for="puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-smile fa-3x"></i><br>3</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
+                                                            <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <div class="question-divider"></div>
+                                            <div class="question-divider"></div>
+                                        <?php
+                                        } else if ($row['soal_jenis'] == 'esai') {
+                                        ?>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                        </label><br><br>
+                                                        <textarea class="form-control" name="jawaban[<?php echo $soal_id; ?>]" rows="3" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="question-divider"></div>
                                 <?php
+                                        }
                                     }
+                                    $result->close();
                                 } else {
-                                    $display = 'none';
                                     echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                                 }
-                                $result->close();
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan" style="display:<?php echo $display;?>">Simpan</button>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>

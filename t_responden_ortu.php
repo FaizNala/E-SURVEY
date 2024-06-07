@@ -113,7 +113,7 @@
                       <td>'.$row['mahasiswa_nama'].'</td>
                       <td>'.$row['mahasiswa_prodi'].'</td>
                       <td>
-                        <a title="Jawaban" href="t_jawaban_ortu?act=show&id='.$row['responden_ortu_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
+                        <a title="Jawaban" href="jawaban_responden.php?show=ortu&id='.$row['responden_ortu_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
                         <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_ortu_action.php?act=hapus&id='.$row['responden_ortu_id'].'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                       </td>
       
@@ -127,7 +127,6 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            Footer
           </div>
           <!-- /.card-footer-->
         </div>

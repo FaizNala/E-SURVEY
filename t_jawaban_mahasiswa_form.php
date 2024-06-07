@@ -78,17 +78,18 @@ include_once('./cek_login.php');
                             <?php
                             include_once('model/koneksi.php');
                             $survey = new SurveySoal();
-                            $result = $survey->getQuestionTypeRatingToMahasiswa();
+                            $result = $survey->getQuestionToMahasiswa();
 
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
                                     $soal_id = $row['soal_id'];
+                                    if ($row['soal_jenis'] == 'rating') {
                             ?>
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label>
-                                                    <h4><?php echo $row['soal_nama']?></h4>
+                                                    <h4><?php echo $row['soal_nama'] ?></h4>
                                                 </label><br><br>
                                                 <div class="form-check form-check-inline">
                                                     <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
@@ -111,11 +112,26 @@ include_once('./cek_login.php');
                                     </div>
                                     <div class="question-divider"></div>
                             <?php
+                                    } else if ($row['soal_jenis'] == 'esai') {
+                            ?>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label>
+                                                    <h4><?php echo $row['soal_nama'] ?></h4>
+                                                </label><br><br>
+                                                <textarea class="form-control" name="jawaban[<?php echo $soal_id; ?>]" rows="3" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="question-divider"></div>
+                            <?php
+                                    }
                                 }
+                                $result->close();
                             } else {
                                 echo "<p>Tidak ada pertanyaan survey yang tersedia.</p>";
                             }
-                            $result->close();
                             ?>
                             <div class="form-group">
                                 <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
@@ -143,4 +159,7 @@ include_once('./cek_login.php');
     <script src="dist/js/demo.js"></script>
     <script src="plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="plugins/jquery-validation/additional-methods.min.js"></script>
-    <script src="plugins/jquery-validation/localization/messages_id.min.js
+    <script src="plugins/jquery-validation/localization/messages_id.min.js"></script>
+</body>
+
+</html>

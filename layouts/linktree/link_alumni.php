@@ -179,7 +179,7 @@
             <h1>Survey Kepuasan Alumni</h1>
         </div>
         <div class="links">
-            <a href="../../form_biodata.php?bio=alumni" class="link">Kerjakan</a>
+            <a href="../../form_biodata.php?bio=alumni" class="link">Mulai</a>
         </div>
     </div>
 </body>

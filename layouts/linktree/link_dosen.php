@@ -179,7 +179,7 @@
             <h1>Survey Kepuasan Dosen</h1>
         </div>
         <div class="links">
-            <a href="../../form_biodata.php?bio=dosen" class="link">Kerjakan</a>
+            <a href="../../form_biodata.php?bio=dosen" class="link">Mulai</a>
         </div>
     </div>
 </body>

@@ -49,7 +49,7 @@ class t_jawaban_alumni {
 
     public function updateData($id, $data) {
         // query untuk update data
-        $query = $this->db->prepare("UPDATE {$this->table} SET jawaban = ? WHERE t_jawaban_alumni_id = ?");
+        $query = $this->db->prepare("UPDATE {$this->table} SET jawaban = ? WHERE responden_alumni_id = ?");
 
         // binding parameter ke query
         $query->bind_param('si', $data['jawaban'], $id);
@@ -73,6 +73,20 @@ class t_jawaban_alumni {
 
         // Tutup statement setelah selesai
         $query->close();
+    }
+
+    public function getNamebyId($id) {
+        // query untuk mengambil data berdasarkan id
+        $query = $this->db->prepare("SELECT r.responden_nama FROM {$this->table} t JOIN t_responden_alumni r ON t.responden_alumni_id = r.responden_alumni_id WHERE t.responden_alumni_id = ?");
+        
+        // binding parameter ke query "i" berarti integer. Biar tidak kena SQL Injection
+        $query->bind_param('i', $id);
+        $query->execute();
+        
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        
+        return $row['responden_nama'];
     }
 }
 ?>

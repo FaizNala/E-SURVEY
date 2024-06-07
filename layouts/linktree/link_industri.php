@@ -179,7 +179,7 @@
             <h1>Survey Kepuasan Industri</h1>
         </div>
         <div class="links">
-            <a href="../../form_biodata.php?bio=industri" class="link">Kerjakan</a>
+            <a href="../../form_biodata.php?bio=industri" class="link">Mulai</a>
         </div>
     </div>
 </body>

@@ -106,7 +106,7 @@
                       <td>'.$row['responden_hp'].'</td>
                       <td>'.$row['responden_kota'].'</td>
                       <td>
-                        <a title="Jawaban" href="t_jawaban_industri?act=show&id='.$row['responden_industri_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
+                        <a title="Jawaban" href="jawaban_responden.php?show=industri&id='.$row['responden_industri_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
                         <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_industri_action.php?act=hapus&id='.$row['responden_industri_id'].'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                       </td>
       
@@ -120,7 +120,6 @@
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
-            Footer
           </div>
           <!-- /.card-footer-->
         </div>

@@ -116,7 +116,6 @@ session_start();
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-          Footer
         </div>
         <!-- /.card-footer-->
       </div>

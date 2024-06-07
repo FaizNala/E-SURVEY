@@ -179,7 +179,7 @@
             <h1>Survey Kepuasan Tendik</h1>
         </div>
         <div class="links">
-            <a href="../../form_biodata.php?bio=tendik" class="link">Kerjakan</a>
+            <a href="../../form_biodata.php?bio=tendik" class="link">Mulai</a>
         </div>
     </div>
 </body>

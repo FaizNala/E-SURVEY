@@ -94,7 +94,6 @@ include_once('model/koneksi.php');
                       $result = $survey->getData();
                       while ($row = $result->fetch_assoc()) {
                         echo "<option value='". $row['kategori_id']. "'>". $row['kategori_nama']. "</option>";
-                        $row = $result->fetch_assoc();
                       }
                     ?>
                   </select>
@@ -167,7 +166,6 @@ include_once('model/koneksi.php');
                       $result = $survey->getData();
                       while ($row = $result->fetch_assoc()) {
                         echo "<option value='". $row['kategori_id']. "'" . ($row['kategori_id'] == $data['kategori_id'] ? " selected" : "") . ">". $row['kategori_nama']. "</option>";
-                        $row = $result->fetch_assoc();
                       }
                     ?>
                   </select>

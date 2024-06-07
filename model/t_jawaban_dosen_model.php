@@ -30,7 +30,7 @@ class t_jawaban_dosen {
 
     public function getDataById($id) {
         // query untuk mengambil data berdasarkan id
-        $query = $this->db->prepare("SELECT * FROM {$this->table} WHERE t_jawaban_dosen_id = ?");
+        $query = $this->db->prepare("SELECT * FROM {$this->table} WHERE responden_dosen_id = ?");
         
         // binding parameter ke query "i" berarti integer. Biar tidak kena SQL Injection
         $query->bind_param('i', $id);
@@ -73,6 +73,20 @@ class t_jawaban_dosen {
 
         // Tutup statement setelah selesai
         $query->close();
+    }
+
+    public function getNamebyId($id) {
+        // query untuk mengambil data berdasarkan id
+        $query = $this->db->prepare("SELECT r.responden_nama FROM {$this->table} t JOIN t_responden_dosen r ON t.responden_dosen_id = r.responden_dosen_id WHERE t.responden_dosen_id = ?");
+        
+        // binding parameter ke query "i" berarti integer. Biar tidak kena SQL Injection
+        $query->bind_param('i', $id);
+        $query->execute();
+        
+        $result = $query->get_result();
+        $row = $result->fetch_assoc();
+        
+        return $row['responden_nama'];
     }
 }
 ?>
