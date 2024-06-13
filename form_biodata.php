@@ -28,7 +28,6 @@ $_SESSION['user'] = $user;
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
-        <?php include_once('layouts/responden/header.php'); ?>
         <!-- /.navbar -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -52,10 +51,14 @@ $_SESSION['user'] = $user;
             ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Data Mahasiswa</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <form action="t_responden_mahasiswa_action.php?act=simpan" method="post" id="form-tambah">
@@ -89,7 +92,7 @@ $_SESSION['user'] = $user;
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
-                                    <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
+                                    <a href="layouts/linktree/link_mahasiswa.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
                         </div>
@@ -98,10 +101,14 @@ $_SESSION['user'] = $user;
             <?php } else if ($bio == 'dosen') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Data Dosen</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <form action="t_responden_dosen_action.php?act=simpan" method="post" id="form-tambah">
@@ -123,7 +130,7 @@ $_SESSION['user'] = $user;
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
-                                    <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
+                                    <a href="layouts/linktree/link_dosen.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
                         </div>
@@ -132,10 +139,14 @@ $_SESSION['user'] = $user;
             <?php } else if ($bio == 'tendik') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Data Tendik</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <form action="t_responden_tendik_action.php?act=simpan" method="post" id="form-tambah">
@@ -157,7 +168,7 @@ $_SESSION['user'] = $user;
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
-                                    <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
+                                    <a href="layouts/linktree/link_tendik.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
                         </div>
@@ -166,10 +177,14 @@ $_SESSION['user'] = $user;
             <?php } else if ($bio == 'ortu') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
-                        <div class="card-header">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
+                        <div class="card-header bg-blue">
                             <h3 class="card-title">Data Orang Tua</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <form action="t_responden_ortu_action.php?act=simpan" method="post" id="form-tambah">
@@ -219,7 +234,7 @@ $_SESSION['user'] = $user;
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
-                                    <a href="t_responden_tendik.php" class="btn btn-warning">Kembali</a>
+                                    <a href="layouts/linktree/link_ortu.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
                         </div>
@@ -228,10 +243,14 @@ $_SESSION['user'] = $user;
             <?php } else if ($bio == 'alumni') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
-                        <div class="card-header">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
+                        <div class="card-header bg-blue">
                             <h3 class="card-title">Data Alumni</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <form action="t_responden_alumni_action.php?act=simpan" method="post" id="form-tambah">
@@ -265,7 +284,7 @@ $_SESSION['user'] = $user;
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
-                                    <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
+                                    <a href="layouts/linktree/link_alumni.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
                         </div>
@@ -274,10 +293,14 @@ $_SESSION['user'] = $user;
             <?php } else if ($bio == 'industri') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card" style="max-width: 1300px; margin: 0 auto">
-                        <div class="card-header">
-                            <h3 class="card-title">Tambah Data Industri</h3>
-                            <div class="card-tools"></div>
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
+                        <div class="card-header bg-blue">
+                            <h3 class="card-title">Data Industri</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body">
                             <form action="t_responden_industri_action.php?act=simpan" method="post" id="form-tambah">
@@ -311,7 +334,7 @@ $_SESSION['user'] = $user;
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Berikutnya</button>
-                                    <a href="t_responden_mahasiswa.php" class="btn btn-warning">Kembali</a>
+                                    <a href="layouts/linktree/link_industri.php" class="btn btn-warning">Kembali</a>
                                 </div>
                             </form>
                         </div>
@@ -321,8 +344,6 @@ $_SESSION['user'] = $user;
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <br><br>
-        <?php include_once('layouts/responden/footer.php'); ?>
     </div>
     <!-- ./wrapper -->
 

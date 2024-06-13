@@ -64,6 +64,7 @@
             </div>
           </div>
         </div>
+        <p align="center"><a href="layouts/linktree/linktree.php">survey</a></p>
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">

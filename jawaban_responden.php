@@ -73,7 +73,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-            <h3 class="card-title"><b><?php echo $name ? $name : 'Nama tidak ditemukan'?></b></h3>
+            <!-- <h3 class="card-title"><b><?php echo $name ? $name : 'Nama tidak ditemukan'?></b></h3> -->
         </div>
         <div class="card-body">
           <table class="table table-sm table-bordered">

@@ -48,7 +48,6 @@ include_once('model/koneksi.php')
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
-        <?php include_once('layouts/responden/header.php'); ?>
         <!-- /.navbar -->
 
         <!-- Content Wrapper. Contains page content -->
@@ -75,7 +74,11 @@ include_once('model/koneksi.php')
                     <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body" align="center">
                             <form action="t_jawaban_mahasiswa_action.php?act=simpan" method="post" id="form-tambah">
@@ -151,7 +154,11 @@ include_once('model/koneksi.php')
                     <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body" align="center">
                             <form action="t_jawaban_dosen_action.php?act=simpan" method="post" id="form-tambah">
@@ -227,7 +234,11 @@ include_once('model/koneksi.php')
                     <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body" align="center">
                             <form action="t_jawaban_tendik_action.php?act=simpan" method="post" id="form-tambah">
@@ -303,7 +314,11 @@ include_once('model/koneksi.php')
                     <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body" align="center">
                             <form action="t_jawaban_ortu_action.php?act=simpan" method="post" id="form-tambah">
@@ -379,7 +394,11 @@ include_once('model/koneksi.php')
                     <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body" align="center">
                             <form action="t_jawaban_alumni_action.php?act=simpan" method="post" id="form-tambah">
@@ -455,7 +474,11 @@ include_once('model/koneksi.php')
                     <div class="card">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
-                            <div class="card-tools"></div>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="card-body" align="center">
                             <form action="t_jawaban_industri_action.php?act=simpan" method="post" id="form-tambah">
@@ -530,7 +553,6 @@ include_once('model/koneksi.php')
         </div>
         <!-- /.content-wrapper -->
 
-        <?php include_once('layouts/responden/footer.php'); ?>
     </div>
     <!-- ./wrapper -->
 

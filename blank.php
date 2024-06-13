@@ -57,8 +57,8 @@
               </button>
               <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                 <i class="fas fa-times"></i>
-            </button>
-          </div>
+            ``</button>
+          ``</div>
         </div>
           <div class="card-body">
             Start creating your amazing application!
