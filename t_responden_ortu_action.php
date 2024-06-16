@@ -11,7 +11,7 @@ $act = $_GET['act'];
 
 if($act == 'simpan'){
     $data = [
-        'survey_id' => $idSur,
+        'survey_id' => $_GET['id'],
         'responden_tanggal' => $_POST['responden_tanggal'],
         'responden_nama' => $_POST['responden_nama'],
         'responden_jk' => $_POST['responden_jk'],
@@ -30,7 +30,7 @@ if($act == 'simpan'){
     $insert = new t_responden_ortu($db);
     $insert->insertData($data);
 
-    header('Location: form_soal.php?pages=ortu');
+    header("Location: form_soal.php?pages=ortu&id=" . $_GET['id']);
 }
 
 if($act == 'hapus'){

@@ -45,8 +45,7 @@ $_SESSION['user'] = $user;
 
             <!-- Main content -->
             <?php
-            $bio = isset($_GET['bio']) ? $_GET['bio'] : '';
-
+            $bio = $_GET['bio'];
             if ($bio == 'mahasiswa') {
             ?>
                 <section class="content">
@@ -61,7 +60,7 @@ $_SESSION['user'] = $user;
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="t_responden_mahasiswa_action.php?act=simpan" method="post" id="form-tambah">
+                            <form action="t_responden_mahasiswa_action.php?act=simpan&id=<?php echo $_GET['id'];?>" method="post" id="form-tambah">
                                 <div class="form-group">
                                     <label for="responden_tanggal">Tanggal</label>
                                     <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
@@ -111,7 +110,7 @@ $_SESSION['user'] = $user;
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="t_responden_dosen_action.php?act=simpan" method="post" id="form-tambah">
+                        <form action="t_responden_dosen_action.php?act=simpan&id=<?php echo $_GET['id'];?>" method="post" id="form-tambah">
                                 <div class="form-group">
                                     <label for="responden_tanggal">Tanggal</label>
                                     <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
@@ -149,7 +148,7 @@ $_SESSION['user'] = $user;
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="t_responden_tendik_action.php?act=simpan" method="post" id="form-tambah">
+                        <form action="t_responden_tendik_action.php?act=simpan&id=<?php echo $_GET['id'];?>" method="post" id="form-tambah">
                                 <div class="form-group">
                                     <label for="responden_tanggal">Tanggal</label>
                                     <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
@@ -187,7 +186,7 @@ $_SESSION['user'] = $user;
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="t_responden_ortu_action.php?act=simpan" method="post" id="form-tambah">
+                        <form action="t_responden_ortu_action.php?act=simpan&id=<?php echo $_GET['id'];?>" method="post" id="form-tambah">
                                 <div class="form-group">
                                     <label for="responden_tanggal">Tanggal</label>
                                     <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
@@ -253,7 +252,7 @@ $_SESSION['user'] = $user;
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="t_responden_alumni_action.php?act=simpan" method="post" id="form-tambah">
+                        <form action="t_responden_alumni_action.php?act=simpan&id=<?php echo $_GET['id'];?>" method="post" id="form-tambah">
                                 <div class="form-group">
                                     <label for="responden_tanggal">Tanggal</label>
                                     <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">
@@ -303,7 +302,7 @@ $_SESSION['user'] = $user;
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="t_responden_industri_action.php?act=simpan" method="post" id="form-tambah">
+                        <form action="t_responden_industri_action.php?act=simpan&id=<?php echo $_GET['id'];?>" method="post" id="form-tambah">
                                 <div class="form-group">
                                     <label for="responden_tanggal">Tanggal</label>
                                     <input type="date" name="responden_tanggal" id="responden_tanggal" class="form-control">

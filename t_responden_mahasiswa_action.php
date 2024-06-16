@@ -12,7 +12,7 @@ $act = $_GET['act'];
 
 if ($act == 'simpan') {
     $data = [
-        'survey_id' => $idSur,
+        'survey_id' => $_GET['id'],
         'responden_tanggal' => $_POST['responden_tanggal'],
         'responden_nim' => $_POST['responden_nim'],
         'responden_nama' => $_POST['responden_nama'],
@@ -26,8 +26,7 @@ if ($act == 'simpan') {
     $_SESSION['nama'] = $nama;
     $insert = new t_responden_mahasiswa($db);
     $insert->insertData($data);
-
-    header('Location: kategori_survey_form.php?pages=mahasiswa');
+    header("Location: form_soal.php?pages=mahasiswa&id=" . $_GET['id']);
     exit;
 }
 

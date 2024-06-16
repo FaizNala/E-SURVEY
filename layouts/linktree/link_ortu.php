@@ -179,7 +179,7 @@
             <h1>Survey Kepuasan Orang Tua</h1>
         </div>
         <div class="links">
-            <a href="../../form_biodata.php?bio=ortu" class="link">Mulai</a>
+            <a href="../../daftar_survey.php?bio=ortu" class="link">Mulai</a>
         </div>
     </div>
 </body>

@@ -179,7 +179,7 @@
             <h1>Survey Kepuasan Mahasiswa</h1>
         </div>
         <div class="links">
-            <a href="../../form_biodata.php?bio=mahasiswa" class="link">Mulai</a>
+            <a href="../../daftar_survey.php?bio=mahasiswa" class="link">Mulai</a>
         </div>
     </div>
 </body>

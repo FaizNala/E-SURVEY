@@ -11,7 +11,7 @@ $act = $_GET['act'];
 
 if($act == 'simpan'){
     $data = [
-        'survey_id' => $idSur,
+        'survey_id' => $_GET['id'],
         'responden_tanggal' => $_POST['responden_tanggal'],
         'responden_nip' => $_POST['responden_nip'],
         'responden_nama' => $_POST['responden_nama'],
@@ -22,7 +22,7 @@ if($act == 'simpan'){
     $insert = new t_responden_dosen($db);
     $insert->insertData($data);
 
-    header('Location: kategori_survey_form.php?pages=dosen');
+    header("Location: form_soal.php?pages=dosen&id=" . $_GET['id']);
 }
 
 if($act == 'hapus'){

@@ -71,7 +71,7 @@ include_once('model/koneksi.php')
             ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools">
@@ -85,7 +85,7 @@ include_once('model/koneksi.php')
                                 <?php
                                 include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionToMahasiswa();
+                                $result = $survey->getQuestionToMahasiswa($_GET['id']);
 
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
@@ -151,7 +151,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'dosen') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools">
@@ -165,7 +165,7 @@ include_once('model/koneksi.php')
                                 <?php
                                 include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionToDosen();
+                                $result = $survey->getQuestionToDosen($_GET['id']);
 
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
@@ -231,7 +231,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'tendik') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools">
@@ -245,7 +245,7 @@ include_once('model/koneksi.php')
                                 <?php
                                 include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionToTendik();
+                                $result = $survey->getQuestionToTendik($_GET['id']);
 
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
@@ -311,7 +311,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'ortu') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools">
@@ -325,7 +325,7 @@ include_once('model/koneksi.php')
                                 <?php
                                 include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionToOrtu();
+                                $result = $survey->getQuestionToOrtu($_GET['id']);
 
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
@@ -391,7 +391,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'alumni') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools">
@@ -405,7 +405,7 @@ include_once('model/koneksi.php')
                                 <?php
                                 include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionToAlumni();
+                                $result = $survey->getQuestionToAlumni($_GET['id']);
 
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
@@ -471,7 +471,7 @@ include_once('model/koneksi.php')
             <?php } else if ($pages == 'industri') { ?>
                 <section class="content">
                     <!-- Default box -->
-                    <div class="card">
+                    <div class="card" style="max-width: 1000px; margin: 0 auto">
                         <div class="card-header bg-blue">
                             <h3 class="card-title">Soal Survey</h3>
                             <div class="card-tools">
@@ -485,7 +485,7 @@ include_once('model/koneksi.php')
                                 <?php
                                 include_once('model/koneksi.php');
                                 $survey = new SurveySoal();
-                                $result = $survey->getQuestionToIndusti();
+                                $result = $survey->getQuestionToIndusti($_GET['id']);
 
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {

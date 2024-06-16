@@ -68,38 +68,51 @@ class SurveySoal{
         return $query->get_result();
     }
 
-    public function getQuestionToMahasiswa() {
-        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'mahasiswa'");
+    public function getQuestionbySurveyId($data) {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'mahasiswa' and survey.survey_id = ? ");
+        $query->bind_param('i', $data);
         $query->execute();
         return $query->get_result();
     }
     
-    public function getQuestionToDosen() {
-        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'dosen'");
+    public function getQuestionToMahasiswa($data) {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'mahasiswa' and survey.survey_id = ? ");
+        $query->bind_param('i', $data);
+        $query->execute();
+        return $query->get_result();
+    }
+    
+    public function getQuestionToDosen($data) {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'dosen' and survey.survey_id = ? ");
+        $query->bind_param('i', $data);
         $query->execute();
         return $query->get_result();
     }
 
-    public function getQuestionToTendik() {
-        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'tendik'");
+    public function getQuestionToTendik($data) {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'tendik' and survey.survey_id = ? ");
+        $query->bind_param('i', $data);
         $query->execute();
         return $query->get_result();
     }
 
-    public function getQuestionToOrtu() {
-        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'ortu'");
+    public function getQuestionToOrtu($data) {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'ortu' and survey.survey_id = ? ");
+        $query->bind_param('i', $data);
         $query->execute();
         return $query->get_result();
     }
 
-    public function getQuestionToAlumni() {
-        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'alumni'");
+    public function getQuestionToAlumni($data) {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'alumni' and survey.survey_id = ? ");
+        $query->bind_param('i', $data);
         $query->execute();
         return $query->get_result();
     }
 
-    public function getQuestionToIndusti() {
-        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'industri'");
+    public function getQuestionToIndusti($data) {
+        $query = $this->db->prepare("select soal.* from {$this->table} as soal join m_survey as survey on soal.survey_id=survey.survey_id where survey.survey_jenis = 'industri' and survey.survey_id = ? ");
+        $query->bind_param('i', $data);
         $query->execute();
         return $query->get_result();
     }

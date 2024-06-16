@@ -14,7 +14,7 @@ $act = $_GET['act'];
 if ($act == 'simpan') {
    echo '<pre>';
    $data = [
-      'survey_id' => $idSur,
+      'survey_id' => $_GET['id'],
       'responden_tanggal' => $_POST['responden_tanggal'],
       'responden_nama' => $_POST['responden_nama'],
       'responden_jabatan' => $_POST['responden_jabatan'],
@@ -28,7 +28,7 @@ if ($act == 'simpan') {
    $insert = new t_responden_industri($db);
    $insert->insertData($data);
 
-   header('Location: form_soal.php?pages=industri');
+   header("Location: form_soal.php?pages=industri&id=" . $_GET['id']);
 }
 
 if ($act == 'hapus') {
