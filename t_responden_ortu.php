@@ -1,6 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE)
-  session_start();
+    session_start();
 $menu = 'ortu';
 
 include_once('model/t_responden_ortu_model.php');
@@ -21,10 +21,14 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <style>
-    /* CSS untuk mengubah warna sidebar menjadi abu-abu saat menu "tendik" aktif */
+    /* CSS untuk mengubah warna sidebar menjadi abu-abu saat menu "ortu" aktif */
     .nav-sidebar.ortu .nav-treeview {
       background-color: #f0f0f0;
       /* Warna abu-abu */
@@ -73,7 +77,14 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
           </div>
 
           <div class="card-body">
-            <table class="table table-sm table-bordered">
+            <?php 
+              if($status == 'sukses'){
+                  echo '<div class="alert alert-success">
+                        '.$message.'
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
+              }
+            ?>
+            <table id="surveyTable" class="table table-sm table-bordered table-striped">
               <thead>
                 <tr>
                   <th>No</th>
@@ -115,7 +126,6 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
                         <a title="Jawaban" href="jawaban_responden.php?show=ortu&id=' . $row['responden_ortu_id'] . '" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
                         <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_ortu_action.php?act=hapus&id=' . $row['responden_ortu_id'] . '" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                       </td>
-      
                     </tr>';
 
                   $i++;
@@ -150,8 +160,31 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
   <script src="plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables & Plugins -->
+  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+  <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+  <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+  <script src="plugins/jszip/jszip.min.js"></script>
+  <script src="plugins/pdfmake/pdfmake.min.js"></script>
+  <script src="plugins/pdfmake/vfs_fonts.js"></script>
+  <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+  <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+  <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#surveyTable').DataTable({
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false,
+        "buttons": ["csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#surveyTable_wrapper .col-md-6:eq(0)');
+    });
+  </script>
 </body>
 
 </html>
