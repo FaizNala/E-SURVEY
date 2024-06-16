@@ -1,15 +1,13 @@
 <?php
-  if (session_status() === PHP_SESSION_NONE) 
+if (session_status() === PHP_SESSION_NONE)
   session_start();
-  $menu = 'ortu';
+$menu = 'ortu';
 
-  include_once('model/t_responden_ortu_model.php');
+include_once('model/t_responden_ortu_model.php');
 
-  $status = isset($_GET['status'])? strtolower($_GET['status']) : null;
-  $message= isset($_GET['message'])? strtolower($_GET['message']) : null;
+$status = isset($_GET['status']) ? strtolower($_GET['status']) : null;
+$message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +15,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Respon Orang Tua</title>
+  <title>Responden Ortu</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -28,7 +26,8 @@
   <style>
     /* CSS untuk mengubah warna sidebar menjadi abu-abu saat menu "tendik" aktif */
     .nav-sidebar.ortu .nav-treeview {
-        background-color: #f0f0f0; /* Warna abu-abu */
+      background-color: #f0f0f0;
+      /* Warna abu-abu */
     }
   </style>
 </head>
@@ -92,37 +91,37 @@
                 </tr>
               </thead>
               <tbody>
-              <?php 
+                <?php
                 include_once('model/koneksi.php');
                 $ortu = new t_responden_ortu();
                 $list = $ortu->getData();
 
                 $i = 1;
-                while($row = $list->fetch_assoc()){
+                while ($row = $list->fetch_assoc()) {
                   echo '<tr>
-                      <td>'.$i.'</td>
-                      <td>'.$row['responden_tanggal'].'</td>
-                      <td>'.$row['responden_nama'].'</td>
-                      <td>'.$row['responden_jk'].'</td>
-                      <td>'.$row['responden_umur'].'</td>
-                      <td>'.$row['responden_hp'].'</td>
-                      <td>'.$row['responden_pendidikan'].'</td>
-                      <td>'.$row['responden_pekerjaan'].'</td>
-                      <td>'.$row['responden_penghasilan'].'</td>
-                      <td>'.$row['mahasiswa_nim'].'</td>
-                      <td>'.$row['mahasiswa_nama'].'</td>
-                      <td>'.$row['mahasiswa_prodi'].'</td>
+                      <td>' . $i . '</td>
+                      <td>' . $row['responden_tanggal'] . '</td>
+                      <td>' . $row['responden_nama'] . '</td>
+                      <td>' . $row['responden_jk'] . '</td>
+                      <td>' . $row['responden_umur'] . '</td>
+                      <td>' . $row['responden_hp'] . '</td>
+                      <td>' . $row['responden_pendidikan'] . '</td>
+                      <td>' . $row['responden_pekerjaan'] . '</td>
+                      <td>' . $row['responden_penghasilan'] . '</td>
+                      <td>' . $row['mahasiswa_nim'] . '</td>
+                      <td>' . $row['mahasiswa_nama'] . '</td>
+                      <td>' . $row['mahasiswa_prodi'] . '</td>
                       <td>
-                        <a title="Jawaban" href="jawaban_responden.php?show=ortu&id='.$row['responden_ortu_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
-                        <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_ortu_action.php?act=hapus&id='.$row['responden_ortu_id'].'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        <a title="Jawaban" href="jawaban_responden.php?show=ortu&id=' . $row['responden_ortu_id'] . '" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
+                        <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_ortu_action.php?act=hapus&id=' . $row['responden_ortu_id'] . '" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                       </td>
       
                     </tr>';
 
-                    $i++;
+                  $i++;
                 }
-              ?>
-            </tbody>
+                ?>
+              </tbody>
             </table>
           </div>
           <!-- /.card-body -->
