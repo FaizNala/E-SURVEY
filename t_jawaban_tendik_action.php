@@ -7,7 +7,7 @@ include_once('model/t_responden_tendik_model.php');
 include_once('model/koneksi.php');
 
 $act = $_GET['act'];
-$tendik = new t_responden_tendik($db);
+$tendik = new t_responden_tendik();
 $idRes = $tendik->getRespondenId();
 
 if ($act == 'simpan') {
@@ -17,7 +17,7 @@ if ($act == 'simpan') {
             'soal_id' => $soal_id,
             'jawaban' => $jawaban,
         ];
-        $insert = new t_jawaban_tendik($db);
+        $insert = new t_jawaban_tendik();
         $insert->insertData($data);
     }
     echo 'berhasil';
@@ -29,7 +29,7 @@ if ($act == 'simpan') {
 if ($act == 'hapus') {
     $id = $_GET['id'];
 
-    $hapus = new t_jawaban_tendik($db);
+    $hapus = new t_jawaban_tendik();
     $hapus->deleteData($id);
 
     header('Location: t_responden_tendik.php');

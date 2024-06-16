@@ -88,7 +88,7 @@
               <tbody>
               <?php 
                 include_once('model/koneksi.php');
-                $tendik = new t_responden_tendik($db);
+                $tendik = new t_responden_tendik();
                 $list = $tendik->getData();
 
                 $i = 1;
@@ -140,8 +140,6 @@
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
 </body>
 
 </html>

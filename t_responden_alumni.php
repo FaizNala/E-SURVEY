@@ -91,7 +91,7 @@
               <tbody>
               <?php 
                 include_once('model/koneksi.php');
-                $alumni = new t_responden_alumni($db);
+                $alumni = new t_responden_alumni();
                 $list = $alumni->getData();
 
                 $i = 1;
@@ -146,8 +146,6 @@
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
 </body>
 
 </html>

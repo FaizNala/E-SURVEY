@@ -88,7 +88,7 @@
               <tbody>
               <?php 
                 include_once('model/koneksi.php');
-                $dosen = new t_responden_dosen($db);
+                $dosen = new t_responden_dosen();
                 $list = $dosen->getData();
 
                 $i = 1;
@@ -140,8 +140,6 @@
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
 </body>
 
 </html>

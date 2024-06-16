@@ -5,11 +5,17 @@ $menu = 'mahasiswa';
 
 include_once('model/m_kategori_model.php');
 include_once('model/t_jawaban_mahasiswa_model.php');
+include_once('model/t_responden_mahasiswa_model.php');
 include_once('model/t_jawaban_dosen_model.php');
+include_once('model/t_responden_dosen_model.php');
 include_once('model/t_jawaban_tendik_model.php');
+include_once('model/t_responden_tendik_model.php');
 include_once('model/t_jawaban_ortu_model.php');
+include_once('model/t_responden_ortu_model.php');
 include_once('model/t_jawaban_alumni_model.php');
+include_once('model/t_responden_alumni_model.php');
 include_once('model/t_jawaban_industri_model.php');
+include_once('model/t_responden_industri_model.php');
 
 $status = isset($_GET['status']) ? strtolower($_GET['status']) : null;
 $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
@@ -68,12 +74,13 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
       if ($show == 'mahasiswa') {
         $id = $_GET['id'];
         $mahasiswa = new t_jawaban_mahasiswa();
-        $name = $mahasiswa->getNamebyId($id);
+        $nm = new t_responden_mahasiswa();
+        $name = $nm->getNamebyId($id);
     ?>
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-            <!-- <h3 class="card-title"><b><?php echo $name ? $name : 'Nama tidak ditemukan'?></b></h3> -->
+            <h3 class="card-title"><b><?php echo $name ? $name : 'Nama tidak ditemukan'?></b></h3>
         </div>
         <div class="card-body">
           <table class="table table-sm table-bordered">
@@ -111,7 +118,8 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
     <?php } else if ($show == 'dosen') {
         $id = $_GET['id'];
         $dosen = new t_jawaban_dosen();
-        $name = $dosen->getNamebyId($id);
+        $nm = new t_responden_dosen();
+        $name = $nm->getNamebyId($id);
     ?>
       <!-- Default box -->
       <div class="card">
@@ -154,7 +162,8 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
     <?php } else if ($show == 'tendik') {
         $id = $_GET['id'];
         $tendik = new t_jawaban_tendik();
-        $name = $tendik->getNamebyId($id);
+        $nm = new t_responden_tendik();
+        $name = $nm->getNamebyId($id);
     ?>
       <!-- Default box -->
       <div class="card">
@@ -197,7 +206,8 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
     <?php } else if ($show == 'ortu') {
         $id = $_GET['id'];
         $ortu = new t_jawaban_ortu();
-        $name = $ortu->getNamebyId($id);
+        $nm = new t_responden_ortu();
+        $name = $nm->getNamebyId($id);
     ?>
       <!-- Default box -->
       <div class="card">
@@ -240,7 +250,8 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
     <?php } else if ($show == 'alumni') {
         $id = $_GET['id'];
         $alumni = new t_jawaban_alumni();
-        $name = $alumni->getNamebyId($id);
+        $nm = new t_responden_alumni();
+        $name = $nm->getNamebyId($id);
     ?>
       <!-- Default box -->
       <div class="card">
@@ -283,7 +294,8 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
     <?php } else if ($show == 'industri') {
         $id = $_GET['id'];
         $industri = new t_jawaban_industri();
-        $name = $industri->getNamebyId($id);
+        $nm = new t_responden_industri();
+        $name = $nm->getNamebyId($id);
     ?>
       <!-- Default box -->
       <div class="card">

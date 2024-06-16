@@ -19,7 +19,7 @@ if($act == 'simpan'){
     ];
     $nama = $_POST['responden_nama'];
     $_SESSION['nama'] = $nama;
-    $insert = new t_responden_dosen($db);
+    $insert = new t_responden_dosen();
     $insert->insertData($data);
 
     header("Location: form_soal.php?pages=dosen&id=" . $_GET['id']);
@@ -28,7 +28,7 @@ if($act == 'simpan'){
 if($act == 'hapus'){
     $id = $_GET['id'];
 
-    $hapus = new t_responden_dosen($db);
+    $hapus = new t_responden_dosen();
     $hapus->deleteData($id);
 
     header('location: t_responden_dosen.php?status=sukses&message=Data berhasil dihapus');

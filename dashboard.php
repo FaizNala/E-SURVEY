@@ -1,13 +1,13 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) 
-    session_start();
-    include_once('model/koneksi.php');
-    include_once('model/t_responden_mahasiswa_model.php');
-    include_once('model/t_responden_dosen_model.php');
-    include_once('model/t_responden_tendik_model.php');
-    include_once('model/t_responden_ortu_model.php');
-    include_once('model/t_responden_alumni_model.php');
-    include_once('model/t_responden_industri_model.php');
+if (session_status() === PHP_SESSION_NONE)
+  session_start();
+include_once('model/koneksi.php');
+include_once('model/t_responden_mahasiswa_model.php');
+include_once('model/t_responden_dosen_model.php');
+include_once('model/t_responden_tendik_model.php');
+include_once('model/t_responden_ortu_model.php');
+include_once('model/t_responden_alumni_model.php');
+include_once('model/t_responden_industri_model.php');
 ?>
 
 <!DOCTYPE html>
@@ -55,129 +55,129 @@ if (session_status() === PHP_SESSION_NONE)
         </div><!-- /.container-fluid -->
       </section>
 
-        <!-- Main content -->
-        <!-- Main content -->
-    <section class="content">
-    <div class="container-fluid">
-        <!-- Title for the section -->
-        <div class="row">
-        <div class="col-12">
-            <h5 class="my-0">Responden</h5>
-            <br>
-        </div>
-        </div>
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-        <?php
-            $mahasiswa = new t_responden_mahasiswa($db);
+      <!-- Main content -->
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Title for the section -->
+          <div class="row">
+            <div class="col-12">
+              <h5 class="my-0">Responden</h5>
+              <br>
+            </div>
+          </div>
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+            <?php
+            $mahasiswa = new t_responden_mahasiswa();
             $row_mahasiswa = $mahasiswa->getRespondenTotal();
-            
-            $dosen = new t_responden_dosen($db);
+
+            $dosen = new t_responden_dosen();
             $row_dosen = $dosen->getRespondenTotal();
 
-            $tendik = new t_responden_tendik($db);
+            $tendik = new t_responden_tendik();
             $row_tendik = $tendik->getRespondenTotal();
 
-            $ortu = new t_responden_ortu($db);
+            $ortu = new t_responden_ortu();
             $row_ortu = $ortu->getRespondenTotal();
 
-            $alumni = new t_responden_alumni($db);
+            $alumni = new t_responden_alumni();
             $row_alumni = $alumni->getRespondenTotal();
 
-            $industri = new t_responden_industri($db);
+            $industri = new t_responden_industri();
             $row_industri = $industri->getRespondenTotal();
-        ?>
-        <div class="col-lg-2 col-4">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-            <div class="inner">
-                <h3><?= $row_mahasiswa?></h3>
-                <p>Data Mahasiswa</p>
+            ?>
+            <div class="col-lg-2 col-4">
+              <!-- small box -->
+              <div class="small-box bg-danger">
+                <div class="inner">
+                  <h3><?= $row_mahasiswa ?></h3>
+                  <p>Data Mahasiswa</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
             </div>
-            <div class="icon">
-                <i class="ion ion-bag"></i>
+            <!-- ./col -->
+            <div class="col-lg-2 col-4">
+              <!-- small box -->
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3><?= $row_dosen ?></h3>
+                  <p>Data Dosen</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- ./col -->
+            <div class="col-lg-2 col-4">
+              <!-- small box -->
+              <div class="small-box bg-success">
+                <div class="inner">
+                  <h3><?= $row_tendik ?></h3>
+                  <p>Data Tendik</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
             </div>
+            <!-- ./col -->
+            <div class="col-lg-2 col-4">
+              <!-- small box -->
+              <div class="small-box bg-primary">
+                <div class="inner">
+                  <h3><?= $row_ortu ?></h3>
+                  <p>Data Orang Tua</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-2 col-4">
+              <!-- small box -->
+              <div class="small-box bg-info">
+                <div class="inner">
+                  <h3><?= $row_alumni ?></h3>
+                  <p>Data Alumni</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-2 col-4">
+              <!-- small box -->
+              <div class="small-box bg-indigo">
+                <div class="inner">
+                  <h3><?= $row_industri ?></h3>
+                  <p>Data Industri</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+          </div>
+          <!-- /.row -->
         </div>
-        <!-- ./col -->
-        <div class="col-lg-2 col-4">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-            <div class="inner">
-                <h3><?= $row_dosen ?></h3>
-                <p>Data Dosen</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-2 col-4">
-            <!-- small box -->
-            <div class="small-box bg-success">
-            <div class="inner">
-                <h3><?= $row_tendik ?></h3>
-                <p>Data Tendik</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-person-add"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-2 col-4">
-            <!-- small box -->
-            <div class="small-box bg-primary">
-            <div class="inner">
-                <h3><?= $row_ortu ?></h3>
-                <p>Data Orang Tua</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-2 col-4">
-            <!-- small box -->
-            <div class="small-box bg-info">
-            <div class="inner">
-                <h3><?= $row_alumni ?></h3>
-                <p>Data Alumni</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-2 col-4">
-            <!-- small box -->
-            <div class="small-box bg-indigo">
-            <div class="inner">
-                <h3><?= $row_industri ?></h3>
-                <p>Data Industri</p>
-            </div>
-            <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-        </div>
-        <!-- ./col -->
-        </div>
-        <!-- /.row -->
-    </div>
-    </section>
+      </section>
 
 
-    <section class="content">
+      <section class="content">
 
         <!-- Default box -->
         <div class="card">
@@ -190,9 +190,9 @@ if (session_status() === PHP_SESSION_NONE)
               </button>
               <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                 <i class="fas fa-times"></i>
-            </button>
+              </button>
+            </div>
           </div>
-        </div>
           <div class="card-body">
           </div>
           <!-- /.card-body -->
@@ -202,7 +202,7 @@ if (session_status() === PHP_SESSION_NONE)
         </div>
         <!-- /.card -->
 
-    </section>
+      </section>
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -223,8 +223,6 @@ if (session_status() === PHP_SESSION_NONE)
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js"></script>
 </body>
 
 </html>

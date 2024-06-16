@@ -25,7 +25,7 @@ if ($act == 'simpan') {
    ];
    $nama = $_POST['responden_nama'];
    $_SESSION['nama'] = $nama;
-   $insert = new t_responden_industri($db);
+   $insert = new t_responden_industri();
    $insert->insertData($data);
 
    header("Location: form_soal.php?pages=industri&id=" . $_GET['id']);
@@ -34,7 +34,7 @@ if ($act == 'simpan') {
 if ($act == 'hapus') {
    $id = $_GET['id'];
 
-   $hapus = new t_responden_industri($db);
+   $hapus = new t_responden_industri();
    $hapus->deleteData($id);
 
    header('location: t_responden_industri.php?status=sukses&message=Data berhasil dihapus');

@@ -26,7 +26,7 @@ if ($row) {
         }
         // Password valid, set session
         $_SESSION['username'] = $row['username'];
-        $_SESSION['nama'] = $row['nama'];
+        $_SESSION['name'] = $row['nama'];
         $_SESSION['user_id'] = $row['user_id'];
         header("Location: index.php");
         exit;
