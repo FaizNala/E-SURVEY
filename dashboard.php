@@ -24,6 +24,8 @@ include_once('model/t_responden_industri_model.php');
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -43,7 +45,7 @@ include_once('model/t_responden_industri_model.php');
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Dasboard</h1>
+              <h1>Dashboard</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -55,7 +57,6 @@ include_once('model/t_responden_industri_model.php');
         </div><!-- /.container-fluid -->
       </section>
 
-      <!-- Main content -->
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
@@ -91,13 +92,13 @@ include_once('model/t_responden_industri_model.php');
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3><?= $row_mahasiswa ?></h3>
+                  <h3><?= $row_mahasiswa ?></h2>
                   <p>Data Mahasiswa</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="t_responden_mahasiswa.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -105,13 +106,13 @@ include_once('model/t_responden_industri_model.php');
               <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
-                  <h3><?= $row_dosen ?></h3>
+                  <h3><b><?= $row_dosen ?></b></h3>
                   <p>Data Dosen</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="t_responden_dosen.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -125,7 +126,7 @@ include_once('model/t_responden_industri_model.php');
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="t_responden_tendik.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -139,7 +140,7 @@ include_once('model/t_responden_industri_model.php');
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="t_responden_ortu.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -153,7 +154,7 @@ include_once('model/t_responden_industri_model.php');
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="t_responden_alumni.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -167,7 +168,7 @@ include_once('model/t_responden_industri_model.php');
                 <div class="icon">
                   <i class="ion ion-pie-graph"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="t_responden_industri.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -176,14 +177,12 @@ include_once('model/t_responden_industri_model.php');
         </div>
       </section>
 
-
+      <!-- Section for the pie chart -->
       <section class="content">
-
         <!-- Default box -->
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">Title</h3>
-
+            <h3 class="card-title">Pie Chart Responden</h3>
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -194,6 +193,7 @@ include_once('model/t_responden_industri_model.php');
             </div>
           </div>
           <div class="card-body">
+            <canvas id="pieChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
@@ -201,7 +201,6 @@ include_once('model/t_responden_industri_model.php');
           <!-- /.card-footer-->
         </div>
         <!-- /.card -->
-
       </section>
       <!-- /.content -->
     </div>
@@ -223,6 +222,42 @@ include_once('model/t_responden_industri_model.php');
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+  <!-- Chart.js Script -->
+  <script>
+    $(function () {
+      var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
+      var pieData = {
+        labels: [
+          'Mahasiswa',
+          'Dosen',
+          'Tendik',
+          'Orang Tua',
+          'Alumni',
+          'Industri'
+        ],
+        datasets: [{
+          data: [
+            <?= $row_mahasiswa ?>,
+            <?= $row_dosen ?>,
+            <?= $row_tendik ?>,
+            <?= $row_ortu ?>,
+            <?= $row_alumni ?>,
+            <?= $row_industri ?>
+          ],
+          backgroundColor: ['#dc3545', '#ffc107', '#28a745', '#007bff', '#17a2b8', '#6610f2'],
+        }]
+      }
+      var pieOptions = {
+        maintainAspectRatio: false,
+        responsive: true,
+      }
+      new Chart(pieChartCanvas, {
+        type: 'pie',
+        data: pieData,
+        options: pieOptions
+      })
+    })
+  </script>
 </body>
 
 </html>

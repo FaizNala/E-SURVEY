@@ -18,6 +18,34 @@
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
+
+  <style>
+    body {
+      background-image: url('dist/img/grapol.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      min-height: 100vh;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+      z-index: 1;
+    }
+    .login-box {
+      position: relative;
+      z-index: 2;
+      background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -25,7 +53,7 @@
     <div class="card-header text-center">
       <a href="#" class="h1"><b>Admin</b>Survey</a>
     </div>
-    <div class="card-body" >
+    <div class="card-body">
       <p align="center"><img src="dist/img/LogoPolinema.png" alt="LogoPolinema" width="180"></p>
       <p class="login-box-msg">Sign in to start your session</p>
 
@@ -49,7 +77,7 @@
       
       <form action="cek_login.php" method="post">
         <div class="input-group mb-3">
-        <input type="text" name="username" class="form-control" placeholder="Username"  value="<?php if (isset($_COOKIE["username"])) { echo $_COOKIE['username']; }?>" required>
+          <input type="text" name="username" class="form-control" placeholder="Username" value="<?php if (isset($_COOKIE["username"])) { echo $_COOKIE['username']; }?>" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -57,7 +85,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-        <input type="password" name="password" class="form-control" placeholder="Password" <?php if (isset($_COOKIE["password"])) {?> value="<?php echo $_COOKIE['password']; }?>" required>
+          <input type="password" name="password" class="form-control" placeholder="Password" <?php if (isset($_COOKIE["password"])) {?> value="<?php echo $_COOKIE['password']; }?>" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
