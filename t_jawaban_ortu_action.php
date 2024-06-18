@@ -20,8 +20,6 @@ if ($act == 'simpan') {
         $insert = new t_jawaban_ortu();
         $insert->insertData($data);
     }
-    echo 'berhasil';
-    // Redirect setelah sukses menyimpan data
     header('Location: layouts/terima_kasih.php');
     exit();
 }

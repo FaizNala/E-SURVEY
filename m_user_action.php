@@ -4,7 +4,6 @@ include_once('model/m_user_model.php');
 $act = $_GET['act'];
 
 if ($act == 'simpan') {
-   echo '<pre>';
    $data = [
       'username' => $_POST['username'],
       'nama' => $_POST['nama'],

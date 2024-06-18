@@ -8,7 +8,6 @@ include_once('model/koneksi.php');
 $act = isset($_GET['act']) ? $_GET['act'] : '';
 
 if ($act == 'simpan') {
-    echo '<pre>';
     $data = [
         'user_id' => $_SESSION['user_id'],
         'survey_jenis' => $_POST['survey_jenis'],

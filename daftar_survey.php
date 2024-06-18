@@ -77,7 +77,7 @@ include_once('model/m_survey_model.php');
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
-                          <a title="Pilih survey" href="form_biodata.php?bio=mahasiswa&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
+                          <a title="Pilih survey" href="form_biodata.php?bio=dosen&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
                         </td>
                       </tr>';
 
@@ -91,7 +91,7 @@ include_once('model/m_survey_model.php');
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
-                          <a title="Pilih survey" href="form_biodata.php?bio=mahasiswa&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
+                          <a title="Pilih survey" href="form_biodata.php?bio=tendik&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
                         </td>
                       </tr>';
 
@@ -105,7 +105,7 @@ include_once('model/m_survey_model.php');
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
-                          <a title="Pilih survey" href="form_biodata.php?bio=mahasiswa&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
+                          <a title="Pilih survey" href="form_biodata.php?bio=ortu&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
                         </td>
                       </tr>';
 
@@ -119,7 +119,7 @@ include_once('model/m_survey_model.php');
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
-                          <a title="Pilih survey" href="form_biodata.php?bio=mahasiswa&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
+                          <a title="Pilih survey" href="form_biodata.php?bio=alumni&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
                         </td>
                       </tr>';
 
@@ -133,7 +133,7 @@ include_once('model/m_survey_model.php');
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
-                          <a title="Pilih survey" href="form_biodata.php?bio=mahasiswa&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
+                          <a title="Pilih survey" href="form_biodata.php?bio=industri&id=' . $row['survey_id'] . '" class="btn btn-warning btn-sm">Kerjakan</a>
                         </td>
                       </tr>';
 

@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE)
   session_start();
 $menu = 'm_survey';
 
-include_once('model/m_Survey_model.php');
+include_once('model/m_survey_model.php');
 
 $status = isset($_GET['status']) ? strtolower($_GET['status']) : null;
 $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;

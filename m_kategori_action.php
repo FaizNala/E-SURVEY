@@ -4,7 +4,6 @@ include_once('model/m_kategori_model.php');
 $act = $_GET['act'];
 
 if ($act == 'simpan') {
-   echo '<pre>';
    $data = [
       'kategori_nama' => $_POST['kategori_nama']
    ];

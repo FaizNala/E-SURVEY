@@ -5,7 +5,6 @@ include_once('model/koneksi.php');
 $act = $_GET['act'];
 
 if ($act == 'simpan') {
-   echo '<pre>';
    $data = [
       'survey_id' => $_POST['survey_id'],
       'kategori_id' => $_POST['kategori_id'],

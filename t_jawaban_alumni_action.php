@@ -20,8 +20,6 @@ if ($act == 'simpan') {
         $insert = new t_jawaban_alumni();
         $insert->insertData($data);
     }
-    echo 'berhasil';
-    // Redirect setelah sukses menyimpan data
     header('Location: layouts/terima_kasih.php');
     exit();
 }

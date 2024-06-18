@@ -21,14 +21,12 @@
             align-items: center;
             height: 100vh;
             background: linear-gradient(135deg, #4e73df, #bdc3c7);
-            /* Menggunakan kombinasi warna biru dan abu-abu */
             overflow: hidden;
             position: relative;
             background-size: 200% 200%;
             animation: gradient 15s ease infinite;
             transition: background-position 2s;
         }
-
 
         @keyframes gradient {
             0% {
@@ -52,7 +50,6 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0);
-            /* Dark overlay */
             z-index: 1;
         }
 
@@ -62,12 +59,10 @@
             max-width: 350px;
             padding: 20px 15px;
             background: rgba(255, 255, 255, 0.7);
-            /* Warna putih dengan kecerahan 70% */
             border-radius: 20px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
             transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-            /* Menambahkan transisi untuk warna latar belakang */
             overflow: hidden;
             position: relative;
             z-index: 2;
@@ -75,7 +70,6 @@
 
         .container:hover {
             background-color: rgba(255, 255, 255, 0.8);
-            /* Warna putih dengan kecerahan 80% saat dihover */
         }
 
         .container::before {
@@ -90,12 +84,9 @@
             transition: opacity 0.5s;
         }
 
-
         .profile-img {
             width: 100px;
-            /* Reduced size */
             height: 100px;
-            /* Reduced size */
             border-radius: 50%;
             margin-bottom: 15px;
             border: 4px solid #fff;
@@ -110,7 +101,6 @@
 
         .profile h1 {
             font-size: 24px;
-            /* Adjusted font size */
             margin-bottom: 10px;
             color: #333;
             animation: fadeIn 1s ease-in-out;
@@ -118,7 +108,6 @@
 
         .profile p {
             font-size: 14px;
-            /* Adjusted font size */
             color: #555;
             margin-bottom: 20px;
             animation: fadeIn 1s ease-in-out 0.5s;
@@ -128,7 +117,6 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            /* Reduced gap */
         }
 
         .link {
@@ -137,7 +125,6 @@
             justify-content: center;
             padding: 12px;
             background-color: rgba(0, 123, 255, 0.7);
-            /* Menggunakan warna latar belakang transparan */
             color: #fff;
             text-decoration: none;
             border-radius: 10px;
@@ -165,9 +152,56 @@
 
         .link:hover {
             background-color: rgba(0, 123, 255, 0.9);
-            /* Mengubah warna latar belakang pada hover */
             transform: scale(1.05);
             box-shadow: 0 8px 30px rgba(0, 123, 255, 0.4);
+        }
+
+        @media (max-width: 600px) {
+            .profile h1 {
+                font-size: 20px;
+            }
+
+            .profile p {
+                font-size: 12px;
+            }
+
+            .link {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 15px 10px;
+                max-width: 300px;
+            }
+
+            .profile-img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .profile h1 {
+                font-size: 18px;
+            }
+
+            .profile p {
+                font-size: 10px;
+            }
+
+            .link {
+                padding: 8px;
+            }
+
+            .container {
+                padding: 10px 5px;
+                max-width: 280px;
+            }
+
+            .profile-img {
+                width: 60px;
+                height: 60px;
+            }
         }
     </style>
 </head>

@@ -13,7 +13,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"><b><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest'; ?></b></a>
+                <a href="#" class="d-block"><b><?php echo isset($_SESSION['nama']) ? $_SESSION['nama'] : 'Guest'; ?></b></a>
             </div>
         </div>
 
@@ -34,32 +34,32 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a a href="dashboard.php" class="nav-link <?php echo ($menu == 'dashboard') ? 'active' : '' ?>">
+                    <a href="dashboard.php" class="nav-link <?php echo ($menu == 'dashboard') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="m_user.php" class="nav-link <?php echo ($menu == 'm_user') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>Pengguna</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="m_survey.php" class="nav-link <?php echo ($menu == 'm_survey') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-poll"></i>
                         <p>Survey</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="m_kategori.php" class="nav-link <?php echo ($menu == 'm_kategori') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-layer-group"></i>
                         <p>Kategori</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="m_survey_soal.php" class="nav-link <?php echo ($menu == 'm_survey_soal') ? 'active' : '' ?>">
-                        <i class="nav-icon fas fa-th"></i>
+                        <i class="nav-icon fas fa-question-circle"></i>
                         <p>Soal Survey</p>
                     </a>
                 </li>

@@ -17,7 +17,8 @@ class m_user
         $query = $this->db->prepare("insert into {$this->table} (username, nama, password) values(?,?,?)");
 
         // binding parameter ke query, "s" berarti string, "ss" berarti dua string
-        $query->bind_param('sss', $data['username'], $data['nama'], password_hash($data['password'], PASSWORD_BCRYPT));
+        $pass = password_hash($data['password'], PASSWORD_BCRYPT);
+        $query->bind_param('sss', $data['username'], $data['nama'], $pass);
 
         // eksekusi query untuk menyimpan ke database
         $query->execute();
