@@ -44,6 +44,23 @@
       background-color: rgba(255, 255, 255, 0.8); /* White background with some transparency */
       padding: 20px;
       border-radius: 10px;
+      max-width: 400px;
+      margin: auto;
+    }
+    @media (max-width: 576px) {
+      .login-box {
+        padding: 15px;
+        max-width: 90%;
+      }
+      .login-box .card-header h1 {
+        font-size: 1.5rem;
+      }
+      .login-box .input-group .form-control {
+        font-size: 0.9rem;
+      }
+      .login-box .btn {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>

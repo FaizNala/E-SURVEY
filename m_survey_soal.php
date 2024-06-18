@@ -165,7 +165,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
         "responsive": true,
         "lengthChange": false,
         "autoWidth": false,
-        "buttons": ["csv", "excel", "pdf", "print", "colvis"]
+        "buttons": ["colvis"]
       }).buttons().container().appendTo('#surveyTable_wrapper .col-md-6:eq(0)');
     });
   </script>
