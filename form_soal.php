@@ -41,6 +41,15 @@ include_once('model/koneksi.php')
             border-top: 2px solid transparent;
             margin: 20px 0;
         }
+
+        .error-card {
+            border-color: #dc3545;
+        }
+
+        .error-card .card-header {
+            background-color: #dc3545;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -586,14 +595,37 @@ include_once('model/koneksi.php')
             },
             errorElement: 'span',
             errorPlacement: function(error, element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
+                if (element.attr("type") == "radio") {
+                    error.insertAfter(element.closest('.card-body'));
+                } else {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                }
             },
             highlight: function(element, errorClass, validClass) {
                 $(element).addClass('is-invalid');
             },
             unhighlight: function(element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
+            },
+            submitHandler: function(form) {
+                var isValid = true;
+                var radioGroupErrors = {};
+
+                $('input[type="radio"]').each(function() {
+                    var name = $(this).attr('name');
+                    if ($('input[name="' + name + '"]:checked').length === 0) {
+                        if (!radioGroupErrors[name]) {
+                            $(this).closest('.card-body').append('<span class="error text-danger">Pilih salah satu pilihan.</span>');
+                            radioGroupErrors[name] = true;
+                        }
+                        isValid = false;
+                    }
+                });
+
+                if (isValid) {
+                    form.submit();
+                }
             }
         });
     });
