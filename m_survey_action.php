@@ -1,14 +1,14 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) 
-session_start();
+if (session_status() === PHP_SESSION_NONE)
+    session_start();
 
 include_once('model/m_survey_model.php');
 include_once('model/koneksi.php');
- 
+
 $act = isset($_GET['act']) ? $_GET['act'] : '';
 
 if ($act == 'simpan') {
-    echo '<pre>'; 
+    echo '<pre>';
     $data = [
         'user_id' => $_SESSION['user_id'],
         'survey_jenis' => $_POST['survey_jenis'],
@@ -49,4 +49,3 @@ if ($act == 'hapus') {
 
     header('location: m_survey.php?status=sukses&message=Data berhasil dihapus');
 }
-?>

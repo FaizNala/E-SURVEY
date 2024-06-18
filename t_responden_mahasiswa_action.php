@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include_once('model/t_responden_mahasiswa_model.php');
 include_once('model/m_survey_model.php');
@@ -39,4 +39,3 @@ if ($act == 'hapus') {
     header('Location: t_responden_mahasiswa.php?status=sukses&message=Data berhasil dihapus');
     exit;
 }
-?>

@@ -2,8 +2,8 @@
 session_start();
 
 if (empty($_SESSION['username'])) {
-    header("Location: login.php");
-    exit;
+  header("Location: login.php");
+  exit;
 }
 include_once('model/koneksi.php');
 include_once('model/t_responden_mahasiswa_model.php');
@@ -99,7 +99,7 @@ $menu = 'dashboard'
               <div class="small-box bg-danger">
                 <div class="inner">
                   <h3><?= $row_mahasiswa ?></h2>
-                  <p>Data Mahasiswa</p>
+                    <p>Data Mahasiswa</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
@@ -230,7 +230,7 @@ $menu = 'dashboard'
   <script src="dist/js/adminlte.min.js"></script>
   <!-- Chart.js Script -->
   <script>
-    $(function () {
+    $(function() {
       var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
       var pieData = {
         labels: [

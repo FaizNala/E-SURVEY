@@ -163,4 +163,5 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
     });
   </script>
 </body>
+
 </html>

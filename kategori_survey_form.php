@@ -69,20 +69,15 @@ include_once('model/koneksi.php')
 
             if ($pages == 'mahasiswa') {
                 include_once('kategori_survey.php');
-            
-            } else if ($pages == 'dosen') { 
+            } else if ($pages == 'dosen') {
                 include_once('kategori_survey.php');
-            
-            } else if ($pages == 'tendik') { 
+            } else if ($pages == 'tendik') {
                 include_once('kategori_survey.php');
-                
-            } else if ($pages == 'ortu') { 
+            } else if ($pages == 'ortu') {
                 include_once('kategori_survey.php');
-                
-            } else if ($pages == 'alumni') { 
+            } else if ($pages == 'alumni') {
                 include_once('kategori_survey.php');
-                
-            } else if ($pages == 'industri') { 
+            } else if ($pages == 'industri') {
                 include_once('kategori_survey.php');
             } ?>
             <!-- /.content -->

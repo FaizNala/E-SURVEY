@@ -1,16 +1,17 @@
 <?php
-  if (session_status() === PHP_SESSION_NONE) 
-      session_start();
-  $menu = 'alumni';
+if (session_status() === PHP_SESSION_NONE)
+  session_start();
+$menu = 'alumni';
 
-  include_once('model/t_responden_alumni_model.php');
+include_once('model/t_responden_alumni_model.php');
 
-  $status = isset($_GET['status']) ? strtolower($_GET['status']) : null;
-  $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
+$status = isset($_GET['status']) ? strtolower($_GET['status']) : null;
+$message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,11 +30,13 @@
   <style>
     /* CSS untuk mengubah warna sidebar menjadi abu-abu saat menu "Alumni" aktif */
     .nav-sidebar.alumni .nav-treeview {
-        background-color: #f0f0f0; /* Warna abu-abu */
+      background-color: #f0f0f0;
+      /* Warna abu-abu */
     }
   </style>
 
 </head>
+
 <body class="hold-transition sidebar-mini">
   <!-- Site wrapper -->
   <div class="wrapper">
@@ -75,12 +78,12 @@
           </div>
 
           <div class="card-body">
-            <?php 
-              if($status == 'sukses'){
-                  echo '<div class="alert alert-success">
-                        '.$message.'
+            <?php
+            if ($status == 'sukses') {
+              echo '<div class="alert alert-success">
+                        ' . $message . '
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
-              }
+            }
             ?>
             <table id="surveyTable" class="table table-sm table-bordered table-striped">
               <thead>
@@ -97,32 +100,32 @@
                 </tr>
               </thead>
               <tbody>
-              <?php 
+                <?php
                 include_once('model/koneksi.php');
                 $alumni = new t_responden_alumni();
                 $list = $alumni->getData();
 
                 $i = 1;
-                while($row = $list->fetch_assoc()){
+                while ($row = $list->fetch_assoc()) {
                   echo '<tr>
-                      <td>'.$i.'</td>
-                      <td>'.$row['responden_tanggal'].'</td>
-                      <td>'.$row['responden_nim'].'</td>
-                      <td>'.$row['responden_nama'].'</td>
-                      <td>'.$row['responden_prodi'].'</td>
-                      <td>'.$row['responden_email'].'</td>
-                      <td>'.$row['responden_hp'].'</td>
-                      <td>'.$row['tahun_lulus'].'</td>
+                      <td>' . $i . '</td>
+                      <td>' . $row['responden_tanggal'] . '</td>
+                      <td>' . $row['responden_nim'] . '</td>
+                      <td>' . $row['responden_nama'] . '</td>
+                      <td>' . $row['responden_prodi'] . '</td>
+                      <td>' . $row['responden_email'] . '</td>
+                      <td>' . $row['responden_hp'] . '</td>
+                      <td>' . $row['tahun_lulus'] . '</td>
                       <td>
-                        <a title="Jawaban" href="jawaban_responden.php?show=alumni&id='.$row['responden_alumni_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
-                        <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_alumni_action.php?act=hapus&id='.$row['responden_alumni_id'].'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        <a title="Jawaban" href="jawaban_responden.php?show=alumni&id=' . $row['responden_alumni_id'] . '" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
+                        <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_alumni_action.php?act=hapus&id=' . $row['responden_alumni_id'] . '" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>';
 
-                    $i++;
+                  $i++;
                 }
-              ?>
-            </tbody>
+                ?>
+              </tbody>
             </table>
           </div>
           <!-- /.card-body -->
@@ -177,4 +180,5 @@
     });
   </script>
 </body>
+
 </html>

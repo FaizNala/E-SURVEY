@@ -569,4 +569,34 @@ include_once('model/koneksi.php')
     <script src="plugins/jquery-validation/localization/messages_id.min.js"></script>
 </body>
 
+<script>
+    $(document).ready(function() {
+        $('#form-tambah').validate({
+            rules: {
+                // Aturan validasi untuk setiap input pada form
+                'jawaban[]': {
+                    required: true
+                }
+            },
+            messages: {
+                // Pesan error yang ditampilkan jika aturan validasi tidak terpenuhi
+                'jawaban[]': {
+                    required: "Jawaban ini harus diisi"
+                }
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+    });
+</script>
+
 </html>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -7,7 +7,7 @@ include_once('model/t_responden_ortu_model.php');
 include_once('model/koneksi.php');
 
 $act = $_GET['act'];
-$ortu = new t_responden_ortu($db);
+$ortu = new t_responden_ortu();
 $idRes = $ortu->getRespondenId();
 
 if ($act == 'simpan') {
@@ -17,7 +17,7 @@ if ($act == 'simpan') {
             'soal_id' => $soal_id,
             'jawaban' => $jawaban,
         ];
-        $insert = new t_jawaban_ortu($db);
+        $insert = new t_jawaban_ortu();
         $insert->insertData($data);
     }
     echo 'berhasil';
@@ -29,10 +29,9 @@ if ($act == 'simpan') {
 if ($act == 'hapus') {
     $id = $_GET['id'];
 
-    $hapus = new t_jawaban_ortu($db);
+    $hapus = new t_jawaban_ortu();
     $hapus->deleteData($id);
 
     header('Location: t_responden_ortu.php');
     exit();
 }
-?>

@@ -96,18 +96,18 @@ $menu = 'm_survey';
                   <input required type="date" name="survey_tanggal" id="survey_tanggal" class="form-control">
                 </div>
                 <div class="form-group">
-                  <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
+                  <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                   <a href="m_survey.php" class="btn btn-warning">Kembali</a>
                 </div>
               </form>
             </div>
           </div>
 
-        <?php  } else if ($action == 'edit') { ?>
+        <?php } else if ($action == 'edit') { ?>
           <!-- Default box -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit Soal Survey</h3>
+              <h3 class="card-title">Edit Data Survey</h3>
               <div class="card-tools"></div>
             </div>
             <div class="card-body">
@@ -121,7 +121,7 @@ $menu = 'm_survey';
               $data = $data->fetch_assoc();
               ?>
 
-              <form action="m_survey_action.php?act=edit&id=<?php echo $id ?>" method="post" id="form-tambah">
+              <form action="m_survey_action.php?act=edit&id=<?php echo $id ?>" method="post" id="form-edit">
                 <div class="form-group">
                   <label for="survey_jenis">Jenis Survey</label>
                   <select required name="survey_jenis" id="survey_jenis" class="form-control">
@@ -139,7 +139,7 @@ $menu = 'm_survey';
                   <input required type="text" name="survey_kode" id="survey_kode" class="form-control" value="<?php echo $data['survey_kode'] ?>">
                 </div>
                 <div class="form-group">
-                  <label for="survey_nama">Kode Survey</label>
+                  <label for="survey_nama">Nama Survey</label>
                   <input required type="text" name="survey_nama" id="survey_nama" class="form-control" value="<?php echo $data['survey_nama'] ?>">
                 </div>
                 <div class="form-group">
@@ -151,7 +151,7 @@ $menu = 'm_survey';
                   <input required type="date" name="survey_tanggal" id="survey_tanggal" class="form-control" value="<?php echo $data['survey_tanggal'] ?>">
                 </div>
                 <div class="form-group">
-                  <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
+                  <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
                   <a href="m_survey.php" class="btn btn-warning">Kembali</a>
                 </div>
               </form>
@@ -180,6 +180,112 @@ $menu = 'm_survey';
   <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- AdminLTE App -->
   <script src="dist/js/adminlte.min.js"></script>
+  <!-- jQuery Validation -->
+  <script src="plugins/jquery-validation/jquery.validate.min.js"></script>
+  <script src="plugins/jquery-validation/additional-methods.min.js"></script>
+  <script src="plugins/jquery-validation/localization/messages_id.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      // Validasi form tambah
+      $('#form-tambah').validate({
+        rules: {
+          survey_jenis: {
+            required: true
+          },
+          survey_kode: {
+            required: true
+          },
+          survey_nama: {
+            required: true
+          },
+          survey_deskripsi: {
+            required: true
+          },
+          survey_tanggal: {
+            required: true
+          }
+        },
+        messages: {
+          survey_jenis: {
+            required: "Jenis survey harus dipilih"
+          },
+          survey_kode: {
+            required: "Kode survey harus diisi"
+          },
+          survey_nama: {
+            required: "Nama survey harus diisi"
+          },
+          survey_deskripsi: {
+            required: "Deskripsi survey harus diisi"
+          },
+          survey_tanggal: {
+            required: "Tanggal survey harus diisi"
+          }
+        },
+        errorElement: 'span',
+        errorPlacement: function(error, element) {
+          error.addClass('invalid-feedback');
+          element.closest('.form-group').append(error);
+        },
+        highlight: function(element, errorClass, validClass) {
+          $(element).addClass('is-invalid');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+          $(element).removeClass('is-invalid');
+        }
+      });
+
+      // Validasi form edit
+      $('#form-edit').validate({
+        rules: {
+          survey_jenis: {
+            required: true
+          },
+          survey_kode: {
+            required: true
+          },
+          survey_nama: {
+            required: true
+          },
+          survey_deskripsi: {
+            required: true
+          },
+          survey_tanggal: {
+            required: true
+          }
+        },
+        messages: {
+          survey_jenis: {
+            required: "Jenis survey harus dipilih"
+          },
+          survey_kode: {
+            required: "Kode survey harus diisi"
+          },
+          survey_nama: {
+            required: "Nama survey harus diisi"
+          },
+          survey_deskripsi: {
+            required: "Deskripsi survey harus diisi"
+          },
+          survey_tanggal: {
+            required: "Tanggal survey harus diisi"
+          }
+        },
+        errorElement: 'span',
+        errorPlacement: function(error, element) {
+          error.addClass('invalid-feedback');
+          element.closest('.form-group').append(error);
+        },
+        highlight: function(element, errorClass, validClass) {
+          $(element).addClass('is-invalid');
+        },
+        unhighlight: function(element, errorClass, validClass) {
+          $(element).removeClass('is-invalid');
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

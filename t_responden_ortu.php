@@ -1,6 +1,6 @@
 <?php
 if (session_status() === PHP_SESSION_NONE)
-    session_start();
+  session_start();
 $menu = 'ortu';
 
 include_once('model/t_responden_ortu_model.php');
@@ -77,12 +77,12 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
           </div>
 
           <div class="card-body">
-            <?php 
-              if($status == 'sukses'){
-                  echo '<div class="alert alert-success">
-                        '.$message.'
+            <?php
+            if ($status == 'sukses') {
+              echo '<div class="alert alert-success">
+                        ' . $message . '
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
-              }
+            }
             ?>
             <table id="surveyTable" class="table table-sm table-bordered table-striped">
               <thead>
@@ -187,4 +187,5 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
     });
   </script>
 </body>
+
 </html>

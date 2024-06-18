@@ -71,9 +71,9 @@ include_once('model/m_survey_model.php');
                   }
                 } else if ($bio == 'dosen') {
                   $list = $survey->getDataDosen();
-                    $i = 1;
-                    while ($row = $list->fetch_assoc()) {
-                      echo '<tr>
+                  $i = 1;
+                  while ($row = $list->fetch_assoc()) {
+                    echo '<tr>
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
@@ -81,14 +81,13 @@ include_once('model/m_survey_model.php');
                         </td>
                       </tr>';
 
-                      $i++;
-
+                    $i++;
                   }
                 } else if ($bio == 'tendik') {
                   $list = $survey->getDataTendik();
-                    $i = 1;
-                    while ($row = $list->fetch_assoc()) {
-                      echo '<tr>
+                  $i = 1;
+                  while ($row = $list->fetch_assoc()) {
+                    echo '<tr>
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
@@ -96,13 +95,13 @@ include_once('model/m_survey_model.php');
                         </td>
                       </tr>';
 
-                      $i++;
+                    $i++;
                   }
                 } else if ($bio == 'ortu') {
                   $list = $survey->getDataOrtu();
-                    $i = 1;
-                    while ($row = $list->fetch_assoc()) {
-                      echo '<tr>
+                  $i = 1;
+                  while ($row = $list->fetch_assoc()) {
+                    echo '<tr>
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
@@ -110,13 +109,13 @@ include_once('model/m_survey_model.php');
                         </td>
                       </tr>';
 
-                      $i++;
+                    $i++;
                   }
                 } else if ($bio == 'alumni') {
                   $list = $survey->getDataAlumni();
-                    $i = 1;
-                    while ($row = $list->fetch_assoc()) {
-                      echo '<tr>
+                  $i = 1;
+                  while ($row = $list->fetch_assoc()) {
+                    echo '<tr>
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
@@ -124,13 +123,13 @@ include_once('model/m_survey_model.php');
                         </td>
                       </tr>';
 
-                      $i++;
+                    $i++;
                   }
                 } else if ($bio == 'industri') {
                   $list = $survey->getDataIndustri();
-                    $i = 1;
-                    while ($row = $list->fetch_assoc()) {
-                      echo '<tr>
+                  $i = 1;
+                  while ($row = $list->fetch_assoc()) {
+                    echo '<tr>
                         <td>' . $i . '</td>
                         <td>' . $row['survey_nama'] . '</td>
                         <td>
@@ -138,8 +137,8 @@ include_once('model/m_survey_model.php');
                         </td>
                       </tr>';
 
-                      $i++;
-                    }
+                    $i++;
+                  }
                 }
                 ?>
               </tbody>

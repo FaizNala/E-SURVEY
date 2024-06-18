@@ -1,16 +1,17 @@
 <?php
-  if (session_status() === PHP_SESSION_NONE) 
-      session_start();
-  $menu = 'industri';
+if (session_status() === PHP_SESSION_NONE)
+  session_start();
+$menu = 'industri';
 
-  include_once('model/t_responden_industri_model.php');
+include_once('model/t_responden_industri_model.php');
 
-  $status = isset($_GET['status']) ? strtolower($_GET['status']) : null;
-  $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
+$status = isset($_GET['status']) ? strtolower($_GET['status']) : null;
+$message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +30,8 @@
   <style>
     /* CSS untuk mengubah warna sidebar menjadi abu-abu saat menu "industri" aktif */
     .nav-sidebar.industri .nav-treeview {
-        background-color: #f0f0f0; /* Warna abu-abu */
+      background-color: #f0f0f0;
+      /* Warna abu-abu */
     }
   </style>
 </head>
@@ -75,12 +77,12 @@
           </div>
 
           <div class="card-body">
-            <?php 
-              if($status == 'sukses'){
-                  echo '<div class="alert alert-success">
-                        '.$message.'
+            <?php
+            if ($status == 'sukses') {
+              echo '<div class="alert alert-success">
+                        ' . $message . '
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
-              }
+            }
             ?>
             <table id="surveyTable" class="table table-sm table-bordered table-striped">
               <thead>
@@ -97,32 +99,32 @@
                 </tr>
               </thead>
               <tbody>
-              <?php 
+                <?php
                 include_once('model/koneksi.php');
                 $industri = new t_responden_industri();
                 $list = $industri->getData();
 
                 $i = 1;
-                while($row = $list->fetch_assoc()){
+                while ($row = $list->fetch_assoc()) {
                   echo '<tr>
-                      <td>'.$i.'</td>
-                      <td>'.$row['responden_tanggal'].'</td>
-                      <td>'.$row['responden_nama'].'</td>
-                      <td>'.$row['responden_jabatan'].'</td>
-                      <td>'.$row['responden_perusahaan'].'</td>
-                      <td>'.$row['responden_email'].'</td>
-                      <td>'.$row['responden_hp'].'</td>
-                      <td>'.$row['responden_kota'].'</td>
+                      <td>' . $i . '</td>
+                      <td>' . $row['responden_tanggal'] . '</td>
+                      <td>' . $row['responden_nama'] . '</td>
+                      <td>' . $row['responden_jabatan'] . '</td>
+                      <td>' . $row['responden_perusahaan'] . '</td>
+                      <td>' . $row['responden_email'] . '</td>
+                      <td>' . $row['responden_hp'] . '</td>
+                      <td>' . $row['responden_kota'] . '</td>
                       <td>
-                        <a title="Jawaban" href="jawaban_responden.php?show=industri&id='.$row['responden_industri_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
-                        <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_industri_action.php?act=hapus&id='.$row['responden_industri_id'].'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        <a title="Jawaban" href="jawaban_responden.php?show=industri&id=' . $row['responden_industri_id'] . '" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
+                        <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_industri_action.php?act=hapus&id=' . $row['responden_industri_id'] . '" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>';
 
-                    $i++;
+                  $i++;
                 }
-              ?>
-            </tbody>
+                ?>
+              </tbody>
             </table>
           </div>
           <!-- /.card-body -->
@@ -177,4 +179,5 @@
     });
   </script>
 </body>
+
 </html>

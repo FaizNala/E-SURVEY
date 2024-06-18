@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -35,4 +35,3 @@ if ($act == 'hapus') {
     header('Location: t_responden_tendik.php');
     exit();
 }
-?>

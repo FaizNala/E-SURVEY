@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -7,7 +7,7 @@ include_once('model/t_responden_industri_model.php');
 include_once('model/koneksi.php');
 
 $act = $_GET['act'];
-$industri = new t_responden_industri($db);
+$industri = new t_responden_industri();
 $idRes = $industri->getRespondenId();
 
 if ($act == 'simpan') {
@@ -17,7 +17,7 @@ if ($act == 'simpan') {
             'soal_id' => $soal_id,
             'jawaban' => $jawaban,
         ];
-        $insert = new t_jawaban_industri($db);
+        $insert = new t_jawaban_industri();
         $insert->insertData($data);
     }
     echo 'berhasil';
@@ -29,10 +29,9 @@ if ($act == 'simpan') {
 if ($act == 'hapus') {
     $id = $_GET['id'];
 
-    $hapus = new t_jawaban_industri($db);
+    $hapus = new t_jawaban_industri();
     $hapus->deleteData($id);
 
     header('Location: t_responden_industri.php');
     exit();
 }
-?>

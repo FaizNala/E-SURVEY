@@ -9,20 +9,15 @@
 
             if ($pages == 'mahasiswa') {
                 $result = $survey->getDataMahasiswa();
-            
-            } else if ($pages == 'dosen') { 
+            } else if ($pages == 'dosen') {
                 $result = $survey->getDataDosen();
-            
-            } else if ($pages == 'tendik') { 
+            } else if ($pages == 'tendik') {
                 $result = $survey->getDataTendik();
-                
-            } else if ($pages == 'ortu') { 
+            } else if ($pages == 'ortu') {
                 $result = $survey->getDataOrtu();
-                
-            } else if ($pages == 'alumni') { 
+            } else if ($pages == 'alumni') {
                 $result = $survey->getDataAlumni();
-                
-            } else if ($pages == 'industri') { 
+            } else if ($pages == 'industri') {
                 $result = $survey->getDataIndustri();
             } else {
                 $result = NULL;
@@ -38,7 +33,7 @@
                             <div class="inner">
                                 <h4><?php echo $survey_nama ?></h4>
                             </div>
-                            <a href="form_soal.php?pages=<?php echo $pages?>" class="small-box-footer">Jawab Survey <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="form_soal.php?pages=<?php echo $pages ?>" class="small-box-footer">Jawab Survey <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
             <?php

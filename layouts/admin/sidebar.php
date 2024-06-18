@@ -7,16 +7,16 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-     <!-- Sidebar user panel (optional) -->
-       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"><b><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';?></b></a>
+                <a href="#" class="d-block"><b><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest'; ?></b></a>
             </div>
         </div>
-        
+
         <!-- SidebarSearch Form -->
         <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
@@ -64,12 +64,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link <?php echo ($menu == 'mahasiswa' || $menu == 'dosen' || $menu == 'tendik' || $menu == 'ortu' || $menu == 'alumni'|| $menu == 'industri') ? 'active' : '' ?>">
+                    <a href="#" class="nav-link <?php echo ($menu == 'mahasiswa' || $menu == 'dosen' || $menu == 'tendik' || $menu == 'ortu' || $menu == 'alumni' || $menu == 'industri') ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>Responden <i class="fas fa-angle-left right"></i><span class="badge badge-info right"></span></p>
                     </a>
                     <ul class="nav nav-treeview">
-                    <li class="nav-item">
+                        <li class="nav-item">
                             <a href="t_responden_mahasiswa.php" class="nav-link <?php echo ($menu == 'mahasiswa') ? 'active' : '' ?>">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Mahasiswa</p>

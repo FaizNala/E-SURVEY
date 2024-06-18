@@ -1,16 +1,17 @@
 <?php
-  if (session_status() === PHP_SESSION_NONE) 
-      session_start();
-  $menu = 'dosen';
+if (session_status() === PHP_SESSION_NONE)
+  session_start();
+$menu = 'dosen';
 
-  include_once('model/t_responden_dosen_model.php');
+include_once('model/t_responden_dosen_model.php');
 
-  $status = isset($_GET['status']) ? strtolower($_GET['status']) : null;
-  $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
+$status = isset($_GET['status']) ? strtolower($_GET['status']) : null;
+$message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +30,8 @@
   <style>
     /* CSS untuk mengubah warna sidebar menjadi abu-abu saat menu "dosen" aktif */
     .nav-sidebar.dosen .nav-treeview {
-        background-color: #f0f0f0; /* Warna abu-abu */
+      background-color: #f0f0f0;
+      /* Warna abu-abu */
     }
   </style>
 </head>
@@ -75,12 +77,12 @@
           </div>
 
           <div class="card-body">
-            <?php 
-              if($status == 'sukses'){
-                  echo '<div class="alert alert-success">
-                        '.$message.'
+            <?php
+            if ($status == 'sukses') {
+              echo '<div class="alert alert-success">
+                        ' . $message . '
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>';
-              }
+            }
             ?>
             <table id="surveyTable" class="table table-sm table-bordered table-striped">
               <thead>
@@ -94,29 +96,29 @@
                 </tr>
               </thead>
               <tbody>
-              <?php 
+                <?php
                 include_once('model/koneksi.php');
                 $dosen = new t_responden_dosen();
                 $list = $dosen->getData();
 
                 $i = 1;
-                while($row = $list->fetch_assoc()){
+                while ($row = $list->fetch_assoc()) {
                   echo '<tr>
-                      <td>'.$i.'</td>
-                      <td>'.$row['responden_tanggal'].'</td>
-                      <td>'.$row['responden_nip'].'</td>
-                      <td>'.$row['responden_nama'].'</td>
-                      <td>'.$row['responden_unit'].'</td>
+                      <td>' . $i . '</td>
+                      <td>' . $row['responden_tanggal'] . '</td>
+                      <td>' . $row['responden_nip'] . '</td>
+                      <td>' . $row['responden_nama'] . '</td>
+                      <td>' . $row['responden_unit'] . '</td>
                       <td>
-                        <a title="Jawaban" href="jawaban_responden.php?show=dosen&id='.$row['responden_dosen_id'].'" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
-                        <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_dosen_action.php?act=hapus&id='.$row['responden_dosen_id'].'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        <a title="Jawaban" href="jawaban_responden.php?show=dosen&id=' . $row['responden_dosen_id'] . '" class="btn btn-primary btn-sm"><i class="fas fa-poll"></i></a>
+                        <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="t_responden_dosen_action.php?act=hapus&id=' . $row['responden_dosen_id'] . '" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>';
 
-                    $i++;
+                  $i++;
                 }
-              ?>
-            </tbody>
+                ?>
+              </tbody>
             </table>
           </div>
           <!-- /.card-body -->
@@ -171,4 +173,5 @@
     });
   </script>
 </body>
+
 </html>

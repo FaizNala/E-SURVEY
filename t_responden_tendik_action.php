@@ -10,7 +10,7 @@ $nama;
 
 $act = $_GET['act'];
 
-if($act == 'simpan'){
+if ($act == 'simpan') {
     $data = [
         'survey_id' => $_GET['id'],
         'responden_tanggal' => $_POST['responden_tanggal'],
@@ -18,7 +18,7 @@ if($act == 'simpan'){
         'responden_nama' => $_POST['responden_nama'],
         'responden_unit' => $_POST['responden_unit']
     ];
-    
+
     $nama = $_POST['responden_nama'];
     $_SESSION['nama'] = $nama;
     $insert = new t_responden_tendik();
@@ -27,7 +27,7 @@ if($act == 'simpan'){
     header("Location: form_soal.php?pages=tendik&id=" . $_GET['id']);
 }
 
-if($act == 'hapus'){
+if ($act == 'hapus') {
     $id = $_GET['id'];
 
     $hapus = new t_responden_tendik();
@@ -35,4 +35,3 @@ if($act == 'hapus'){
 
     header('location: t_responden_tendik_form.php?status=sukses&message=Data berhasil dihapus');
 }
-?>

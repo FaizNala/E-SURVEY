@@ -1,38 +1,38 @@
-<?php 
+<?php
 include_once('model/m_kategori_model.php');
- 
- $act = $_GET['act'];
 
- if($act == 'simpan'){
-    echo '<pre>';
-    $data = [
-        'kategori_nama' => $_POST['kategori_nama']
-    ];
+$act = $_GET['act'];
 
-    $insert = new m_kategori();
-    $insert->insertData($data);
+if ($act == 'simpan') {
+   echo '<pre>';
+   $data = [
+      'kategori_nama' => $_POST['kategori_nama']
+   ];
 
-    header('location: m_kategori.php?status=sukses&message=Data berhasil disimpan');
- }
+   $insert = new m_kategori();
+   $insert->insertData($data);
 
- if($act == 'edit'){
-    $id = $_GET['id'];
+   header('location: m_kategori.php?status=sukses&message=Data berhasil disimpan');
+}
 
-    $data = [
-        'kategori_nama' => $_POST['kategori_nama']
-    ];
+if ($act == 'edit') {
+   $id = $_GET['id'];
 
-    $update = new m_kategori();
-    $update->updateData($id, $data);
+   $data = [
+      'kategori_nama' => $_POST['kategori_nama']
+   ];
 
-    header('location: m_kategori.php?status=sukses&message=Data berhasil diubah');
- }
+   $update = new m_kategori();
+   $update->updateData($id, $data);
 
- if($act == 'hapus'){
-    $id = $_GET['id'];
+   header('location: m_kategori.php?status=sukses&message=Data berhasil diubah');
+}
 
-    $hapus = new m_kategori();
-    $hapus->deleteData($id);
+if ($act == 'hapus') {
+   $id = $_GET['id'];
 
-    header('location: m_kategori.php?status=sukses&message=Data berhasil dihapus');
- }
+   $hapus = new m_kategori();
+   $hapus->deleteData($id);
+
+   header('location: m_kategori.php?status=sukses&message=Data berhasil dihapus');
+}

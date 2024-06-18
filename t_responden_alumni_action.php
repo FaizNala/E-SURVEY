@@ -10,7 +10,7 @@ $nama;
 
 $act = $_GET['act'];
 
-if($act == 'simpan'){
+if ($act == 'simpan') {
     $data = [
         'survey_id' => $_GET['id'],
         'responden_tanggal' => $_POST['responden_tanggal'],
@@ -30,7 +30,7 @@ if($act == 'simpan'){
     header("Location: form_soal.php?pages=alumni&id=" . $_GET['id']);
 }
 
-if($act == 'hapus'){
+if ($act == 'hapus') {
     $id = $_GET['id'];
 
     $hapus = new t_responden_alumni();
@@ -38,4 +38,3 @@ if($act == 'hapus'){
 
     header('location: t_responden_alumni.php?status=sukses&message=Data berhasil dihapus');
 }
-?>

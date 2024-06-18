@@ -40,4 +40,3 @@ if ($row) {
     header("Location: login2.php?error=invalidUser");
     exit;
 }
-?>

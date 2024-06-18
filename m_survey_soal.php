@@ -102,7 +102,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
                   echo '<tr>
                           <td>' . $i . '</td>
                           <td>' . $row['no_urut'] . '</td>
-                          <td>'. $row['survey_jenis']. '</td>
+                          <td>' . $row['survey_jenis'] . '</td>
                           <td>' . $row['soal_jenis'] . '</td>
                           <td>' . $row['soal_nama'] . '</td>
                           <td>

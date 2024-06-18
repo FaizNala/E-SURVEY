@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -7,7 +7,7 @@ include_once('model/t_responden_mahasiswa_model.php');
 include_once('model/koneksi.php');
 
 $act = $_GET['act'];
-$mahasiswa = new t_responden_mahasiswa($db);
+$mahasiswa = new t_responden_mahasiswa();
 $idRes = $mahasiswa->getRespondenId();
 
 if ($act == 'simpan') {
@@ -35,4 +35,3 @@ if ($act == 'hapus') {
     header('Location: t_responden_mahasiswa.php');
     exit();
 }
-?>
