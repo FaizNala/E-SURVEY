@@ -1,8 +1,9 @@
 <?php
-  if (session_status() === PHP_SESSION_NONE) 
-    session_start();
-  include_once('model/m_survey_model.php');
-  include_once('model/koneksi.php')
+if (session_status() === PHP_SESSION_NONE)
+  session_start();
+include_once('model/m_survey_model.php');
+include_once('model/koneksi.php');
+$menu = 'm_survey';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,8 +125,13 @@
                 <div class="form-group">
                   <label for="survey_jenis">Jenis Survey</label>
                   <select required name="survey_jenis" id="survey_jenis" class="form-control">
-                    <option value="fasilitas" <?php if ($data['survey_jenis'] == 'fasilitas') {echo "selected";} ?>>Fasilitas</option>
-                    <option value="pendidikan" <?php if ($data['survey_jenis'] == 'pendidikan') {echo "selected";} ?>>Pendidikan</option>
+                    <option value="" disabled>Pilih Jenis Survey</option>
+                    <option value="mahasiswa" <?php echo $data['survey_jenis'] == 'mahasiswa' ? 'selected' : ''; ?>>Mahasiswa</option>
+                    <option value="dosen" <?php echo $data['survey_jenis'] == 'dosen' ? 'selected' : ''; ?>>Dosen</option>
+                    <option value="tendik" <?php echo $data['survey_jenis'] == 'tendik' ? 'selected' : ''; ?>>Tendik</option>
+                    <option value="ortu" <?php echo $data['survey_jenis'] == 'ortu' ? 'selected' : ''; ?>>Orang Tua</option>
+                    <option value="alumni" <?php echo $data['survey_jenis'] == 'alumni' ? 'selected' : ''; ?>>Alumni</option>
+                    <option value="industri" <?php echo $data['survey_jenis'] == 'industri' ? 'selected' : ''; ?>>Industri</option>
                   </select>
                 </div>
                 <div class="form-group">

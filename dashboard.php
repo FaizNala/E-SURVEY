@@ -8,6 +8,7 @@ include_once('model/t_responden_tendik_model.php');
 include_once('model/t_responden_ortu_model.php');
 include_once('model/t_responden_alumni_model.php');
 include_once('model/t_responden_industri_model.php');
+$menu = 'dashboard'
 ?>
 
 <!DOCTYPE html>

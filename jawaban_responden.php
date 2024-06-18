@@ -1,7 +1,6 @@
 <?php 
 if (session_status() === PHP_SESSION_NONE) 
     session_start();
-$menu = 'mahasiswa'; 
 
 include_once('model/m_kategori_model.php');
 include_once('model/t_jawaban_mahasiswa_model.php');
@@ -62,7 +61,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Responden Mahasiswa</a></li>
+              <li class="breadcrumb-item"><a href="#">Responden</a></li>
               <li class="breadcrumb-item active">Jawaban</li>
             </ol>
           </div>
@@ -76,6 +75,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
       $show = isset($_GET['show']) ? $_GET['show'] : '';
 
       if ($show == 'mahasiswa') {
+        $menu = 'mahasiswa'; 
         $id = $_GET['id'];
         $mahasiswa = new t_jawaban_mahasiswa();
         $nm = new t_responden_mahasiswa();
@@ -120,6 +120,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
       </div>
       <!-- /.card -->
     <?php } else if ($show == 'dosen') {
+        $menu = 'dosen'; 
         $id = $_GET['id'];
         $dosen = new t_jawaban_dosen();
         $nm = new t_responden_dosen();
@@ -164,6 +165,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
       </div>
       <!-- /.card -->
     <?php } else if ($show == 'tendik') {
+        $menu = 'tendik'; 
         $id = $_GET['id'];
         $tendik = new t_jawaban_tendik();
         $nm = new t_responden_tendik();
@@ -208,6 +210,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
       </div>
       <!-- /.card -->
     <?php } else if ($show == 'ortu') {
+        $menu = 'ortu';
         $id = $_GET['id'];
         $ortu = new t_jawaban_ortu();
         $nm = new t_responden_ortu();
@@ -252,6 +255,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
       </div>
       <!-- /.card -->
     <?php } else if ($show == 'alumni') {
+        $menu = 'alumni';
         $id = $_GET['id'];
         $alumni = new t_jawaban_alumni();
         $nm = new t_responden_alumni();
@@ -296,6 +300,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
       </div>
       <!-- /.card -->
     <?php } else if ($show == 'industri') {
+        $menu = 'industri';
         $id = $_GET['id'];
         $industri = new t_jawaban_industri();
         $nm = new t_responden_industri();

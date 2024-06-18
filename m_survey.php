@@ -1,7 +1,7 @@
 <?php
 if (session_status() === PHP_SESSION_NONE)
   session_start();
-$menu = 'm_Survey';
+$menu = 'm_survey';
 
 include_once('model/m_Survey_model.php');
 

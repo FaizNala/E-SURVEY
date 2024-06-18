@@ -1,11 +1,11 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) 
   session_start();
-$menu = 'bank_soal';
 include_once("model/m_survey_soal_model.php");
 include_once("model/m_survey_model.php");
 include_once("model/m_kategori_model.php");
 include_once('model/koneksi.php');
+$menu = 'm_survey_soal';
 ?>
 
 
