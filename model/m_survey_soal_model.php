@@ -25,6 +25,10 @@ class SurveySoal{
         return $this->db->query("select * from {$this->table} ");
     }
 
+    public function getDataForView() {
+        return $this->db->query("select so.*, su.* from {$this->table} so join m_survey su on so.survey_id = su.survey_id");
+    }
+    
     public function getDataById($id){
 
         // query untuk mengambil data berdasarkan id

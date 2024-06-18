@@ -84,7 +84,8 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Nomor Urut Soal</th>
+                  <th>Nomor Urut</th>
+                  <th>Survey Jenis</th>
                   <th>Jenis Soal</th>
                   <th>Nama Soal</th>
                   <th>Aksi</th>
@@ -94,13 +95,14 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
                 <?php
                 include_once('model/koneksi.php');
                 $survey = new SurveySoal();
-                $list = $survey->getData();
+                $list = $survey->getDataForView();
 
                 $i = 1;
                 while ($row = $list->fetch_assoc()) {
                   echo '<tr>
                           <td>' . $i . '</td>
                           <td>' . $row['no_urut'] . '</td>
+                          <td>'. $row['survey_jenis']. '</td>
                           <td>' . $row['soal_jenis'] . '</td>
                           <td>' . $row['soal_nama'] . '</td>
                           <td>

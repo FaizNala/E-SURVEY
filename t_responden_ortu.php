@@ -99,6 +99,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
                   <th>NIM</th>
                   <th>Nama Mahasiswa</th>
                   <th>Prodi Mahasiswa</th>
+                  <th>Jawaban</th>
                 </tr>
               </thead>
               <tbody>
@@ -186,5 +187,4 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
     });
   </script>
 </body>
-
 </html>
