@@ -141,8 +141,8 @@ include_once('model/koneksi.php')
                                 }
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -221,8 +221,8 @@ include_once('model/koneksi.php')
                                 }
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -301,8 +301,8 @@ include_once('model/koneksi.php')
                                 }
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -381,8 +381,8 @@ include_once('model/koneksi.php')
                                 }
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -461,8 +461,8 @@ include_once('model/koneksi.php')
                                 }
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                 </div>
                             </form>
                         </div>
@@ -541,8 +541,8 @@ include_once('model/koneksi.php')
                                 }
                                 ?>
                                 <div class="form-group">
-                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                     <a href="#" class="btn btn-warning">Kembali</a>
+                                    <button type="submit" name="simpan" class="btn btn-primary" value="simpan yoyoy">Simpan</button>
                                 </div>
                             </form>
                         </div>
