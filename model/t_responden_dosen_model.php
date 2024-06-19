@@ -59,15 +59,27 @@ class t_responden_dosen
 
     public function deleteData($id)
     {
-        // query untuk delete data
-        $query = $this->db->prepare("delete from {$this->table} where responden_dosen_id = ?");
-
-        // binding parameter ke query
-        $query->bind_param('i', $id);
-
-        // eksekusi query
-        $query->execute();
+        // query untuk delete data menggunakan multi_query untuk mengizinkan multiple statements
+        $query = "
+            SET FOREIGN_KEY_CHECKS = 0;
+            DELETE FROM {$this->table} WHERE responden_dosen_id = $id;
+            SET FOREIGN_KEY_CHECKS = 1;
+        ";
+    
+        // menggunakan multi_query untuk menjalankan beberapa pernyataan sekaligus
+        if ($this->db->multi_query($query)) {
+            do {
+                // ini akan membuang hasil dari setiap query yang dieksekusi
+                if ($result = $this->db->store_result()) {
+                    $result->free();
+                }
+            } while ($this->db->more_results() && $this->db->next_result());
+        } else {
+            // menangani kesalahan
+            throw new Exception("Error executing query: " . $this->db->error);
+        }
     }
+    
     public function getRespondenId()
     {
         $query = $this->db->prepare("SELECT responden_dosen_id FROM {$this->table} WHERE responden_nama = ?");
