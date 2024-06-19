@@ -60,25 +60,31 @@ class m_user
 
     public function deleteData($id)
     {
-        // query untuk delete data menggunakan multi_query untuk mengizinkan multiple statements
-        $query = "
-            SET FOREIGN_KEY_CHECKS = 0;
-            DELETE FROM {$this->table} WHERE user_id = $id;
-            SET FOREIGN_KEY_CHECKS = 1;
-        ";
-    
-        // menggunakan multi_query untuk menjalankan beberapa pernyataan sekaligus
-        if ($this->db->multi_query($query)) {
-            do {
-                // ini akan membuang hasil dari setiap query yang dieksekusi
-                if ($result = $this->db->store_result()) {
-                    $result->free();
-                }
-            } while ($this->db->more_results() && $this->db->next_result());
+        // Cek apakah user_id adalah 1 (superadmin)
+        if ($id == 1) {
+            // Jika user_id adalah 1, kembalikan pesan kesalahan
+            throw new Exception("Maaf, user superadmin tidak dapat dihapus.");
         } else {
-            // menangani kesalahan
-            throw new Exception("Error executing query: " . $this->db->error);
+            // query untuk delete data menggunakan multi_query untuk mengizinkan multiple statements
+            $query = "
+                SET FOREIGN_KEY_CHECKS = 0;
+                DELETE FROM {$this->table} WHERE user_id = $id;
+                SET FOREIGN_KEY_CHECKS = 1;
+            ";
+    
+            // menggunakan multi_query untuk menjalankan beberapa pernyataan sekaligus
+            if ($this->db->multi_query($query)) {
+                do {
+                    // ini akan membuang hasil dari setiap query yang dieksekusi
+                    if ($result = $this->db->store_result()) {
+                        $result->free();
+                    }
+                } while ($this->db->more_results() && $this->db->next_result());
+            } else {
+                // menangani kesalahan
+                throw new Exception("Error executing query: " . $this->db->error);
+            }
         }
-    }
+    }    
     
 }

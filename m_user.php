@@ -74,12 +74,16 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
             <?php
             if ($status == 'sukses') {
               echo '<div class="alert alert-success">
-                                ' . htmlspecialchars($message) . '
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                              </div>';
+            ' . htmlspecialchars($message) . '
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>';
+            } elseif ($status == 'error') {
+              echo '<div class="alert alert-danger">
+            ' . htmlspecialchars($message) . '
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>';
             }
             ?>
-
             <table id="surveyTable" class="table table-bordered table-striped">
               <thead>
                 <tr>

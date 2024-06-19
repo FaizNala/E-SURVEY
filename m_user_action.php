@@ -35,7 +35,11 @@ if ($act == 'hapus') {
    $id = $_GET['id'];
 
    $hapus = new m_user();
-   $hapus->deleteData($id);
 
-   header('location: m_user.php?status=sukses&message=Data berhasil dihapus');
+   try {
+      $hapus->deleteData($id);
+      header('location: m_user.php?status=sukses&message=Data berhasil dihapus');
+   } catch (Exception $e) {
+      header('location: m_user.php?status=error&message=' . urlencode($e->getMessage()));
+   }
 }
