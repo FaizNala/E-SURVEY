@@ -13,7 +13,7 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"><b><?php echo isset($_SESSION['nama']) ? $_SESSION['nama'] : 'Guest'; ?></b></a>
+                <a href="#" class="d-block"><b><?php echo isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest'; ?></b></a>
             </div>
         </div>
 
