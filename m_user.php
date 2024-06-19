@@ -102,7 +102,7 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
                       <td>' . $row['nama'] . '</td>
                       <td>
                         <a title="Edit Data" href="m_user_form.php?act=edit&id=' . $row['user_id'] . '" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
-                        <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="m_user_action.php?act=hapus&id=' . $row['user_id'] . '" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        <!-- <a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="m_user_action.php?act=hapus&id=' . $row['user_id'] . '" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>  -->
                       </td>
       
                     </tr>';
