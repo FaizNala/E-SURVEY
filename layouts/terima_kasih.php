@@ -127,7 +127,10 @@
             </div>
             <h1>Terima Kasih Telah Mengisi Survey!</h1>
             <p>Kami sangat menghargai waktu dan partisipasi Anda.</p>
+            <!-- Tambahkan tombol kembali di sini -->
+            <a href="../login.php" class="btn">Kembali</a>
         </div>
     </div>
 </body>
+
 </html>

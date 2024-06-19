@@ -140,9 +140,14 @@ include_once('model/koneksi.php')
                                                             <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
                                                             <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
                                                         </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="5" required class="form-check-input">
+                                                            <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="question-divider"></div>
                                         <?php
                                         } else if ($row['soal_jenis'] == 'esai') {
@@ -202,7 +207,7 @@ include_once('model/koneksi.php')
                                                 <div class="card-body">
                                                     <div class="form-group">
                                                         <label>
-                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                            <h4><?php echo $row['soal_nama']; ?></h4>
                                                         </label><br><br>
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
@@ -220,9 +225,14 @@ include_once('model/koneksi.php')
                                                             <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
                                                             <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
                                                         </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="5" required class="form-check-input">
+                                                            <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="question-divider"></div>
                                         <?php
                                         } else if ($row['soal_jenis'] == 'esai') {
@@ -282,7 +292,7 @@ include_once('model/koneksi.php')
                                                 <div class="card-body">
                                                     <div class="form-group">
                                                         <label>
-                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                            <h4><?php echo $row['soal_nama']; ?></h4>
                                                         </label><br><br>
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
@@ -300,9 +310,14 @@ include_once('model/koneksi.php')
                                                             <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
                                                             <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
                                                         </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="5" required class="form-check-input">
+                                                            <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="question-divider"></div>
                                         <?php
                                         } else if ($row['soal_jenis'] == 'esai') {
@@ -362,7 +377,7 @@ include_once('model/koneksi.php')
                                                 <div class="card-body">
                                                     <div class="form-group">
                                                         <label>
-                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                            <h4><?php echo $row['soal_nama']; ?></h4>
                                                         </label><br><br>
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
@@ -380,9 +395,14 @@ include_once('model/koneksi.php')
                                                             <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
                                                             <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
                                                         </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="5" required class="form-check-input">
+                                                            <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="question-divider"></div>
                                         <?php
                                         } else if ($row['soal_jenis'] == 'esai') {
@@ -442,7 +462,7 @@ include_once('model/koneksi.php')
                                                 <div class="card-body">
                                                     <div class="form-group">
                                                         <label>
-                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                            <h4><?php echo $row['soal_nama']; ?></h4>
                                                         </label><br><br>
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
@@ -460,9 +480,14 @@ include_once('model/koneksi.php')
                                                             <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
                                                             <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
                                                         </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="5" required class="form-check-input">
+                                                            <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="question-divider"></div>
                                         <?php
                                         } else if ($row['soal_jenis'] == 'esai') {
@@ -522,7 +547,7 @@ include_once('model/koneksi.php')
                                                 <div class="card-body">
                                                     <div class="form-group">
                                                         <label>
-                                                            <h4><?php echo $row['soal_nama'] ?></h4>
+                                                            <h4><?php echo $row['soal_nama']; ?></h4>
                                                         </label><br><br>
                                                         <div class="form-check form-check-inline">
                                                             <input type="radio" id="tidak_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="1" required class="form-check-input">
@@ -540,9 +565,14 @@ include_once('model/koneksi.php')
                                                             <input type="radio" id="sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="4" required class="form-check-input">
                                                             <label for="sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-laugh-beam fa-3x"></i><br>4</label>
                                                         </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input type="radio" id="sangat_sangat_puas_<?php echo $soal_id; ?>" name="jawaban[<?php echo $soal_id; ?>]" value="5" required class="form-check-input">
+                                                            <label for="sangat_sangat_puas_<?php echo $soal_id; ?>" class="form-check-label"><i class="far fa-grin-stars fa-3x"></i><br>5</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="question-divider"></div>
                                         <?php
                                         } else if ($row['soal_jenis'] == 'esai') {
