@@ -74,15 +74,14 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
             <?php
             if ($status == 'sukses') {
               echo '<div class="alert alert-success">
-                                ' . htmlspecialchars($message) . '
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                              </div>';
+              ' . htmlspecialchars($message) . '
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>';
             } elseif ($status == 'gagal') {
               echo '<div class="alert alert-danger">
               ' . htmlspecialchars($message) . '
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>';
-
             }
             ?>
             <table id="surveyTable" class="table table-bordered table-striped">
@@ -107,16 +106,15 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
                       <td>' . $row['nama'] . '</td>
                       <td>
                         <a title="Edit Data" href="m_user_form.php?act=edit&id=' . $row['user_id'] . '" class="btn btn-primary btn-sm"><i class="fa fa-edit" ></i></a>';
-                        if ($row['username'] == 'admin') {
-                          echo '<a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="m_user_action.php?act=hapus&id=' . $row['user_id'] . '" class="btn btn-danger btn-sm" style="display: none;"><i class="fa fa-trash"></i></a>
+                  if ($row['username'] == 'admin') {
+                    echo '<a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="m_user_action.php?act=hapus&id=' . $row['user_id'] . '" class="btn btn-danger btn-sm" style="display: none;"><i class="fa fa-trash"></i></a>
                               </td>';
-                        }
-                        else {
-                          echo '<a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="m_user_action.php?act=hapus&id=' . $row['user_id'] . '" class="btn btn-danger btn-sm" style="display: inline-block; margin-left:3px"><i class="fa fa-trash"></i></a>
+                  } else {
+                    echo '<a onclick="return confirm(\'Apakah anda yakin menghapus data ini?\')" title="Hapus Data" href="m_user_action.php?act=hapus&id=' . $row['user_id'] . '" class="btn btn-danger btn-sm" style="display: inline-block; margin-left:3px"><i class="fa fa-trash"></i></a>
                               </td>';
-                        }
-      
-                    echo '</tr>';
+                  }
+
+                  echo '</tr>';
 
                   $i++;
                 }
