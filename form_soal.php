@@ -50,6 +50,23 @@ include_once('model/koneksi.php')
             background-color: #dc3545;
             color: #fff;
         }
+
+        .form-check-input.error+.form-check-label {
+            color: red;
+        }
+
+        .form-check-input.error+.form-check-label {
+            color: red;
+        }
+
+        .error-card {
+            border-color: #dc3545;
+        }
+
+        .error-card .card-header {
+            background-color: #dc3545;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -581,13 +598,11 @@ include_once('model/koneksi.php')
     $(document).ready(function() {
         $('#form-tambah').validate({
             rules: {
-                // Aturan validasi untuk setiap input pada form
                 'jawaban[]': {
                     required: true
                 }
             },
             messages: {
-                // Pesan error yang ditampilkan jika aturan validasi tidak terpenuhi
                 'jawaban[]': {
                     required: "Jawaban ini harus diisi"
                 }
@@ -610,21 +625,46 @@ include_once('model/koneksi.php')
             submitHandler: function(form) {
                 var isValid = true;
                 var radioGroupErrors = {};
+                var allAnswersEmpty = true; // Inisialisasi variabel allAnswersEmpty
 
-                $('input[type="radio"]').each(function() {
+                // Hapus kelas 'error-card' dari semua '.card'
+                $('.card').removeClass('error-card');
+
+                $('input[type="radio"], textarea').each(function() {
                     var name = $(this).attr('name');
-                    if ($('input[name="' + name + '"]:checked').length === 0) {
+                    if ($(this).is(':radio') && $('input[name="' + name + '"]:checked').length === 0) {
                         if (!radioGroupErrors[name]) {
+                            $(this).closest('.card').addClass('error-card');
                             $(this).closest('.card-body').append('<span class="error text-danger">Pilih salah satu pilihan.</span>');
+                            $('input[name="' + name + '"]').addClass('error');
                             radioGroupErrors[name] = true;
                         }
                         isValid = false;
+                    } else if ($(this).is('textarea') && $(this).val().trim() === '') {
+                        $(this).closest('.card').addClass('error-card');
+                        isValid = false;
+                    } else {
+                        allAnswersEmpty = false; // Jika ada jawaban yang diisi, ubah allAnswersEmpty menjadi false
                     }
                 });
 
                 if (isValid) {
                     form.submit();
+                } else if (allAnswersEmpty) {
+                    // Tampilkan pesan error jika semua jawaban kosong
+                    $('form').prepend('<div class="error-message text-danger mb-3">Jawaban ini harus diisi</div>');
                 }
+            }
+        });
+
+        $('input[type="radio"], textarea').on('change input', function() {
+            var radioGroup = $(this).attr('name');
+            if ($(this).is(':radio')) {
+                $('input[name="' + radioGroup + '"]').removeClass('error');
+                $('input[name="' + radioGroup + '"]').closest('.card').removeClass('error-card');
+                $('input[name="' + radioGroup + '"]').closest('.card-body').find('.error').remove();
+            } else {
+                $(this).closest('.card').removeClass('error-card');
             }
         });
     });
