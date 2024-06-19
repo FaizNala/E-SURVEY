@@ -10,10 +10,17 @@ if ($act == 'simpan') {
       'password' => $_POST['password']
    ];
 
-   $insert = new m_user();
-   $insert->insertData($data);
-
-   header('location: m_user.php?status=sukses&message=Data berhasil disimpan');
+   $username = strtolower($_POST['username']);
+   $nama = strtolower($_POST['nama']);
+ 
+   if ($username == "admin" || $nama == "admin") {
+      header('location: m_user.php?status=gagal&message=Data tidak berhasil disimpan karena menggunakan username atau nama admin');
+   } else {
+      $insert = new m_user();
+      $insert->insertData($data);
+   
+      header('location: m_user.php?status=sukses&message=Data berhasil disimpan');
+   }
 }
 
 if ($act == 'edit') {
