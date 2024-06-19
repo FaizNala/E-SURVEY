@@ -82,9 +82,9 @@ $message = isset($_GET['message']) ? strtolower($_GET['message']) : null;
               ' . htmlspecialchars($message) . '
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>';
+
             }
             ?>
-
             <table id="surveyTable" class="table table-bordered table-striped">
               <thead>
                 <tr>
