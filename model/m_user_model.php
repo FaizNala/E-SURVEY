@@ -52,7 +52,8 @@ class m_user
         $query = $this->db->prepare("update {$this->table} set username = ?, nama = ?, password = ? where user_id = ?");
 
         // binding parameter ke query
-        $query->bind_param('sssi', $data['username'], $data['nama'], password_hash($data['password'], PASSWORD_BCRYPT), $id);
+        $pass = password_hash($data['password'], PASSWORD_BCRYPT);
+        $query->bind_param('sssi', $data['username'], $data['nama'], $pass, $id);
 
         // eksekusi query
         $query->execute();
