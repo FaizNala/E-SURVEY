@@ -35,7 +35,7 @@ class t_jawaban_industri
     public function getDataById($id)
     {
         // query untuk mengambil data berdasarkan id
-        $query = $this->db->prepare("SELECT * FROM {$this->table} WHERE t_jawaban_industri_id = ?");
+        $query = $this->db->prepare("SELECT * FROM {$this->table} WHERE responden_industri_id = ?");
 
         // binding parameter ke query "i" berarti integer. Biar tidak kena SQL Injection
         $query->bind_param('i', $id);
